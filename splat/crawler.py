@@ -10,7 +10,10 @@ from io import BytesIO
 
 # Default settings
 url = "https://splatoon3.ink/data/schedules.json"
-f = open('./splat/zh-CN.json',encoding="utf8")
+try:
+    f = open('./splat/zh-CN.json',encoding="utf8")
+except:
+    f = open('./zh-CN.json',encoding="utf8")
 dic = json.load(f)
 
 # Get data from database
@@ -97,8 +100,6 @@ def render_battle(li):
 
             re.paste( image_to_add,position)
             
-
-            
         else:
             # If the request failed, print an error message
             print(f"Failed to retrieve image from URL: {url}")
@@ -107,8 +108,15 @@ def render_battle(li):
     return re
     
 def render_coop(li):
-     for item in li:
+    width = 400
+    height = 600
+    i = 0
+    re = Image.new("RGB", (400, 1000), "white")
+    for idx, item in enumerate(li):
+        # if idx == 0:
+            
         print(item)
+    return re
 
 def parse_regular():
     stages = []
@@ -169,6 +177,27 @@ def parse_open():
 
     return stages
 
+def parse_x():
+    stages = []
+
+    for item in x:
+        # Get all necessary data
+
+        # Start time
+        start = timezone_conversion(item['startTime'])
+        # End time
+        end = timezone_conversion(item['endTime'])
+        for vs_stage in item["xMatchSetting"]['vsStages']:
+            # Chinese name of the stage
+            name_cn = translate_stage(vs_stage["id"])
+            # Url of the stage
+            img =vs_stage['image']['url']
+
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
+            stages.append(tmp)
+
+    return stages
+
 def parse_coop():
     stages = []
     for item in coop:
@@ -200,6 +229,10 @@ def get_open():
 def get_coop():
     return render_coop(parse_coop())
 
+def get_x():
+    return render_battle(parse_x())
 # parse_coop()
 # print(parse_])
 # get_challenge().show()
+# parse_x()
+get_coop()
