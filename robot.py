@@ -6,17 +6,14 @@ import time
 import xml.etree.ElementTree as ET
 from queue import Empty
 from threading import Thread
-from base.func_zhipu import ZhiPu
 
 from wcferry import Wcf, WxMsg
 
-from base.func_bard import BardAssistant
-from base.func_chatglm import ChatGLM
+
 from base.func_chatgpt import ChatGPT
 from base.func_chengyu import cy
 from base.func_news import News
 from base.func_tigerbot import TigerBot
-from base.func_xinghuo_web import XinghuoWeb
 from configuration import Config
 from constants import ChatType
 from job_mgmt import Job
@@ -45,14 +42,6 @@ class Robot(Job):
                 self.chat = TigerBot(self.config.TIGERBOT)
             elif chat_type == ChatType.CHATGPT.value and ChatGPT.value_check(self.config.CHATGPT):
                 self.chat = ChatGPT(self.config.CHATGPT)
-            elif chat_type == ChatType.XINGHUO_WEB.value and XinghuoWeb.value_check(self.config.XINGHUO_WEB):
-                self.chat = XinghuoWeb(self.config.XINGHUO_WEB)
-            elif chat_type == ChatType.CHATGLM.value and ChatGLM.value_check(self.config.CHATGLM):
-                self.chat = ChatGLM(self.config.CHATGLM)
-            elif chat_type == ChatType.BardAssistant.value and BardAssistant.value_check(self.config.BardAssistant):
-                self.chat = BardAssistant(self.config.BardAssistant)
-            elif chat_type == ChatType.ZhiPu.value and ZhiPu.value_check(self.config.ZHIPU):
-                self.chat = ZhiPu(self.config.ZHIPU)
             else:
                 self.LOG.warning("未配置模型")
                 self.chat = None
@@ -61,14 +50,6 @@ class Robot(Job):
                 self.chat = TigerBot(self.config.TIGERBOT)
             elif ChatGPT.value_check(self.config.CHATGPT):
                 self.chat = ChatGPT(self.config.CHATGPT)
-            elif XinghuoWeb.value_check(self.config.XINGHUO_WEB):
-                self.chat = XinghuoWeb(self.config.XINGHUO_WEB)
-            elif ChatGLM.value_check(self.config.CHATGLM):
-                self.chat = ChatGLM(self.config.CHATGLM)
-            elif BardAssistant.value_check(self.config.BardAssistant):
-                self.chat = BardAssistant(self.config.BardAssistant)
-            elif ZhiPu.value_check(self.config.ZhiPu):
-                self.chat = ZhiPu(self.config.ZhiPu)
             else:
                 self.LOG.warning("未配置模型")
                 self.chat = None

@@ -38,6 +38,9 @@ def translate_weapon(id):
 def translate_boss(id):
     return dic['bosses'][id]['name']
 
+def translate_rule(id):
+    return dic['rules'][id]['name']
+
 def timezone_conversion(time_str):
     tokyo_timezone = pytz.timezone('Asia/Tokyo')
     tokyo_datetime = datetime.fromisoformat(time_str).astimezone(tokyo_timezone)
@@ -75,6 +78,8 @@ def parse_challenge():
         start = timezone_conversion(item['startTime'])
         # End time
         end = timezone_conversion(item['endTime'])
+        # Rule
+        rule = 
         for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])

@@ -14,12 +14,13 @@ class ChatGPT():
         api = conf.get("api")
         proxy = conf.get("proxy")
         prompt = conf.get("prompt")
-        self.model = conf.get("model", "gpt-3.5-turbo")
+        max_token = conf.get("max_tokens")
+        self.model = conf.get("model", "gpt-4-0125-preview")
         self.LOG = logging.getLogger("ChatGPT")
         if proxy:
-            self.client = OpenAI(api_key=key, base_url=api, http_client=httpx.Client(proxy=proxy))
+            self.client = OpenAI(api_key=key, base_url=api, http_client=httpx.Client(proxy=proxy), max_tokens=max_token)
         else:
-            self.client = OpenAI(api_key=key, base_url=api)
+            self.client = OpenAI(api_key=key, base_url=api, max_tokens=max_token)
         self.conversation_list = {}
         self.system_content_msg = {"role": "system", "content": prompt}
 
