@@ -1,5 +1,6 @@
-from crawler import *
-from renderer import *
+from splat.crawler import *
+from splat.renderer import *
+
 
 def get_regular():
     li = parse_regular()
@@ -21,4 +22,3 @@ def get_x():
     li = parse_x()
     return render_battle(li)
 
-get_coop().show()

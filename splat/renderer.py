@@ -69,7 +69,7 @@ def render_coop(li):
     re = Image.new("RGB", (width, height), "white")
     tmp  = ImageDraw.Draw(re)
     x = 0
-    y = 340
+    y = 370
     for idx, item in enumerate(li):
         start = item['start']
         end = item['end']
@@ -101,21 +101,57 @@ def render_coop(li):
                 
                 # Specify text position
                 text_position = (0, 10)
-                txt = start + " - " + end + "Boss: "+ boss
+                txt = start + " - " + end + " Boss: "
 
                 # Add text to the image
-                tmp.text(text_position, start + " - " + end + " Boss: "+ boss, fill="black", font=font)
-                for wp in weapons:
-                    response = requests.get(url)
+                tmp.text(text_position, txt, fill="black", font=font)
+
+
+                _x = 100
+                _y = y-120
+                for idx2, wp in enumerate(weapons):
+                    response = requests.get(wp)
+                    image_bytes = BytesIO(response.content)
+                    image_to_add = Image.open(image_bytes)
+
+                    size = (70,70)
+                    image_to_add = image_to_add.resize(size)
+
+                    _x = 300 - 100*idx2
+                    position = (_x, _y)
+                    re.paste(image_to_add,position)
 
             else:
                 # Resize image:
-                scale = 0.5
+                scale = 0.56
                 size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
                 image_to_add = image_to_add.resize(size)
 
                 position=(x,y)
                 re.paste(image_to_add,position)
+
+                # Specify text position
+                text_position = (0, y-30)
+                txt = start + " - " + end + " Boss: "
+
+                # Add text to the image
+                tmp.text(text_position, txt, fill="black", font=font)
+
+                _x = 260
+                _y = y-10
+                for idx2, wp in enumerate(weapons):
+                    response = requests.get(wp)
+                    image_bytes = BytesIO(response.content)
+                    image_to_add = Image.open(image_bytes)
+
+                    size = (70,70)
+                    image_to_add = image_to_add.resize(size)
+
+                    __x = _x + 70 * (idx2 // 2)
+                    __y = _y + 70 * (idx2 % 2)
+                    position = (__x, __y)
+                    re.paste(image_to_add,position)
+
                 y += 160
 
 

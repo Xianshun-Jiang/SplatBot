@@ -21,7 +21,10 @@ from configuration import Config
 from constants import ChatType
 from job_mgmt import Job
 
+from splat import main as splat
 from splat import crawler 
+from splat import renderer
+
 
 __version__ = "39.0.10.1"
 
@@ -136,27 +139,34 @@ class Robot(Job):
     def process_splat(self, msg: WxMsg) -> bool:
         match msg.content:
             case "/帮助" | "/help":
-                rsp = "目前支持功能：\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(在完善)"
+                rsp = "目前支持功能：\r/挑战 \r/开放 \r/涂地 \r/x \r/打工"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
         
             case "/挑战":
-                img = crawler.get_challenge()
+                img = splat.get_challenge()
                 img.save('./challenge.jpg')
                 self.wcf.send_image(f"{"./challenge.jpg"}", msg.roomid)
             
             case "/开放":
-                img = crawler.get_open()
+                img = splat.get_open()
                 img.save('./open.jpg')
                 self.wcf.send_image(f"{"./open.jpg"}", msg.roomid)
 
             case "/涂地":
-                img = crawler.get_regular()
+                img = splat.get_regular()
                 img.save('./regular.jpg')
                 self.wcf.send_image(f"{"./regular.jpg"}", msg.roomid)
+
             case "/x":
-                img = crawler.get_x()
+                img = splat.get_x()
                 img.save('./x.jpg')
                 self.wcf.send_image(f"{"./x.jpg"}", msg.roomid)
+
+            case "/打工":
+                img = splat.get_coop()
+                img.save('./coop.jpg')
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/coop.jpg"}", msg.roomid)
+                
                 
     def processMsg(self, msg: WxMsg) -> None:
         """当接收到消息的时候，会调用本方法。如果不实现本方法，则打印原始消息。
