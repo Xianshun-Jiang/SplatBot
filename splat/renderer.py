@@ -17,49 +17,38 @@ def render_battle(li):
         end = item['end']
         name = item['name_cn']
         url = item['img']
-        # Send a GET request to the URL
-        response = requests.get(url)
+          
+        # Open the image using Pillow
+        image_to_add = Image.open(url)
         
-        # Check if the request was successful
-        if response.status_code == 200:
-            # Read the content of the response as bytes
-            image_bytes = BytesIO(response.content)
-            
-            # Open the image using Pillow
-            image_to_add = Image.open(image_bytes)
-            
-            # Resize image:
-            scale = 0.3
-            size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
-            image_to_add = image_to_add.resize(size)
+        # Resize image:
+        scale = 0.3
+        size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+        image_to_add = image_to_add.resize(size)
 
-            # Put add image
-            position = (x, y)
+        # Put add image
+        position = (x, y)
 
-            re.paste( image_to_add,position)
-            
-            # Choose a font and size
-            font = ImageFont.truetype("arial.ttf", size=18)
-            
-            # Specify text position
-            text_position = (0, y)
-            end_position = (0,y+30)
+        re.paste( image_to_add,position)
         
-            # Add text to the image
-            tmp.text(text_position, start, fill="black", font=font)
-            tmp.text(end_position, end, fill="black", font=font)
+        # Choose a font and size
+        font = ImageFont.truetype("arial.ttf", size=18)
+        
+        # Specify text position
+        text_position = (0, y)
+        end_position = (0,y+30)
+    
+        # Add text to the image
+        tmp.text(text_position, start, fill="black", font=font)
+        tmp.text(end_position, end, fill="black", font=font)
 
-            # Update x y
-            x = 340 - x
-            if idx % 2 == 1:
-                y+= 70
+        # Update x y
+        x = 340 - x
+        if idx % 2 == 1:
+            y+= 70
 
 
             
-        else:
-            # If the request failed, print an error message
-            print(f"Failed to retrieve image from URL: {url}")
-            return None
         i = 1 - i
     return re
 
@@ -78,61 +67,47 @@ def render_zg(li):
         name = item['name_cn']
         url = item['img']
         rule = item['rule']
-
-        # Send a GET request to the URL
-        response = requests.get(url)
+            
+        # Open the image using Pillow
+        image_to_add = Image.open(url)
         
-        # Check if the request was successful
-        if response.status_code == 200:
-            # Read the content of the response as bytes
-            image_bytes = BytesIO(response.content)
-            
-            # Open the image using Pillow
-            image_to_add = Image.open(image_bytes)
-            
-            # Resize image:
-            scale = 0.3
-            size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
-            image_to_add = image_to_add.resize(size)
+        # Resize image:
+        scale = 0.3
+        size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+        image_to_add = image_to_add.resize(size)
 
-            # Add image
-            position = (x, y)
+        # Add image
+        position = (x, y)
 
 
-            re.paste( image_to_add,position)
-            
-            rule_position = (0,y+50)
-            link = "./splat/images/rule/"+rule+".png"
-            rule_img = Image.open(link)
-            # Resize image
-            scale = 0.2
-            size = (int(scale * rule_img.size[0]), int(scale * rule_img.size[1]))
-            rule_img = rule_img.resize(size)
-            # Add image
-            re.paste( rule_img,rule_position)
-
-            # Choose a font and size
-            font = ImageFont.truetype("arial.ttf", size=18)
-            
-            # Specify text position
-            text_position = (0, y)
-            end_position = (0, y+25)
+        re.paste( image_to_add,position)
         
-            # Add text to the image
-            tmp.text(text_position, start, fill="black", font=font)
-            tmp.text(end_position, end, fill="black", font=font)
+        rule_position = (0,y+50)
+        link = "./splat/images/rule/"+rule+".png"
+        rule_img = Image.open(link)
+        # Resize image
+        scale = 0.2
+        size = (int(scale * rule_img.size[0]), int(scale * rule_img.size[1]))
+        rule_img = rule_img.resize(size)
+        # Add image
+        re.paste( rule_img,rule_position)
 
-            # Update x y
-            x = 340 - x
-            if idx % 2 == 1:
-                y+= 70
+        # Choose a font and size
+        font = ImageFont.truetype("arial.ttf", size=18)
+        
+        # Specify text position
+        text_position = (0, y)
+        end_position = (0, y+25)
+    
+        # Add text to the image
+        tmp.text(text_position, start, fill="black", font=font)
+        tmp.text(end_position, end, fill="black", font=font)
 
+        # Update x y
+        x = 340 - x
+        if idx % 2 == 1:
+            y+= 70
 
-            
-        else:
-            # If the request failed, print an error message
-            print(f"Failed to retrieve image from URL: {url}")
-            return None
         i = 1 - i
     return re
 
@@ -151,96 +126,88 @@ def render_coop(li):
         url = item['img']
         weapons_name = item['weapons_name']
         remain = item['remain']
-        # Send a GET request to the URL
-        response = requests.get(url)
-        
-        # Check if the request was successful
-        if response.status_code == 200:
-            # Read the content of the response as bytes
-            image_bytes = BytesIO(response.content)
 
-            # Open the image using Pillow
-            image_to_add = Image.open(image_bytes)
-            # print(idx)
-            if idx == 0:
-                # Resize image:
-                scale = 1
-                size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
-                image_to_add = image_to_add.resize(size)
-                
-                position = (0, 50)
-                # image_to_add.show()
-                re.paste(image_to_add,position)
-                # Choose a font and size
-                font = ImageFont.truetype("arial.ttf", size=20)
-                
-                # Specify text position
-                text_position = (0, 10)
-                txt = start + " - " + end 
-                # Add text to the image
-                tmp.text(text_position, txt, fill="black", font=font)
+        image_to_add = Image.open(url)
+        # print(idx)
+        if idx == 0:
+            # Resize image:
+            scale = 1
+            size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+            image_to_add = image_to_add.resize(size)
+            
+            position = (0, 50)
+            # image_to_add.show()
+            re.paste(image_to_add,position)
+            # Choose a font and size
+            font = ImageFont.truetype("arial.ttf", size=20)
+            
+            # Specify text position
+            text_position = (0, 10)
+            txt = start + " - " + end 
+            # Add text to the image
+            tmp.text(text_position, txt, fill="black", font=font)
 
-                # Add Boss
-                position = (0,y-170)
-                link = "./splat/images/bosses/"+boss+".png"
-                boss_img = Image.open(link)
-                size = (50,50)
-                boss_img = boss_img.resize(size)
-                re.paste(boss_img,position)
+            # Add Boss
+            position = (0,y-170)
+            link = "./splat/images/bosses/"+boss+".png"
+            boss_img = Image.open(link)
+            size = (50,50)
+            boss_img = boss_img.resize(size)
+            re.paste(boss_img,position)
 
-                # Add weapons for main stage
-                _x = 100
-                _y = y-120
-                for idx2, wp in enumerate(weapons_name):
-                    link = "./splat/images/weapons/"+wp+".webp"
-                    image_to_add = Image.open(link)
+            # Add weapons for main stage
+            _x = 100
+            _y = y-120
+            for idx2, wp in enumerate(weapons_name):
+                link = "./splat/images/weapons/"+wp+".webp"
+                image_to_add = Image.open(link)
 
-                    size = (70,70)
-                    image_to_add = image_to_add.resize(size)
-
-                    _x = 300 - 100*idx2
-                    position = (_x, _y)
-                    re.paste(image_to_add,position)
-
-            else:
-                # Resize image:
-                scale = 0.56
-                size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+                size = (70,70)
                 image_to_add = image_to_add.resize(size)
 
-                position=(x,y)
+                _x = 300 - 100*idx2
+                position = (_x, _y)
                 re.paste(image_to_add,position)
 
-                # Specify text position
-                text_position = (0, y-30)
-                txt = start + " - " + end
+        else:
+            # Resize image:
+            scale = 0.56
+            size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+            image_to_add = image_to_add.resize(size)
 
-                # Add text to the image
-                tmp.text(text_position, txt, fill="black", font=font)
+            position=(x,y)
+            re.paste(image_to_add,position)
 
-                # Add Boss
-                position = (0,y)
-                link = "./splat/images/bosses/"+boss+".png"
-                boss_img = Image.open(link)
-                size = (40,40)
-                boss_img = boss_img.resize(size)
-                re.paste(boss_img,position)
+            # Specify text position
+            text_position = (0, y-30)
+            txt = start + " - " + end
 
-                # Add weapons
-                _x = 260
-                _y = y-10
-                for idx2, wp in enumerate(weapons_name):
-                    link = "./splat/images/weapons/"+wp+".webp"
-                    image_to_add = Image.open(link)
+            # Add text to the image
+            tmp.text(text_position, txt, fill="black", font=font)
 
-                    size = (70,70)
-                    image_to_add = image_to_add.resize(size)
+            # Add Boss
+            position = (0,y)
+            link = "./splat/images/bosses/"+boss+".png"
+            boss_img = Image.open(link)
+            size = (40,40)
+            boss_img = boss_img.resize(size)
+            re.paste(boss_img,position)
 
-                    __x = _x + 70 * (idx2 // 2)
-                    __y = _y + 70 * (idx2 % 2)
-                    position = (__x, __y)
-                    re.paste(image_to_add,position)
+            # Add weapons
+            _x = 260
+            _y = y-10
+            for idx2, wp in enumerate(weapons_name):
+                link = "./splat/images/weapons/"+wp+".webp"
+                image_to_add = Image.open(link)
 
-                y += 160
+                size = (70,70)
+                image_to_add = image_to_add.resize(size)
+
+                __x = _x + 70 * (idx2 // 2)
+                __y = _y + 70 * (idx2 % 2)
+                position = (__x, __y)
+                re.paste(image_to_add,position)
+
+            y += 160
 
     return re

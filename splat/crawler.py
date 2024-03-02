@@ -80,6 +80,8 @@ def parse_regular():
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img =vs_stage['image']['url']
+            img = "./splat/images/stages/"+img.rpartition("/")[-1]
+
 
             tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
             stages.append(tmp)
@@ -101,6 +103,8 @@ def parse_challenge():
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img = vs_stage['image']['url']
+            img = "./splat/images/stages/"+img.rpartition("/")[-1]
+
 
             tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule})
             stages.append(tmp)
@@ -122,6 +126,7 @@ def parse_open():
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img = vs_stage['image']['url']
+            img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
             tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule})
             stages.append(tmp)
@@ -143,6 +148,7 @@ def parse_x():
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img =vs_stage['image']['url']
+            img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
             tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'rule':rule})
             stages.append(tmp)
@@ -168,8 +174,8 @@ def parse_coop():
         boss_cn = translate_boss(item['setting']['boss']['id'])
         # url of the stage
         img = item['setting']['coopStage']['thumbnailImage']['url']
+        img = "./splat/images/stages/"+img.rpartition("/")[-1]
         # All weapons
-
         weapons_name = []
         for wp in item['setting']['weapons']:
             weapons_name.append(wp['name'])
