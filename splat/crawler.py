@@ -63,7 +63,7 @@ def timezone_conversion(time_str):
 
     re = pytz.timezone('America/New_York')
     re = tokyo_datetime.astimezone(re)
-    return re.strftime('%m/%d %H:%M')
+    return re.strftime('%m-%d %H:%M')
 
 def parse_regular():
     stages = []

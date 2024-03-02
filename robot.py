@@ -143,10 +143,13 @@ class Robot(Job):
                 img.save('./tmp/x.png')
                 self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/x.png"}", msg.roomid)
 
-            case "/打工":
+            case "/打工" | "/工":
                 img = splat.get_coop()
                 img.save('./tmp/coop.png')
                 self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/coop.png"}", msg.roomid)
+
+            case "/浣熊":
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/Raccoon.png"}", msg.roomid)
                 
                 
     def processMsg(self, msg: WxMsg) -> None:
