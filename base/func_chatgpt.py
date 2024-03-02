@@ -14,7 +14,7 @@ class ChatGPT():
         api = conf.get("api")
         proxy = conf.get("proxy")
         prompt = conf.get("prompt")
-        max_token = conf.get("max_tokens")
+        self.max_token = conf.get("max_tokens")
         self.model = conf.get("model", "gpt-4-0125-preview")
         self.LOG = logging.getLogger("ChatGPT")
         if proxy:

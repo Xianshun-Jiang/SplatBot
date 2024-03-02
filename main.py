@@ -10,6 +10,7 @@ from constants import ChatType
 from robot import Robot, __version__
 from wcferry import Wcf
 
+
 def weather_report(robot: Robot) -> None:
     """模拟发送天气预报
     """

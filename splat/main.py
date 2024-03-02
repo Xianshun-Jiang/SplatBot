@@ -3,23 +3,28 @@ from splat.renderer import *
 
 
 def get_regular():
-    li = parse_regular()
+    update()
+    li = parse_regular()#[:5*2]
     return render_battle(li)
 
 def get_challenge():
-    li = parse_challenge()
-    return parse_zg(li)
+    update()
+    li = parse_challenge()#[:5*2]
+    return render_zg(li)
 
 def get_open():
-    li = parse_open()
-    return parse_zg(li)
+    update()
+    li = parse_open()#[:5*2]
+    return render_zg(li)
 
 def get_coop():
+    update()
     li = parse_coop()
     return render_coop(li)
 
 def get_x():
-    li = parse_x()
-    return parse_zg(li)
+    update()
+    li = parse_x()#[:5*2]
+    return render_zg(li)
 
 

@@ -28,6 +28,22 @@ coop = r['coopGroupingSchedule']['regularSchedules']['nodes']
 event = r['eventSchedules']['nodes']
 fest = r['festSchedules']['nodes']
 
+def update():
+    # Get the current time
+    now = datetime.now()
+
+    # Check if it's exactly on the hour
+    if now.minute == 0 and now.second == 0:
+        # Get data from database
+        r = requests.get(url).json()["data"]
+
+        # Split data into categories
+        regular = r["regularSchedules"]['nodes']
+        ranked = r["bankaraSchedules"]['nodes']
+        x = r["xSchedules"]['nodes']
+        coop = r['coopGroupingSchedule']['regularSchedules']['nodes']
+        event = r['eventSchedules']['nodes']
+        fest = r['festSchedules']['nodes']
 
 def translate_stage(id):
     return dic['stages'][id]['name']
@@ -116,8 +132,6 @@ def parse_x():
     stages = []
 
     for item in x:
-        # Get all necessary data
-
         # Start time
         start = timezone_conversion(item['startTime'])
         # End time
@@ -130,7 +144,7 @@ def parse_x():
             # Url of the stage
             img =vs_stage['image']['url']
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'rule':rule})
             stages.append(tmp)
 
     return stages

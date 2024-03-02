@@ -35,10 +35,6 @@ def render_battle(li):
 
             # Put add image
             position = (x, y)
-            x = 340 - x
-            #x=100 is the default 
-            if x == 100:
-                y+= 70
 
             re.paste( image_to_add,position)
             
@@ -53,6 +49,11 @@ def render_battle(li):
             tmp.text(text_position, start, fill="black", font=font)
             tmp.text(end_position, end, fill="black", font=font)
 
+            # Update x y
+            x = 340 - x
+            if idx % 2 == 1:
+                y+= 70
+
 
             
         else:
@@ -62,7 +63,7 @@ def render_battle(li):
         i = 1 - i
     return re
 
-def parse_zg(li):
+def render_zg(li):
     width = 400
     height = 1000
     i = 0
@@ -77,6 +78,7 @@ def parse_zg(li):
         name = item['name_cn']
         url = item['img']
         rule = item['rule']
+
         # Send a GET request to the URL
         response = requests.get(url)
         
@@ -93,27 +95,37 @@ def parse_zg(li):
             size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
             image_to_add = image_to_add.resize(size)
 
-            # Put add image
+            # Add image
             position = (x, y)
-            x = 340 - x
-            #x=100 is the default 
-            if x == 100:
-                y+= 70
+
 
             re.paste( image_to_add,position)
             
+            rule_position = (0,y+50)
+            link = "./splat/images/rule/"+rule+".png"
+            rule_img = Image.open(link)
+            # Resize image
+            scale = 0.2
+            size = (int(scale * rule_img.size[0]), int(scale * rule_img.size[1]))
+            rule_img = rule_img.resize(size)
+            # Add image
+            re.paste( rule_img,rule_position)
+
             # Choose a font and size
             font = ImageFont.truetype("arial.ttf", size=18)
             
             # Specify text position
             text_position = (0, y)
-            end_position = (0,y+25)
-            rule_position = (0,y+50)
+            end_position = (0, y+25)
         
             # Add text to the image
             tmp.text(text_position, start, fill="black", font=font)
             tmp.text(end_position, end, fill="black", font=font)
-            tmp.text(rule_position, rule, fill="black", font=font)
+
+            # Update x y
+            x = 340 - x
+            if idx % 2 == 1:
+                y+= 70
 
 
             

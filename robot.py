@@ -22,7 +22,6 @@ from splat import main as splat
 from splat import crawler 
 from splat import renderer
 
-
 __version__ = "39.0.10.1"
 
 
@@ -126,22 +125,23 @@ class Robot(Job):
             case "/挑战":
                 img = splat.get_challenge()
                 img.save('./challenge.jpg')
-                self.wcf.send_image(f"{"./challenge.jpg"}", msg.roomid)
+                #TODO change location
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/challenge.jpg"}", msg.roomid)
             
             case "/开放":
                 img = splat.get_open()
                 img.save('./open.jpg')
-                self.wcf.send_image(f"{"./open.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/open.jpg"}", msg.roomid)
 
             case "/涂地":
                 img = splat.get_regular()
                 img.save('./regular.jpg')
-                self.wcf.send_image(f"{"./regular.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/regular.jpg"}", msg.roomid)
 
             case "/x":
                 img = splat.get_x()
                 img.save('./x.jpg')
-                self.wcf.send_image(f"{"./x.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/x.jpg"}", msg.roomid)
 
             case "/打工":
                 img = splat.get_coop()
