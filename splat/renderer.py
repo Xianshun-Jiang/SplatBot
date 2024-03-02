@@ -147,10 +147,10 @@ def render_coop(li):
     for idx, item in enumerate(li):
         start = item['start']
         end = item['end']
-        boss = item['name_cn']
+        boss = item['name_en']
         url = item['img']
-        weapons = item['weapons']
         weapons_name = item['weapons_name']
+        remain = item['remain']
         # Send a GET request to the URL
         response = requests.get(url)
         
@@ -176,10 +176,17 @@ def render_coop(li):
                 
                 # Specify text position
                 text_position = (0, 10)
-                txt = start + " - " + end + " Boss: " + boss
-
+                txt = start + " - " + end 
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
+
+                # Add Boss
+                position = (0,y-170)
+                link = "./splat/images/bosses/"+boss+".png"
+                boss_img = Image.open(link)
+                size = (50,50)
+                boss_img = boss_img.resize(size)
+                re.paste(boss_img,position)
 
                 # Add weapons for main stage
                 _x = 100
@@ -206,10 +213,18 @@ def render_coop(li):
 
                 # Specify text position
                 text_position = (0, y-30)
-                txt = start + " - " + end + " Boss: " + boss
+                txt = start + " - " + end
 
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
+
+                # Add Boss
+                position = (0,y)
+                link = "./splat/images/bosses/"+boss+".png"
+                boss_img = Image.open(link)
+                size = (40,40)
+                boss_img = boss_img.resize(size)
+                re.paste(boss_img,position)
 
                 # Add weapons
                 _x = 260

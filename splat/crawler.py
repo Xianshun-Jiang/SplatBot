@@ -151,23 +151,29 @@ def parse_x():
 
 def parse_coop():
     stages = []
-    for item in coop:
+    for idx, item in enumerate(coop):
         # Start time
         start = timezone_conversion(item['startTime'])
         # End time
-        end = timezone_conversion(item['endTime'])
+        end = timezone_conversion(item['endTime']) 
+        # Remaining time
+        if idx ==0:
+            remain = datetime.now() - datetime.strptime(start,'%m-%d %H:%M')
+            # remain = remain.strftime('%m-%d %H:%M')
+        else:
+            remain = 0
+        # English name of the boss
+        boss_en = item['setting']['boss']['name']
         # Chinese name of the boss
         boss_cn = translate_boss(item['setting']['boss']['id'])
         # url of the stage
         img = item['setting']['coopStage']['thumbnailImage']['url']
         # All weapons
-        weapons = []
-        for wp in item['setting']['weapons']:
-            weapons.append(wp['image']['url'])
+
         weapons_name = []
         for wp in item['setting']['weapons']:
             weapons_name.append(wp['name'])
-        tmp = dict({'start':start, 'end': end, 'name_cn':boss_cn,'img':img, 'weapons':weapons, 'weapons_name':weapons_name})
+        tmp = dict({'start':start, 'end': end, 'remain':remain,'name_cn':boss_cn, 'name_en':boss_en,'img':img, 'weapons_name':weapons_name })
         stages.append(tmp)
     return stages
         
