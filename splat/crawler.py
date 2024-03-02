@@ -79,14 +79,14 @@ def parse_challenge():
         # End time
         end = timezone_conversion(item['endTime'])
         # Rule
-        rule = 
+        rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img = vs_stage['image']['url']
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule})
             stages.append(tmp)
 
     return stages
@@ -99,13 +99,15 @@ def parse_open():
         start = timezone_conversion(item['startTime'])
         # End time
         end = timezone_conversion(item['endTime'])
+        # Rule
+        rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
             # Url of the stage
             img = vs_stage['image']['url']
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule})
             stages.append(tmp)
 
     return stages
@@ -120,6 +122,8 @@ def parse_x():
         start = timezone_conversion(item['startTime'])
         # End time
         end = timezone_conversion(item['endTime'])
+        # Rule
+        rule = translate_rule(item["xMatchSetting"]["vsRule"]['id'])
         for vs_stage in item["xMatchSetting"]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])

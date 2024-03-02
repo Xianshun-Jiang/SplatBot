@@ -18,9 +18,9 @@ class ChatGPT():
         self.model = conf.get("model", "gpt-4-0125-preview")
         self.LOG = logging.getLogger("ChatGPT")
         if proxy:
-            self.client = OpenAI(api_key=key, base_url=api, http_client=httpx.Client(proxy=proxy), max_tokens=max_token)
+            self.client = OpenAI(api_key=key, base_url=api, http_client=httpx.Client(proxy=proxy))
         else:
-            self.client = OpenAI(api_key=key, base_url=api, max_tokens=max_token)
+            self.client = OpenAI(api_key=key, base_url=api)
         self.conversation_list = {}
         self.system_content_msg = {"role": "system", "content": prompt}
 
@@ -41,7 +41,8 @@ class ChatGPT():
         try:
             ret = self.client.chat.completions.create(model=self.model,
                                                       messages=self.conversation_list[wxid],
-                                                      temperature=0.2)
+                                                      temperature=0.2,
+                                                      max_tokens=self.max_token)
             rsp = ret.choices[0].message.content
             rsp = rsp[2:] if rsp.startswith("\n\n") else rsp
             rsp = rsp.replace("\n\n", "\n")

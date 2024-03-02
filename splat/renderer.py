@@ -62,6 +62,68 @@ def render_battle(li):
         i = 1 - i
     return re
 
+def parse_zg(li):
+    width = 400
+    height = 1000
+    i = 0
+    re = Image.new("RGB", (width, height), "white")
+    tmp  = ImageDraw.Draw(re)
+    x = 100
+    y = 40
+    for idx, item in enumerate(li):
+        # print(item)
+        start = item['start']
+        end = item['end']
+        name = item['name_cn']
+        url = item['img']
+        rule = item['rule']
+        # Send a GET request to the URL
+        response = requests.get(url)
+        
+        # Check if the request was successful
+        if response.status_code == 200:
+            # Read the content of the response as bytes
+            image_bytes = BytesIO(response.content)
+            
+            # Open the image using Pillow
+            image_to_add = Image.open(image_bytes)
+            
+            # Resize image:
+            scale = 0.3
+            size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
+            image_to_add = image_to_add.resize(size)
+
+            # Put add image
+            position = (x, y)
+            x = 340 - x
+            #x=100 is the default 
+            if x == 100:
+                y+= 70
+
+            re.paste( image_to_add,position)
+            
+            # Choose a font and size
+            font = ImageFont.truetype("arial.ttf", size=18)
+            
+            # Specify text position
+            text_position = (0, y)
+            end_position = (0,y+25)
+            rule_position = (0,y+50)
+        
+            # Add text to the image
+            tmp.text(text_position, start, fill="black", font=font)
+            tmp.text(end_position, end, fill="black", font=font)
+            tmp.text(rule_position, rule, fill="black", font=font)
+
+
+            
+        else:
+            # If the request failed, print an error message
+            print(f"Failed to retrieve image from URL: {url}")
+            return None
+        i = 1 - i
+    return re
+
 def render_coop(li):
     width = 400
     height = 1000
@@ -101,7 +163,7 @@ def render_coop(li):
                 
                 # Specify text position
                 text_position = (0, 10)
-                txt = start + " - " + end + " Boss: "
+                txt = start + " - " + end + " Boss: " + boss
 
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
@@ -132,7 +194,7 @@ def render_coop(li):
 
                 # Specify text position
                 text_position = (0, y-30)
-                txt = start + " - " + end + " Boss: "
+                txt = start + " - " + end + " Boss: " + boss
 
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
@@ -154,7 +216,4 @@ def render_coop(li):
 
                 y += 160
 
-
-            # re.show()
-            # print(item)
     return re

@@ -8,11 +8,11 @@ def get_regular():
 
 def get_challenge():
     li = parse_challenge()
-    return render_battle(li)
+    return parse_zg(li)
 
 def get_open():
     li = parse_open()
-    return render_battle(li)
+    return parse_zg(li)
 
 def get_coop():
     li = parse_coop()
@@ -20,5 +20,6 @@ def get_coop():
 
 def get_x():
     li = parse_x()
-    return render_battle(li)
+    return parse_zg(li)
+
 
