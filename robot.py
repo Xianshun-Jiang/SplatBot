@@ -124,29 +124,29 @@ class Robot(Job):
         
             case "/挑战":
                 img = splat.get_challenge()
-                img.save('./challenge.jpg')
+                img.save('./tmp/challenge.png')
                 #TODO change location
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/challenge.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/challenge.png"}", msg.roomid)
             
             case "/开放":
                 img = splat.get_open()
-                img.save('./open.jpg')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/open.jpg"}", msg.roomid)
+                img.save('./tmp/open.png')
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/open.png"}", msg.roomid)
 
             case "/涂地":
                 img = splat.get_regular()
-                img.save('./regular.jpg')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/regular.jpg"}", msg.roomid)
+                img.save('./tmp/regular.png')
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/regular.png"}", msg.roomid)
 
             case "/x":
                 img = splat.get_x()
-                img.save('./x.jpg')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/x.jpg"}", msg.roomid)
+                img.save('./tmp/x.png')
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/x.png"}", msg.roomid)
 
             case "/打工":
                 img = splat.get_coop()
-                img.save('./coop.jpg')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/coop.jpg"}", msg.roomid)
+                img.save('./tmp/coop.png')
+                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/coop.png"}", msg.roomid)
                 
                 
     def processMsg(self, msg: WxMsg) -> None:

@@ -8,4 +8,4 @@ This is a Wechat Robot for Splatoon community
   [Weapon Icons](https://leanny.github.io/splat3/database.html)
   [General Icons(wiki)](https://splatoonwiki.org/wiki/Category:Splatoon_3_icons)
   [General Icons(.ink)](https://splatoon3.ink/assets/splatnet/v2/)
-
+  [Font](https://github.com/North-West-Wind/splatoon3-fonts/tree/main/Decrypted)

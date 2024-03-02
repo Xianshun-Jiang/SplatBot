@@ -2,17 +2,20 @@ from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import requests
 
+#TODO select font path
+font_path = './splat/fonts/DFP_GBZY9.ttf'
+
+
 
 def render_battle(li):
     width = 400
     height = 1000
     i = 0
-    re = Image.new("RGB", (width, height), "white")
+    re = Image.new("RGBA", (width, height), "white")
     tmp  = ImageDraw.Draw(re)
     x = 100
     y = 40
     for idx, item in enumerate(li):
-        # print(item)
         start = item['start']
         end = item['end']
         name = item['name_cn']
@@ -56,7 +59,7 @@ def render_zg(li):
     width = 400
     height = 1000
     i = 0
-    re = Image.new("RGB", (width, height), "white")
+    re = Image.new("RGBA", (width, height), "white")
     tmp  = ImageDraw.Draw(re)
     x = 100
     y = 40
@@ -93,7 +96,8 @@ def render_zg(li):
         re.paste( rule_img,rule_position)
 
         # Choose a font and size
-        font = ImageFont.truetype("arial.ttf", size=18)
+        font = ImageFont.truetype(font_path, size=18)
+
         
         # Specify text position
         text_position = (0, y)
@@ -115,7 +119,7 @@ def render_coop(li):
     width = 400
     height = 1000
     i = 0
-    re = Image.new("RGB", (width, height), "white")
+    re = Image.new("RGBA", (width, height), "white")
     tmp  = ImageDraw.Draw(re)
     x = 0
     y = 370
@@ -128,7 +132,6 @@ def render_coop(li):
         remain = item['remain']
 
         image_to_add = Image.open(url)
-        # print(idx)
         if idx == 0:
             # Resize image:
             scale = 1
@@ -139,7 +142,7 @@ def render_coop(li):
             # image_to_add.show()
             re.paste(image_to_add,position)
             # Choose a font and size
-            font = ImageFont.truetype("arial.ttf", size=20)
+            font = ImageFont.truetype(font_path, size=20)
             
             # Specify text position
             text_position = (0, 10)
@@ -180,9 +183,10 @@ def render_coop(li):
 
             # Specify text position
             text_position = (0, y-30)
-            txt = start + " - " + end
+            txt = start + " - " + end 
 
             # Add text to the image
+            font = ImageFont.truetype(font_path, size=20)
             tmp.text(text_position, txt, fill="black", font=font)
 
             # Add Boss
