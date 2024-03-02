@@ -150,6 +150,7 @@ def render_coop(li):
         boss = item['name_cn']
         url = item['img']
         weapons = item['weapons']
+        weapons_name = item['weapons_name']
         # Send a GET request to the URL
         response = requests.get(url)
         
@@ -180,13 +181,12 @@ def render_coop(li):
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
 
-
+                # Add weapons for main stage
                 _x = 100
                 _y = y-120
-                for idx2, wp in enumerate(weapons):
-                    response = requests.get(wp)
-                    image_bytes = BytesIO(response.content)
-                    image_to_add = Image.open(image_bytes)
+                for idx2, wp in enumerate(weapons_name):
+                    link = "./splat/images/weapons/"+wp+".webp"
+                    image_to_add = Image.open(link)
 
                     size = (70,70)
                     image_to_add = image_to_add.resize(size)
@@ -211,12 +211,12 @@ def render_coop(li):
                 # Add text to the image
                 tmp.text(text_position, txt, fill="black", font=font)
 
+                # Add weapons
                 _x = 260
                 _y = y-10
-                for idx2, wp in enumerate(weapons):
-                    response = requests.get(wp)
-                    image_bytes = BytesIO(response.content)
-                    image_to_add = Image.open(image_bytes)
+                for idx2, wp in enumerate(weapons_name):
+                    link = "./splat/images/weapons/"+wp+".webp"
+                    image_to_add = Image.open(link)
 
                     size = (70,70)
                     image_to_add = image_to_add.resize(size)

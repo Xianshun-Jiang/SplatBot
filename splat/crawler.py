@@ -164,7 +164,10 @@ def parse_coop():
         weapons = []
         for wp in item['setting']['weapons']:
             weapons.append(wp['image']['url'])
-        tmp = dict({'start':start, 'end': end, 'name_cn':boss_cn,'img':img, 'weapons':weapons})
+        weapons_name = []
+        for wp in item['setting']['weapons']:
+            weapons_name.append(wp['name'])
+        tmp = dict({'start':start, 'end': end, 'name_cn':boss_cn,'img':img, 'weapons':weapons, 'weapons_name':weapons_name})
         stages.append(tmp)
     return stages
         
