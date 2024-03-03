@@ -169,7 +169,6 @@ class Robot(Job):
         match msg.content:
             case "/帮助" | "/help":
                 rsp = "目前支持功能：\r 时区分为:东部，中部，山地，西部(需加空格, 默认东部时间) \r 例子：/打工 东部\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊"
-
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
 
             case "/浣熊":
@@ -335,6 +334,9 @@ class Robot(Job):
                 tmp = "欢迎新朋友" + invitee +"入群，想必大家不一定了解 TA， 让我来给大家做个简短的介绍."
                 self.sendTextMsg(tmp, msg.roomid)
                 self.sendTextMsg(rsp, msg.roomid)
+        pat = re.findall(r"(.*)拍了拍我", msg.content)
+        if pat:
+            self.sendTextMsg("你拍你爹干嘛",msg.roomid)
 
 
 

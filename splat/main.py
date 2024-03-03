@@ -9,12 +9,12 @@ def get_regular(tz = "东部"):
 
 def get_challenge(tz = "东部"):
     update()
-    li = parse_challenge(tz)#[:5*2]
+    li = parse_challenge(tz)[:5*2]
     return render_zg(li, tz)
 
 def get_open(tz = "东部"):
     update()
-    li = parse_open(tz)#[:5*2]
+    li = parse_open(tz)[:5*2]
     return render_zg(li, tz)
 
 def get_coop(tz = "东部"):
