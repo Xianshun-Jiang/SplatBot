@@ -305,7 +305,7 @@ class Robot(Job):
         if invite:
             invitee = invite[0][1]
             invitee = re.sub(r'^.|.$', '', invitee)
-            q = "请向大家介绍一下" + str(invitee)
+            q = "以不正经，欢乐，愉快的方式向大家介绍一下" + str(invitee)
             rsp = self.chat.get_answer(q, msg.roomid)
             if rsp:
                 tmp = "欢迎新朋友" + invitee +"入群，想必大家不一定了解 TA， 让我来给大家做个简短的介绍."
