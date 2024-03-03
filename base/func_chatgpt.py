@@ -69,7 +69,6 @@ class ChatGPT():
                 {"role": "system", "content": "" + time_mk + now_time}
             ]
             self.conversation_list[wxid] = question_
-
         # 当前问题
         content_question_ = {"role": role, "content": question}
         self.conversation_list[wxid].append(content_question_)
@@ -79,7 +78,6 @@ class ChatGPT():
                 continue
             if cont["content"].startswith(time_mk):
                 cont["content"] = time_mk + now_time
-
         # 只存储10条记录，超过滚动清除
         i = len(self.conversation_list[wxid])
         if i > 10:

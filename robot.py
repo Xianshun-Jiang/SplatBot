@@ -185,9 +185,13 @@ class Robot(Job):
             # 如果在群里被 @
             if msg.roomid not in self.config.GROUPS:  # 不在配置的响应的群列表里，忽略
                 return
+            
+            if msg.type == 10000: #群里系统消息
+                self.groupSystemMsg(msg)
+                return 
+
             if msg.is_at(self.wxid):  # 被@
                 self.toAt(msg)
-
             else:  # 其他消息
                 # self.toChengyu(msg)
                 self.process_splat(msg)
@@ -295,6 +299,20 @@ class Robot(Job):
             # 添加了好友，更新好友列表
             self.allContacts[msg.sender] = nickName[0]
             self.sendTextMsg(f"Hi {nickName[0]}，我自动通过了你的好友请求。", msg.sender)
+
+    def groupSystemMsg(self, msg:WxMsg) -> None:
+        invite = re.findall(r"(.*)邀请(.*)加入了群聊", msg.content)
+        if invite:
+            invitee = invite[0][1]
+            invitee = re.sub(r'^.|.$', '', invitee)
+            q = "请向大家介绍一下" + str(invitee)
+            rsp = self.chat.get_answer(q, msg.roomid)
+            if rsp:
+                tmp = "欢迎新朋友" + invitee +"入群，想必大家不一定了解 TA， 让我来给大家做个简短的介绍."
+                self.sendTextMsg(tmp, msg.roomid)
+                self.sendTextMsg(rsp, msg.roomid)
+
+
 
     def newsReport(self) -> None:
         receivers = self.config.NEWS
