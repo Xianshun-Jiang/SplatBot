@@ -1,6 +1,6 @@
 import requests
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 import pytz
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
@@ -29,6 +29,7 @@ event = r['eventSchedules']['nodes']
 fest = r['festSchedules']['nodes']
 
 def update():
+    global r, regular,ranked,x,coop,event,fest
     # Get the current time
     now = datetime.now()
 
@@ -63,7 +64,7 @@ def timezone_conversion(time_str):
 
     re = pytz.timezone('America/New_York')
     re = tokyo_datetime.astimezone(re)
-    return re.strftime('%m-%d %H:%M')
+    return re
 
 def parse_regular():
     stages = []
@@ -72,9 +73,9 @@ def parse_regular():
         # Get all necessary data
 
         # Start time
-        start = timezone_conversion(item['startTime'])
+        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime'])
+        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
         for vs_stage in item["regularMatchSetting"]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
@@ -93,9 +94,9 @@ def parse_challenge():
 
     for item in ranked:
         # Start time
-        start = timezone_conversion(item['startTime'])
+        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime'])
+        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
@@ -116,9 +117,9 @@ def parse_open():
 
     for item in ranked:
         # Start time
-        start = timezone_conversion(item['startTime'])
+        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime'])
+        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
@@ -138,9 +139,9 @@ def parse_x():
 
     for item in x:
         # Start time
-        start = timezone_conversion(item['startTime'])
+        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime'])
+        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["xMatchSetting"]["vsRule"]['id'])
         for vs_stage in item["xMatchSetting"]['vsStages']:
@@ -159,13 +160,12 @@ def parse_coop():
     stages = []
     for idx, item in enumerate(coop):
         # Start time
-        start = timezone_conversion(item['startTime'])
+        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M')
         # End time
-        end = timezone_conversion(item['endTime']) 
+        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
         # Remaining time
         if idx ==0:
-            remain = datetime.now() - datetime.strptime(start,'%m-%d %H:%M')
-            # remain = remain.strftime('%m-%d %H:%M')
+            remain = timezone_conversion(item['endTime']) - datetime.now(timezone.utc) 
         else:
             remain = 0
         # English name of the boss
@@ -175,11 +175,14 @@ def parse_coop():
         # url of the stage
         img = item['setting']['coopStage']['thumbnailImage']['url']
         img = "./splat/images/stages/"+img.rpartition("/")[-1]
+        # Stage name
+        stage_cn = translate_stage(item['setting']['coopStage']['id'])
         # All weapons
         weapons_name = []
         for wp in item['setting']['weapons']:
             weapons_name.append(wp['name'])
-        tmp = dict({'start':start, 'end': end, 'remain':remain,'name_cn':boss_cn, 'name_en':boss_en,'img':img, 'weapons_name':weapons_name })
+
+        tmp = dict({'start':start, 'end': end, 'remain':remain,'name_cn':boss_cn, 'name_en':boss_en,'img':img, 'weapons_name':weapons_name, 'stage_cn':stage_cn})
         stages.append(tmp)
     return stages
         

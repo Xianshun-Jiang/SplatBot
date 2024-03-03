@@ -1,9 +1,11 @@
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import requests
+from datetime import datetime
 
 #TODO select font path
 font_path = './splat/fonts/DFP_GBZY9.ttf'
+URL = "./splat/images/"
 
 
 
@@ -12,7 +14,7 @@ def render_battle(li):
     height = 1000
     i = 0
     re = Image.new("RGBA", (width, height), "white")
-    tmp  = ImageDraw.Draw(re)
+    draw  = ImageDraw.Draw(re)
     x = 100
     y = 40
     for idx, item in enumerate(li):
@@ -42,8 +44,8 @@ def render_battle(li):
         end_position = (0,y+30)
     
         # Add text to the image
-        tmp.text(text_position, start, fill="black", font=font)
-        tmp.text(end_position, end, fill="black", font=font)
+        draw.text(text_position, start, fill="black", font=font)
+        draw.text(end_position, end, fill="black", font=font)
 
         # Update x y
         x = 340 - x
@@ -60,7 +62,7 @@ def render_zg(li):
     height = 1000
     i = 0
     re = Image.new("RGBA", (width, height), "white")
-    tmp  = ImageDraw.Draw(re)
+    draw  = ImageDraw.Draw(re)
     x = 100
     y = 40
     for idx, item in enumerate(li):
@@ -86,7 +88,7 @@ def render_zg(li):
         re.paste( image_to_add,position)
         
         rule_position = (0,y+50)
-        link = "./splat/images/rule/"+rule+".png"
+        link = URL+"rule/"+rule+".png"
         rule_img = Image.open(link)
         # Resize image
         scale = 0.2
@@ -104,8 +106,8 @@ def render_zg(li):
         end_position = (0, y+25)
     
         # Add text to the image
-        tmp.text(text_position, start, fill="black", font=font)
-        tmp.text(end_position, end, fill="black", font=font)
+        draw.text(text_position, start, fill="black", font=font)
+        draw.text(end_position, end, fill="black", font=font)
 
         # Update x y
         x = 340 - x
@@ -117,12 +119,32 @@ def render_zg(li):
 
 def render_coop(li):
     width = 400
-    height = 1000
-    i = 0
-    re = Image.new("RGBA", (width, height), "white")
-    tmp  = ImageDraw.Draw(re)
+    height = 1060 - (5 - len(li)) * 160
+    dim = (width,height)
+
+    re = Image.new("RGBA", dim, "white")
+
+    # Set background
+    background_path = URL+"misc/coop_bg.PNG"
+    background = Image.open(background_path)
+    scale = 0.05
+    size = (int(scale * background.size[0]), int(scale * background.size[1]))
+    background = background.resize(size)
+    for x in range(0, width, background.width):
+        for y in range(0, height, background.height):
+            re.paste(background, (x, y))
+
+    # Set overlay of backgroundS
+    overlay = Image.new('RGBA', dim, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+    draw.rectangle([0, 0, width, height], fill=(255, 100, 10, 180))
+    re = Image.alpha_composite(re, overlay)
+
+    draw  = ImageDraw.Draw(re)
+
     x = 0
-    y = 370
+    y = 420
+
     for idx, item in enumerate(li):
         start = item['start']
         end = item['end']
@@ -130,6 +152,7 @@ def render_coop(li):
         url = item['img']
         weapons_name = item['weapons_name']
         remain = item['remain']
+        stage_cn = item['stage_cn']
 
         image_to_add = Image.open(url)
         if idx == 0:
@@ -138,39 +161,57 @@ def render_coop(li):
             size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
             image_to_add = image_to_add.resize(size)
             
-            position = (0, 50)
+            position = (0, y-320)
             # image_to_add.show()
             re.paste(image_to_add,position)
             # Choose a font and size
             font = ImageFont.truetype(font_path, size=20)
             
             # Specify text position
-            text_position = (0, 10)
-            txt = start + " - " + end 
+            text_position = (0, y-350)
+            
+            hours, remainder = divmod(remain.seconds, 3600)
+            if remain.days == 1:
+                hours +=24
+            minutes, seconds = divmod(remainder, 60)
+            
+            txt = "开放中: " + end + ", 剩余：" + str(hours)+ "时" + str(minutes) + "分" 
             # Add text to the image
-            tmp.text(text_position, txt, fill="black", font=font)
+            draw.text(text_position, txt, fill="black", font=font)
 
             # Add Boss
-            position = (0,y-170)
-            link = "./splat/images/bosses/"+boss+".png"
+            position = (0,y-200)
+            link = URL+"bosses/"+boss+".png"
             boss_img = Image.open(link)
-            size = (50,50)
+            size = (80,80)
             boss_img = boss_img.resize(size)
-            re.paste(boss_img,position)
+            re.paste(boss_img,position,boss_img)
+            
+            # Add stage name
+            stage_font = ImageFont.truetype(font_path, size=30)
+            text_width = draw.textlength(stage_cn,font=stage_font)
+            _x = int((width - text_width) / 2)
+            _y = y-160
+            left, top, right, bottom = draw.textbbox((_x,_y),stage_cn,font=stage_font)
+            draw.rectangle((left-10, top-5, right+10, bottom+5),fill="black")
+            draw.text((_x, _y),stage_cn,fill="white",font=stage_font)
 
             # Add weapons for main stage
             _x = 100
             _y = y-120
             for idx2, wp in enumerate(weapons_name):
-                link = "./splat/images/weapons/"+wp+".webp"
+                link = URL+"weapons/"+wp+".webp"
                 image_to_add = Image.open(link)
 
                 size = (70,70)
                 image_to_add = image_to_add.resize(size)
 
-                _x = 300 - 100*idx2
+                _x = 24 + 94*idx2
                 position = (_x, _y)
-                re.paste(image_to_add,position)
+                re.paste(image_to_add,position, image_to_add)
+
+            draw.line((0, 60, 400, 60), fill=(0, 0, 0), width=5)
+
 
         else:
             # Resize image:
@@ -182,26 +223,35 @@ def render_coop(li):
             re.paste(image_to_add,position)
 
             # Specify text position
-            text_position = (0, y-30)
+            text_position = (0, y-35)
             txt = start + " - " + end 
 
             # Add text to the image
             font = ImageFont.truetype(font_path, size=20)
-            tmp.text(text_position, txt, fill="black", font=font)
+            draw.text(text_position, txt, fill="black", font=font)
 
             # Add Boss
-            position = (0,y)
-            link = "./splat/images/bosses/"+boss+".png"
+            position = (0,y+50)
+            link = URL+"bosses/"+boss+".png"
             boss_img = Image.open(link)
-            size = (40,40)
+            size = (60,60)
             boss_img = boss_img.resize(size)
-            re.paste(boss_img,position)
+            re.paste(boss_img,position,boss_img)
+
+            # Add stage name
+            stage_font = ImageFont.truetype(font_path, size=20)
+            text_width = draw.textlength(stage_cn,font=stage_font)
+            _x = int((image_to_add.width - text_width) / 2)
+            _y = y + 4
+            left, top, right, bottom = draw.textbbox((_x,_y),stage_cn,font=stage_font)
+            draw.rectangle((left-10, top-4, right+10, bottom+4),fill="black")
+            draw.text((_x, _y),stage_cn,fill="white",font=stage_font)
 
             # Add weapons
-            _x = 260
-            _y = y-10
+            _x = 240
+            _y = y-15
             for idx2, wp in enumerate(weapons_name):
-                link = "./splat/images/weapons/"+wp+".webp"
+                link = URL+"weapons/"+wp+".webp"
                 image_to_add = Image.open(link)
 
                 size = (70,70)
@@ -210,8 +260,8 @@ def render_coop(li):
                 __x = _x + 70 * (idx2 // 2)
                 __y = _y + 70 * (idx2 % 2)
                 position = (__x, __y)
-                re.paste(image_to_add,position)
+                re.paste(image_to_add,position, image_to_add)
 
             y += 160
-
+        draw.line((0, y-40, 400, y-40), fill=(0, 0, 0), width=5)
     return re
