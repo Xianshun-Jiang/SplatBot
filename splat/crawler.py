@@ -34,7 +34,7 @@ def update():
     now = datetime.now()
 
     # Check if it's exactly on the hour
-    if now.minute == 0 and now.second == 0:
+    if now.minute == 0:
         # Get data from database
         r = requests.get(url).json()["data"]
 
@@ -68,10 +68,9 @@ def timezone_conversion(time_str):
 
 def parse_regular():
     stages = []
+    global regular
 
     for item in regular:
-        # Get all necessary data
-
         # Start time
         start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
         # End time
@@ -91,6 +90,7 @@ def parse_regular():
 
 def parse_challenge():
     stages = []
+    global ranked
 
     for item in ranked:
         # Start time
@@ -114,6 +114,7 @@ def parse_challenge():
 
 def parse_open():
     stages = []
+    global ranked
 
     for item in ranked:
         # Start time
@@ -136,6 +137,7 @@ def parse_open():
 
 def parse_x():
     stages = []
+    global x
 
     for item in x:
         # Start time
@@ -158,6 +160,7 @@ def parse_x():
 
 def parse_coop():
     stages = []
+    global coop
     for idx, item in enumerate(coop):
         # Start time
         start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M')

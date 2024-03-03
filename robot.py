@@ -24,6 +24,9 @@ from splat import renderer
 
 __version__ = "39.0.10.1"
 
+# TODO change absolute path to the project 
+URL = "C:/Users/notci/OneDrive/Desktop/SplatBot/"
+
 
 class Robot(Job):
     """个性化自己的机器人
@@ -119,37 +122,53 @@ class Robot(Job):
     def process_splat(self, msg: WxMsg) -> bool:
         match msg.content:
             case "/帮助" | "/help":
-                rsp = "目前支持功能：\r/挑战 \r/开放 \r/涂地 \r/x \r/打工"
+                rsp = "目前支持功能：\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
         
             case "/挑战":
                 img = splat.get_challenge()
                 img.save('./tmp/challenge.png')
                 #TODO change location
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/challenge.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
             
             case "/开放":
                 img = splat.get_open()
                 img.save('./tmp/open.png')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/open.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
 
             case "/涂地":
                 img = splat.get_regular()
                 img.save('./tmp/regular.png')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/regular.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
 
             case "/x":
                 img = splat.get_x()
                 img.save('./tmp/x.png')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/x.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
 
             case "/打工" | "/工":
                 img = splat.get_coop()
                 img.save('./tmp/coop.png')
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/tmp/coop.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
 
             case "/浣熊":
-                self.wcf.send_image(f"{"C:/Users/notci/OneDrive/Desktop/SplatBot/Raccoon.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
+
+            case "/合照1":
+                self.wcf.send_text("感谢奥追老师的作品",msg.roomid)
+                self.wcf.send_image(f"{URL+"images/family1.jpg"}", msg.roomid)
+
+            case "/合照2":
+                self.wcf.send_text("感谢奥追老师的作品",msg.roomid)
+                self.wcf.send_image(f"{URL+"images/family2.jpg"}", msg.roomid)
+            
+            case "/合照注释版":
+                self.wcf.send_text("感谢奥追老师的作品，以及派克老师的注释",msg.roomid)
+                self.wcf.send_image(f"{URL+"images/family_annotated.png"}", msg.roomid)
+
+            case "/怪猎合照":
+                self.wcf.send_text("感谢丁真老师的作品",msg.roomid)
+                self.wcf.send_image(f"{URL+"images/mh_family1.jpg"}", msg.roomid)
                 
                 
     def processMsg(self, msg: WxMsg) -> None:
