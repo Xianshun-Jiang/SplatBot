@@ -58,23 +58,39 @@ def translate_boss(id):
 def translate_rule(id):
     return dic['rules'][id]['name']
 
-def timezone_conversion(time_str):
+def timezone_conversion(time_str, tz = "东部"):
     tokyo_timezone = pytz.timezone('Asia/Tokyo')
     tokyo_datetime = datetime.fromisoformat(time_str).astimezone(tokyo_timezone)
+    
+    print(tz)
+    match tz:
+        case "东部":
+            re = pytz.timezone('America/New_York')
+            re = tokyo_datetime.astimezone(re)
+            return re
+        case "西部":
+            re = pytz.timezone('US/Pacific')
+            re = tokyo_datetime.astimezone(re)
+            return re
+        case "中部":
+            re = pytz.timezone('US/Central')
+            re = tokyo_datetime.astimezone(re)
+            return re
+        case "山地" | "山区":
+            re = pytz.timezone('US/Mountain')
+            re = tokyo_datetime.astimezone(re)
+            return re
 
-    re = pytz.timezone('America/New_York')
-    re = tokyo_datetime.astimezone(re)
-    return re
 
-def parse_regular():
+def parse_regular(tz = "东部"):
     stages = []
     global regular
 
     for item in regular:
         # Start time
-        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
+        start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
+        end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         for vs_stage in item["regularMatchSetting"]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
@@ -88,15 +104,15 @@ def parse_regular():
 
     return stages
 
-def parse_challenge():
+def parse_challenge(tz = "东部"):
     stages = []
     global ranked
 
     for item in ranked:
         # Start time
-        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
+        start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
+        end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
@@ -112,15 +128,15 @@ def parse_challenge():
 
     return stages
 
-def parse_open():
+def parse_open(tz = "东部"):
     stages = []
     global ranked
 
     for item in ranked:
         # Start time
-        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
+        start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
+        end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
@@ -135,15 +151,15 @@ def parse_open():
 
     return stages
 
-def parse_x():
+def parse_x(tz = "东部"):
     stages = []
     global x
 
     for item in x:
         # Start time
-        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M') 
+        start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
-        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
+        end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["xMatchSetting"]["vsRule"]['id'])
         for vs_stage in item["xMatchSetting"]['vsStages']:
@@ -158,17 +174,17 @@ def parse_x():
 
     return stages
 
-def parse_coop():
+def parse_coop(tz = "东部"):
     stages = []
     global coop
     for idx, item in enumerate(coop):
         # Start time
-        start = timezone_conversion(item['startTime']).strftime('%m-%d %H:%M')
+        start = timezone_conversion(item['startTime'],tz).strftime('%m-%d %H:%M')
         # End time
-        end = timezone_conversion(item['endTime']).strftime('%m-%d %H:%M') 
+        end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Remaining time
         if idx ==0:
-            remain = timezone_conversion(item['endTime']) - datetime.now(timezone.utc) 
+            remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
         else:
             remain = 0
         # English name of the boss

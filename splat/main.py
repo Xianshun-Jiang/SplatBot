@@ -2,29 +2,29 @@ from splat.crawler import *
 from splat.renderer import *
 
 
-def get_regular():
+def get_regular(tz = "东部"):
     update()
-    li = parse_regular()#[:5*2]
-    return render_battle(li)
+    li = parse_regular(tz)#[:5*2]
+    return render_battle(li, tz)
 
-def get_challenge():
+def get_challenge(tz = "东部"):
     update()
-    li = parse_challenge()#[:5*2]
-    return render_zg(li)
+    li = parse_challenge(tz)#[:5*2]
+    return render_zg(li, tz)
 
-def get_open():
+def get_open(tz = "东部"):
     update()
-    li = parse_open()#[:5*2]
-    return render_zg(li)
+    li = parse_open(tz)#[:5*2]
+    return render_zg(li, tz)
 
-def get_coop():
+def get_coop(tz = "东部"):
     update()
-    li = parse_coop()
-    return render_coop(li)
+    li = parse_coop(tz)
+    return render_coop(li, tz)
 
-def get_x():
+def get_x(tz = "东部"):
     update()
-    li = parse_x()#[:5*2]
-    return render_zg(li)
+    li = parse_x(tz)#[:5*2]
+    return render_zg(li, tz)
 
 

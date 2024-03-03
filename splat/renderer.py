@@ -9,7 +9,7 @@ URL = "./splat/images/"
 
 
 
-def render_battle(li):
+def render_battle(li, tz = "东部"):
     width = 400
     height = 1000
     i = 0
@@ -57,7 +57,7 @@ def render_battle(li):
         i = 1 - i
     return re
 
-def render_zg(li):
+def render_zg(li, tz = "东部"):
     width = 400
     height = 1000
     i = 0
@@ -117,7 +117,7 @@ def render_zg(li):
         i = 1 - i
     return re
 
-def render_coop(li):
+def render_coop(li, tz = "东部"):
     width = 400
     height = 1060 - (5 - len(li)) * 160
     dim = (width,height)

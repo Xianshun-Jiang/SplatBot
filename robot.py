@@ -120,36 +120,55 @@ class Robot(Job):
             return False
         
     def process_splat(self, msg: WxMsg) -> bool:
+        # Process splatoon request
+        if len(msg.content) < 10:
+            
+            words = msg.content.split()
+            timezone = words[1]
+            if msg.content.startswith("/挑战"):
+                if timezone == "":
+                    img = splat.get_challenge()
+                else:
+                    img = splat.get_challenge(timezone)
+                img.save('./tmp/challenge.png')
+                self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
+                
+            elif msg.content.startswith('/开放'):
+                if timezone == "":
+                    img = splat.get_open()
+                else:
+                    img = splat.get_open(timezone)
+                img.save('./tmp/open.png')
+                self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
+
+            elif msg.content.startswith('/涂地'):
+                if timezone == "":
+                    img = splat.get_regular()
+                else:
+                    img = splat.get_regular(timezone)
+                img.save('./tmp/regular.png')
+                self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
+
+            elif msg.content.startswith('/x'):
+                if timezone == "":
+                    img = splat.get_x()
+                else :
+                    img = splat.get_x(timezone)
+                img.save('./tmp/x.png')
+                self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
+
+            elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
+                if timezone == "":
+                    img = splat.get_coop()
+                else:
+                    img = splat.get_coop(timezone)
+                img.save('./tmp/coop.png')
+                self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
+        # Process other request
         match msg.content:
             case "/帮助" | "/help":
                 rsp = "目前支持功能：\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
-        
-            case "/挑战":
-                img = splat.get_challenge()
-                img.save('./tmp/challenge.png')
-                #TODO change location
-                self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
-            
-            case "/开放":
-                img = splat.get_open()
-                img.save('./tmp/open.png')
-                self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
-
-            case "/涂地":
-                img = splat.get_regular()
-                img.save('./tmp/regular.png')
-                self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
-
-            case "/x":
-                img = splat.get_x()
-                img.save('./tmp/x.png')
-                self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
-
-            case "/打工" | "/工":
-                img = splat.get_coop()
-                img.save('./tmp/coop.png')
-                self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
 
             case "/浣熊":
                 self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
