@@ -142,6 +142,16 @@ def render_coop(li, tz = "东部"):
 
     draw  = ImageDraw.Draw(re)
 
+    # Display timezone 
+    txt = "鲑鱼跑"+ tz + "时间"
+    font = ImageFont.truetype(font_path, size=40)
+    text_width = draw.textlength(txt,font=font)
+    _x = int((width - text_width) / 2)
+    _y = 15
+    left, top, right, bottom = draw.textbbox((_x,_y),txt,font=font)
+    draw.rectangle((left-10, top-5, right+10, bottom+5),fill="black")
+    draw.text((_x,_y), txt, fill="white", font=font)
+
     x = 0
     y = 420
 

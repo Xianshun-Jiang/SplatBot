@@ -62,7 +62,6 @@ def timezone_conversion(time_str, tz = "东部"):
     tokyo_timezone = pytz.timezone('Asia/Tokyo')
     tokyo_datetime = datetime.fromisoformat(time_str).astimezone(tokyo_timezone)
     
-    print(tz)
     match tz:
         case "东部":
             re = pytz.timezone('America/New_York')

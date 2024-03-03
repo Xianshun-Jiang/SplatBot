@@ -121,10 +121,11 @@ class Robot(Job):
         
     def process_splat(self, msg: WxMsg) -> bool:
         # Process splatoon request
-        if len(msg.content) < 10:
-            
+        if len(msg.content) < 10 :
             words = msg.content.split()
-            timezone = words[1]
+            timezone = ""
+            if " " in msg.content:
+                timezone = words[1]
             if msg.content.startswith("/挑战"):
                 if timezone == "":
                     img = splat.get_challenge()
@@ -172,8 +173,11 @@ class Robot(Job):
 
             case "/浣熊":
                 self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
+            
+            case "/摆烂":
+                self.wcf.send_image(f"{URL+"images/bailan.png"}", msg.roomid)
 
-            case "/合照1":
+            case "/合照" | "/合照1":
                 self.wcf.send_text("感谢奥追老师的作品",msg.roomid)
                 self.wcf.send_image(f"{URL+"images/family1.jpg"}", msg.roomid)
 
