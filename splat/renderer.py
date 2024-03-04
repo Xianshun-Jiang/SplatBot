@@ -9,64 +9,151 @@ URL = "./splat/images/"
 
 
 
-def render_battle(li, tz = "东部"):
+def render_battle(li, tz = "东部", rule = "占地模式"):
     width = 400
-    height = 1000
-    i = 0
-    re = Image.new("RGBA", (width, height), "white")
-    draw  = ImageDraw.Draw(re)
-    x = 100
-    y = 40
-    for idx, item in enumerate(li):
-        start = item['start']
-        end = item['end']
-        name = item['name_cn']
-        url = item['img']
-          
-        # Open the image using Pillow
-        image_to_add = Image.open(url)
-        
-        # Resize image:
-        scale = 0.3
-        size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
-        image_to_add = image_to_add.resize(size)
-
-        # Put add image
-        position = (x, y)
-
-        re.paste( image_to_add,position)
-        
-        # Choose a font and size
-        font = ImageFont.truetype("arial.ttf", size=18)
-        
-        # Specify text position
-        text_position = (0, y)
-        end_position = (0,y+30)
-    
-        # Add text to the image
-        draw.text(text_position, start, fill="black", font=font)
-        draw.text(end_position, end, fill="black", font=font)
-
-        # Update x y
-        x = 340 - x
-        if idx % 2 == 1:
-            y+= 70
-
-
-            
-        i = 1 - i
-    return re
-
-def render_zg(li, tz = "东部",rule = "真格挑战"):
-    width = 400
-    height = 180+ len(li) * 80
+    height = 400+ len(li) * 80
     re = Image.new("RGBA", (width, height), "white")
     draw  = ImageDraw.Draw(re)
 
     # Set background colors
     color = Image.new('RGBA', (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(color)
-    draw.rectangle([0, 0, width, height], fill=(255, 98, 8, 255))
+    draw.rectangle([0, 0, width, height], fill=(23, 199, 26, 255))
+    re = Image.alpha_composite(re, color)
+
+    # Set background overlay
+    background_path = URL+"misc/fight_mask.png"
+    background = Image.open(background_path)
+    scale = 0.05
+    size = (int(scale * background.size[0]), int(scale * background.size[1]))
+    background = background.resize(size)
+    for x in range(0, width, background.width):
+        for y in range(0, height, background.height):
+            re.paste(background, (x, y), background)
+
+    # Update draw
+    draw  = ImageDraw.Draw(re)
+
+    # Display timezone 
+    txt = rule + tz + "时间"
+    font = ImageFont.truetype(font_path, size=40)
+    text_width = draw.textlength(txt,font=font)
+    _x = int((width - text_width) / 2)
+    _y = 30
+    left, top, right, bottom = draw.textbbox((_x,_y), txt, font=font)
+    draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+    draw.text((_x,_y), txt, fill="white", font=font)
+
+    x = 100
+    y = 500
+    for idx, item in enumerate(li):
+        start = item['start']
+        end = item['end']
+        name = item['name_cn']
+        url = item['img']
+        remain = item['remain']
+        if idx < 2:
+            if idx % 2 == 0:
+                # Setup frame background
+                draw.rounded_rectangle((20,100,380,480),radius=8,fill="#202020")
+
+                # Calculate remaining time            
+                hours, remainder = divmod(remain.seconds, 3600)
+                minutes, seconds = divmod(remainder, 90)
+                # Add remaining time 
+                txt = "开放中,剩余：" + str(hours)+ "时" + str(minutes) + "分"
+                _font = ImageFont.truetype(font_path, size=26) 
+                text_width = draw.textlength(txt,font=_font)
+                _x = int((width - text_width) / 2)
+                _y = 460
+                left, top, right, bottom = draw.textbbox((_x,_y),txt,font=_font)
+                draw.rectangle((left-10, top-5, right+10, bottom+5),fill="black")
+                draw.text((_x,_y), txt, fill="white", font=_font)
+
+            # Add stage image
+            stage = Image.open(url).convert("RGBA")
+            # Resize image:
+            scale = 0.8
+            size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+            stage = stage.resize(size)
+            stage = circle_corner(stage, 20)
+
+            _x = int((width- stage.width) / 2)
+            _y = 120
+            if idx % 2 == 1:
+                _y = 180 + _y
+            position = (_x,_y)
+            re.paste(stage,position, stage)
+
+            # Add stage name
+            _font = ImageFont.truetype(font_path, size=24)
+            text_width = draw.textlength(name, font=_font)
+            _x = int((width - text_width) / 2)
+            __y = _y + (stage.height - _font.size)/2
+            position = (_x, __y)
+            left, top, right, bottom = draw.textbbox((_x,__y), name, font=_font)
+            draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+            draw.text((_x,__y), name, fill="white", font=_font)
+
+        else: 
+            if idx % 2 == 0:
+                # Setup frame background
+                draw.rounded_rectangle((20,y,380,y+140),radius=8,fill="#202020")
+                # Add time period
+                time = start + " - " + end.split()[1]
+                _font = ImageFont.truetype(font_path, size=20)
+                text_width = draw.textlength(time, font=_font)
+                _x = int((width - text_width) / 2)
+                _y = y+3
+                # left, top, right, bottom = draw.textbbox((_x,_y), txt, font=_font)
+                # draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+                draw.text((_x,_y), time, fill="white", font=_font)
+                    
+            # Add stage image
+            stage = Image.open(url).convert("RGBA")
+            # Resize image:
+            scale = 0.4
+            size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+            stage = stage.resize(size)
+            stage = circle_corner(stage, 20)
+
+            _x = int((360- 2 * stage.width) / 4)+ 20
+            if idx % 2 == 1:
+                _x = 180 + _x
+            position = (_x, y + 35)
+            re.paste(stage,position, stage)
+
+            # Add stage name
+            _font = ImageFont.truetype(font_path, size=16)
+            text_width = draw.textlength(name, font=_font)
+            _x = _x + int((stage.width - text_width) / 2)
+            _y = y + 110
+            position = (_x, _y)
+            left, top, right, bottom = draw.textbbox((_x,_y), name, font=_font)
+            draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+            draw.text((_x,_y), name, fill="white", font=_font)
+
+            
+            # Update y
+            if idx % 2 == 1:
+                y+= 160
+
+    return re
+
+
+def render_zg(li, tz = "东部",rule = "真格挑战"):
+    width = 400
+    height = 400+ len(li) * 80
+    re = Image.new("RGBA", (width, height), "white")
+    draw  = ImageDraw.Draw(re)
+
+    # Set background colors
+    color = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(color)
+    if rule == "X比赛":
+        draw.rectangle([0, 0, width, height], fill=(15, 201, 145, 255))
+    else:
+        draw.rectangle([0, 0, width, height], fill=(255, 98, 8, 255))
     re = Image.alpha_composite(re, color)
 
     # Set background overlay
@@ -94,65 +181,117 @@ def render_zg(li, tz = "东部",rule = "真格挑战"):
 
 
     x = 100
-    y = 100
+    y = 500
     for idx, item in enumerate(li):
         start = item['start']
         end = item['end']
         name = item['name_cn']
         url = item['img']
         rule = item['rule']
-        
-        
-        if idx % 2 == 0:
-            # Setup frame background
-            draw.rounded_rectangle((20,y,380,y+140),radius=8,fill="#202020")
-            # Add time period
-            time = start + " - " + end.split()[1]
-            _font = ImageFont.truetype(font_path, size=20)
-            text_width = draw.textlength(time, font=_font)
+        remain = item['remain']
+        if idx < 2:
+            if idx % 2 == 0:
+                # Setup frame background
+                draw.rounded_rectangle((20,100,380,480),radius=8,fill="#202020")
+
+                # Calculate remaining time            
+                hours, remainder = divmod(remain.seconds, 3600)
+                minutes, seconds = divmod(remainder, 90)
+                # Add remaining time 
+                txt = "开放中,剩余" + str(hours)+ "时" + str(minutes) + "分"
+                _font = ImageFont.truetype(font_path, size=26) 
+                text_width = draw.textlength(txt,font=_font)
+                _x = int((width - text_width) / 2)
+                _y = 460
+                left, top, right, bottom = draw.textbbox((_x,_y),txt,font=_font)
+                draw.rectangle((left-10, top-5, right+10, bottom+5),fill="black")
+                draw.text((_x,_y), txt, fill="white", font=_font)
+
+            # Add stage image
+            stage = Image.open(url).convert("RGBA")
+            # Resize image:
+            scale = 0.8
+            size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+            stage = stage.resize(size)
+            stage = circle_corner(stage, 20)
+
+            _x = int((width- stage.width) / 2)
+            _y = 120
+            if idx % 2 == 1:
+                _y = 180 + _y
+            position = (_x,_y)
+            re.paste(stage,position, stage)
+
+            # Add stage name
+            _font = ImageFont.truetype(font_path, size=24)
+            text_width = draw.textlength(name, font=_font)
             _x = int((width - text_width) / 2)
-            _y = y+3
-            # left, top, right, bottom = draw.textbbox((_x,_y), txt, font=_font)
-            # draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
-            draw.text((_x,_y), time, fill="white", font=_font)
-                
-        # Add stage image
-        stage = Image.open(url).convert("RGBA")
-        # Resize image:
-        scale = 0.4
-        size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
-        stage = stage.resize(size)
-        stage = circle_corner(stage, 20)
+            __y = _y + (stage.height - _font.size)/2
+            position = (_x, __y)
+            left, top, right, bottom = draw.textbbox((_x,__y), name, font=_font)
+            draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+            draw.text((_x,__y), name, fill="white", font=_font)
 
-        _x = int((360- 2 * stage.width) / 4)+ 20
-        if idx % 2 == 1:
-            _x = 180 + _x
-        position = (_x, y + 35)
-        re.paste(stage,position, stage)
+            # Add Rule
+            if idx % 2 == 1:
+                link = URL+"rule/"+rule+".png"
+                rule_img = Image.open(link)
+                size= (100,100)
+                rule_img = rule_img.resize(size)
+                rule_position = (int((width -rule_img.width)/2), int(_y - size[1]/2))
+                re.paste( rule_img,rule_position,rule_img)
 
-        # Add stage name
-        _font = ImageFont.truetype(font_path, size=16)
-        text_width = draw.textlength(name, font=_font)
-        _x = _x + int((stage.width - text_width) / 2)
-        _y = y + 110
-        position = (_x, _y)
-        left, top, right, bottom = draw.textbbox((_x,_y), name, font=_font)
-        draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
-        draw.text((_x,_y), name, fill="white", font=_font)
+        else: 
+            if idx % 2 == 0:
+                # Setup frame background
+                draw.rounded_rectangle((20,y,380,y+140),radius=8,fill="#202020")
+                # Add time period
+                time = start + " - " + end.split()[1]
+                _font = ImageFont.truetype(font_path, size=20)
+                text_width = draw.textlength(time, font=_font)
+                _x = int((width - text_width) / 2)
+                _y = y+3
+                # left, top, right, bottom = draw.textbbox((_x,_y), txt, font=_font)
+                # draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+                draw.text((_x,_y), time, fill="white", font=_font)
+                    
+            # Add stage image
+            stage = Image.open(url).convert("RGBA")
+            # Resize image:
+            scale = 0.4
+            size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+            stage = stage.resize(size)
+            stage = circle_corner(stage, 20)
 
-        if idx % 2 == 1:
-            link = URL+"rule/"+rule+".png"
-            rule_img = Image.open(link)
-            size= (70,70)
-            rule_img = rule_img.resize(size)
-            rule_position = (int((width -rule_img.width)/2), y+40)
-            # Add image
-            re.paste( rule_img,rule_position,rule_img)
-        
+            _x = int((360- 2 * stage.width) / 4)+ 20
+            if idx % 2 == 1:
+                _x = 180 + _x
+            position = (_x, y + 35)
+            re.paste(stage,position, stage)
 
-        # Update y
-        if idx % 2 == 1:
-            y+= 160
+            # Add stage name
+            _font = ImageFont.truetype(font_path, size=16)
+            text_width = draw.textlength(name, font=_font)
+            _x = _x + int((stage.width - text_width) / 2)
+            _y = y + 110
+            position = (_x, _y)
+            left, top, right, bottom = draw.textbbox((_x,_y), name, font=_font)
+            draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+            draw.text((_x,_y), name, fill="white", font=_font)
+
+            # Add rule
+            if idx % 2 == 1:
+                link = URL+"rule/"+rule+".png"
+                rule_img = Image.open(link)
+                size= (70,70)
+                rule_img = rule_img.resize(size)
+                rule_position = (int((width -rule_img.width)/2), y+40)
+                re.paste( rule_img,rule_position,rule_img)
+            
+
+            # Update y
+            if idx % 2 == 1:
+                y+= 160
 
 
     return re

@@ -150,7 +150,7 @@ class Robot(Job):
                 img.save('./tmp/regular.png')
                 self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
 
-            elif msg.content.startswith('/x'):
+            elif msg.content.startswith('/x') or msg.content.startswith('/X'):
                 if timezone == "":
                     img = splat.get_x()
                 else :

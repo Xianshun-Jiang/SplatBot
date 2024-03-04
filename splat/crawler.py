@@ -85,11 +85,16 @@ def parse_regular(tz = "东部"):
     stages = []
     global regular
 
-    for item in regular:
+    for idx, item in enumerate(regular):
         # Start time
         start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
         end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
+        # Remaining time
+        if idx ==0:
+            remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
+        else:
+            remain = 0
         for vs_stage in item["regularMatchSetting"]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
@@ -98,7 +103,7 @@ def parse_regular(tz = "东部"):
             img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'remain':remain})
             stages.append(tmp)
 
     return stages
@@ -107,11 +112,16 @@ def parse_challenge(tz = "东部"):
     stages = []
     global ranked
 
-    for item in ranked:
+    for idx, item in enumerate(ranked):
         # Start time
         start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
         end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
+        # Remaining time
+        if idx ==0:
+            remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
+        else:
+            remain = 0
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
@@ -122,7 +132,7 @@ def parse_challenge(tz = "东部"):
             img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule, 'remain':remain})
             stages.append(tmp)
 
     return stages
@@ -131,11 +141,16 @@ def parse_open(tz = "东部"):
     stages = []
     global ranked
 
-    for item in ranked:
+    for idx, item in enumerate(ranked):
         # Start time
         start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
         end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
+        # Remaining time
+        if idx ==0:
+            remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
+        else:
+            remain = 0
         # Rule
         rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
         for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
@@ -145,7 +160,7 @@ def parse_open(tz = "东部"):
             img = vs_stage['image']['url']
             img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule, 'remain':remain})
             stages.append(tmp)
 
     return stages
@@ -154,13 +169,18 @@ def parse_x(tz = "东部"):
     stages = []
     global x
 
-    for item in x:
+    for idx, item in enumerate(x):
         # Start time
         start = timezone_conversion(item['startTime'], tz).strftime('%m-%d %H:%M') 
         # End time
         end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Rule
         rule = translate_rule(item["xMatchSetting"]["vsRule"]['id'])
+         # Remaining time
+        if idx ==0:
+            remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
+        else:
+            remain = 0
         for vs_stage in item["xMatchSetting"]['vsStages']:
             # Chinese name of the stage
             name_cn = translate_stage(vs_stage["id"])
@@ -168,7 +188,7 @@ def parse_x(tz = "东部"):
             img =vs_stage['image']['url']
             img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'rule':rule})
+            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'rule':rule, 'remain':remain})
             stages.append(tmp)
 
     return stages

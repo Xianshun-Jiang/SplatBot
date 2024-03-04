@@ -4,7 +4,7 @@ from splat.renderer import *
 
 def get_regular(tz = "东部"):
     update()
-    li = parse_regular(tz)#[:5*2]
+    li = parse_regular(tz)[:5*2]
     return render_battle(li, tz)
 
 def get_challenge(tz = "东部"):
@@ -24,7 +24,7 @@ def get_coop(tz = "东部"):
 
 def get_x(tz = "东部"):
     update()
-    li = parse_x(tz)#[:5*2]
-    return render_zg(li, tz)
+    li = parse_x(tz)[:5*2]
+    return render_zg(li, tz, "X比赛")
 
 
