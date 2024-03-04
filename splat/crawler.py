@@ -31,20 +31,20 @@ fest = r['festSchedules']['nodes']
 def update():
     global r, regular,ranked,x,coop,event,fest
     # Get the current time
-    now = datetime.now()
+    # now = datetime.now()
 
     # Check if it's exactly on the hour
-    if now.minute == 0:
-        # Get data from database
-        r = requests.get(url).json()["data"]
+    # if now.minute == 0:
+    # Get data from database
+    r = requests.get(url).json()["data"]
 
-        # Split data into categories
-        regular = r["regularSchedules"]['nodes']
-        ranked = r["bankaraSchedules"]['nodes']
-        x = r["xSchedules"]['nodes']
-        coop = r['coopGroupingSchedule']['regularSchedules']['nodes']
-        event = r['eventSchedules']['nodes']
-        fest = r['festSchedules']['nodes']
+    # Split data into categories
+    regular = r["regularSchedules"]['nodes']
+    ranked = r["bankaraSchedules"]['nodes']
+    x = r["xSchedules"]['nodes']
+    coop = r['coopGroupingSchedule']['regularSchedules']['nodes']
+    event = r['eventSchedules']['nodes']
+    fest = r['festSchedules']['nodes']
 
 def translate_stage(id):
     return dic['stages'][id]['name']
@@ -118,7 +118,7 @@ def parse_challenge(tz = "东部"):
         # End time
         end = timezone_conversion(item['endTime'], tz).strftime('%m-%d %H:%M') 
         # Remaining time
-        if idx ==0:
+        if idx == 0:
             remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
         else:
             remain = 0

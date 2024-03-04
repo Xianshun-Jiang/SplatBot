@@ -334,9 +334,10 @@ class Robot(Job):
                 tmp = "欢迎新朋友" + invitee +"入群，想必大家不一定了解 TA， 让我来给大家做个简短的介绍."
                 self.sendTextMsg(tmp, msg.roomid)
                 self.sendTextMsg(rsp, msg.roomid)
+        # pat me in a group chat
         pat = re.findall(r"(.*)拍了拍我", msg.content)
         if pat:
-            self.sendTextMsg("你拍你爹干嘛",msg.roomid)
+            self.sendTextMsg("你拍你女儿干嘛",msg.roomid)
 
 
 
