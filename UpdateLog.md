@@ -1,5 +1,6 @@
 ## Version 0.0.3 (3/3/2024)
  * Feature: Add welcome message
+ * Feature: Add timezone conversion for 4 different US timezones
  * Change: beautify coop display model 
 
 ## Version 0.0.2 (3/2/2024)

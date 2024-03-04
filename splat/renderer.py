@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 from io import BytesIO
 import requests
 from datetime import datetime
@@ -57,75 +57,114 @@ def render_battle(li, tz = "东部"):
         i = 1 - i
     return re
 
-def render_zg(li, tz = "东部"):
+def render_zg(li, tz = "东部",rule = "真格挑战"):
     width = 400
-    height = 1000
-    i = 0
+    height = 180+ len(li) * 80
     re = Image.new("RGBA", (width, height), "white")
     draw  = ImageDraw.Draw(re)
+
+    # Set background colors
+    color = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(color)
+    draw.rectangle([0, 0, width, height], fill=(255, 98, 8, 255))
+    re = Image.alpha_composite(re, color)
+
+    # Set background overlay
+    background_path = URL+"misc/fight_mask.png"
+    background = Image.open(background_path)
+    scale = 0.05
+    size = (int(scale * background.size[0]), int(scale * background.size[1]))
+    background = background.resize(size)
+    for x in range(0, width, background.width):
+        for y in range(0, height, background.height):
+            re.paste(background, (x, y), background)
+
+    # Update draw
+    draw  = ImageDraw.Draw(re)
+
+    # Display timezone 
+    txt = rule + tz + "时间"
+    font = ImageFont.truetype(font_path, size=40)
+    text_width = draw.textlength(txt,font=font)
+    _x = int((width - text_width) / 2)
+    _y = 30
+    left, top, right, bottom = draw.textbbox((_x,_y), txt, font=font)
+    draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+    draw.text((_x,_y), txt, fill="white", font=font)
+
+
     x = 100
-    y = 40
+    y = 100
     for idx, item in enumerate(li):
-        # print(item)
         start = item['start']
         end = item['end']
         name = item['name_cn']
         url = item['img']
         rule = item['rule']
-            
-        # Open the image using Pillow
-        image_to_add = Image.open(url)
         
+        
+        if idx % 2 == 0:
+            # Setup frame background
+            draw.rounded_rectangle((20,y,380,y+140),radius=8,fill="#202020")
+            # Add time period
+            time = start + " - " + end.split()[1]
+            _font = ImageFont.truetype(font_path, size=20)
+            text_width = draw.textlength(time, font=_font)
+            _x = int((width - text_width) / 2)
+            _y = y+3
+            # left, top, right, bottom = draw.textbbox((_x,_y), txt, font=_font)
+            # draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+            draw.text((_x,_y), time, fill="white", font=_font)
+                
+        # Add stage image
+        stage = Image.open(url).convert("RGBA")
         # Resize image:
-        scale = 0.3
-        size = (int(scale * image_to_add.size[0]), int(scale * image_to_add.size[1]))
-        image_to_add = image_to_add.resize(size)
+        scale = 0.4
+        size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+        stage = stage.resize(size)
+        stage = circle_corner(stage, 20)
 
-        # Add image
-        position = (x, y)
-
-
-        re.paste( image_to_add,position)
-        
-        rule_position = (0,y+50)
-        link = URL+"rule/"+rule+".png"
-        rule_img = Image.open(link)
-        # Resize image
-        scale = 0.2
-        size = (int(scale * rule_img.size[0]), int(scale * rule_img.size[1]))
-        rule_img = rule_img.resize(size)
-        # Add image
-        re.paste( rule_img,rule_position)
-
-        # Choose a font and size
-        font = ImageFont.truetype(font_path, size=18)
-
-        
-        # Specify text position
-        text_position = (0, y)
-        end_position = (0, y+25)
-    
-        # Add text to the image
-        draw.text(text_position, start, fill="black", font=font)
-        draw.text(end_position, end, fill="black", font=font)
-
-        # Update x y
-        x = 340 - x
+        _x = int((360- 2 * stage.width) / 4)+ 20
         if idx % 2 == 1:
-            y+= 70
+            _x = 180 + _x
+        position = (_x, y + 35)
+        re.paste(stage,position, stage)
 
-        i = 1 - i
+        # Add stage name
+        _font = ImageFont.truetype(font_path, size=16)
+        text_width = draw.textlength(name, font=_font)
+        _x = _x + int((stage.width - text_width) / 2)
+        _y = y + 110
+        position = (_x, _y)
+        left, top, right, bottom = draw.textbbox((_x,_y), name, font=_font)
+        draw.rectangle((left-10, top-5, right+10, bottom+5), fill="black")
+        draw.text((_x,_y), name, fill="white", font=_font)
+
+        if idx % 2 == 1:
+            link = URL+"rule/"+rule+".png"
+            rule_img = Image.open(link)
+            size= (70,70)
+            rule_img = rule_img.resize(size)
+            rule_position = (int((width -rule_img.width)/2), y+40)
+            # Add image
+            re.paste( rule_img,rule_position,rule_img)
+        
+
+        # Update y
+        if idx % 2 == 1:
+            y+= 160
+
+
     return re
 
 def render_coop(li, tz = "东部"):
     width = 400
-    height = 1060 - (5 - len(li)) * 160
-    dim = (width,height)
+    height = 260 + len(li) * 160
 
-    re = Image.new("RGBA", dim, "white")
+    re = Image.new("RGBA", (width,height), "white")
 
     # Set background colors
-    color = Image.new('RGBA', dim, (0, 0, 0, 0))
+    color = Image.new('RGBA', (width,height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(color)
     draw.rectangle([0, 0, width, height], fill=(255, 98, 8, 255))
     re = Image.alpha_composite(re, color)
@@ -140,6 +179,7 @@ def render_coop(li, tz = "东部"):
         for y in range(0, height, background.height):
             re.paste(background, (x, y), background)
 
+    # Update draw
     draw  = ImageDraw.Draw(re)
 
     # Display timezone 
@@ -284,3 +324,11 @@ def render_coop(li, tz = "东部"):
             y += 160
         # draw.line((0, y-40, 400, y-40), fill=(0, 0, 0), width=5)
     return re
+
+def circle_corner(img, radius):
+    mask = Image.new('L', img.size, 0)
+    _draw = ImageDraw.Draw(mask)
+    left, upper, right, lower = 0, 0, mask.width, mask.height
+    _draw.rounded_rectangle((left, upper, right, lower), radius=radius, fill=255)
+    img.putalpha(mask)
+    return img

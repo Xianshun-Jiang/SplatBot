@@ -15,7 +15,7 @@ def get_challenge(tz = "东部"):
 def get_open(tz = "东部"):
     update()
     li = parse_open(tz)[:5*2]
-    return render_zg(li, tz)
+    return render_zg(li, tz,"真格开放")
 
 def get_coop(tz = "东部"):
     update()
