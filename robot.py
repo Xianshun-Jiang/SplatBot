@@ -121,11 +121,39 @@ class Robot(Job):
             return False
         
     def process_splat(self, msg: WxMsg) -> bool:
-        # Process coop rate request
-        if msg.content == "/工 评分" or msg.content == "/打工 评分" or msg.content == "/工评分" or msg.content == "/打工评分":
-            img = twi.download_rate()
-            self.wcf.send_image(f"{img}", msg.roomid)
-            return 
+
+        # Process other request
+        match msg.content:
+            case "/帮助" | "/help":
+                rsp = "目前支持功能：\r 时区分为:东部，中部，山地，西部(需加空格, 默认东部时间) \r 例子：/打工 东部\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊 \r/打工 评分"
+                self.sendTextMsg(rsp,msg.roomid,msg.sender)
+
+            case "/浣熊":
+                self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
+            
+            case "/摆烂":
+                self.wcf.send_image(f"{URL+"images/bailan.png"}", msg.roomid)
+
+            case "/合照" | "/合照1":
+                self.wcf.send_image(f"{URL+"images/family1.jpg"}", msg.roomid)
+
+            case "/合照2":
+                self.wcf.send_image(f"{URL+"images/family2.jpg"}", msg.roomid)
+            
+            case "/合照注释版":
+                self.wcf.send_image(f"{URL+"images/family_annotated.png"}", msg.roomid)
+
+            case "/怪猎合照":
+                self.wcf.send_image(f"{URL+"images/mh_family1.jpg"}", msg.roomid)
+
+            case "/感谢":
+                self.wcf.send_text("感谢奥追老师的作品(合照1/2)，派克老师的注释(合照注释版), 丁真老师的作品(怪猎合照)",msg.roomid)
+
+            case "/工 评分" | "/打工 评分" | "/工评分" | "/打工评分":
+                img = twi.download_rate()
+                self.wcf.send_image(f"{img}", msg.roomid)
+                return 
+            
         # Process splatoon request
         if len(msg.content) < 10 :
             words = msg.content.split()
@@ -171,34 +199,6 @@ class Robot(Job):
                     img = splat.get_coop(timezone)
                 img.save('./tmp/coop.png')
                 self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
-        # Process other request
-        match msg.content:
-            case "/帮助" | "/help":
-                rsp = "目前支持功能：\r 时区分为:东部，中部，山地，西部(需加空格, 默认东部时间) \r 例子：/打工 东部\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊"
-                self.sendTextMsg(rsp,msg.roomid,msg.sender)
-
-            case "/浣熊":
-                self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
-            
-            case "/摆烂":
-                self.wcf.send_image(f"{URL+"images/bailan.png"}", msg.roomid)
-
-            case "/合照" | "/合照1":
-                self.wcf.send_image(f"{URL+"images/family1.jpg"}", msg.roomid)
-
-            case "/合照2":
-                self.wcf.send_image(f"{URL+"images/family2.jpg"}", msg.roomid)
-            
-            case "/合照注释版":
-                self.wcf.send_image(f"{URL+"images/family_annotated.png"}", msg.roomid)
-
-            case "/怪猎合照":
-                self.wcf.send_image(f"{URL+"images/mh_family1.jpg"}", msg.roomid)
-
-            case "/感谢":
-                self.wcf.send_text("感谢奥追老师的作品(合照1/2)，派克老师的注释(合照注释版), 丁真老师的作品(怪猎合照)",msg.roomid)
-
-                
                 
     def processMsg(self, msg: WxMsg) -> None:
         """当接收到消息的时候，会调用本方法。如果不实现本方法，则打印原始消息。
