@@ -11,3 +11,4 @@ This is a Wechat Robot for Splatoon community
   - [General Icons(.ink)](https://splatoon3.ink/assets/splatnet/v2/)
   - [Font](https://github.com/North-West-Wind/splatoon3-fonts/tree/main/Decrypted)
   - [Schedule Format](https://github.com/Cypas/splatoon3-schedule/tree/main)
+  - [Twitter Crawler](https://github.com/muzi-xiaoren/twitter_Crawler?tab=readme-ov-file#twitter_Crawler_3)
