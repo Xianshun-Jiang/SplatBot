@@ -1,3 +1,6 @@
+
+## Version 0.0.4 (3/6/2024)
+ * Change: add "/感谢", and remove appreciasion on each photo
 ## Version 0.0.3 (3/3/2024)
  * Feature: Add welcome message
  * Feature: Add timezone conversion for 4 different US timezones
