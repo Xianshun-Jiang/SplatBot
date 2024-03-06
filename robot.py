@@ -21,6 +21,7 @@ from job_mgmt import Job
 from splat import main as splat
 from splat import crawler 
 from splat import renderer
+from twitter_Crawler import twitter_Crawler_3 as twi
 
 __version__ = "39.0.10.1"
 
@@ -120,6 +121,11 @@ class Robot(Job):
             return False
         
     def process_splat(self, msg: WxMsg) -> bool:
+        # Process coop rate request
+        if msg.content == "/工 评分" or msg.content == "/打工 评分" or msg.content == "/工评分" or msg.content == "/打工评分":
+            img = twi.download_rate()
+            self.wcf.send_image(f"{img}", msg.roomid)
+            return 
         # Process splatoon request
         if len(msg.content) < 10 :
             words = msg.content.split()
