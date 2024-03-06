@@ -219,7 +219,7 @@ class Robot(Job):
                 self.groupSystemMsg(msg)
                 return 
 
-            if msg.is_at(self.wxid):  # 被@
+            if msg.is_at(self.wxid) or "@SplatoonZealot" in msg.content:  # 被@
                 self.toAt(msg)
             else:  # 其他消息
                 # self.toChengyu(msg)
