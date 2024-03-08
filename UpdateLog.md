@@ -1,4 +1,7 @@
 
+## Version 0.0.5 (3/8/2024)
+ * Fix: Add waiting time to crawler data from twitter to make sure the page is fully loaded.
+
 ## Version 0.0.4 (3/6/2024)
  * Change: add "/感谢", and remove appreciasion on each photo
  * Feature: Add web crawler to X(twitter) to fetch coop rate 
