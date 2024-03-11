@@ -125,7 +125,7 @@ class Robot(Job):
         # Process other request
         match msg.content:
             case "/帮助" | "/help":
-                rsp = "目前支持功能：\r 时区分为:东部，中部，山地，西部(需加空格, 默认东部时间) \r 例子：/打工 东部\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊 \r/打工 评分"
+                rsp = "目前支持功能：\r 时区分为:东部，中部，山地，西部(需加空格, 默认东部时间) \r 例子：/打工 东部\r/挑战 \r/开放 \r/涂地 \r/x \r/打工(/工) \r/合照(注释版/1/2) \r/浣熊 \r/打工 评分 \r/dc"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
 
             case "/浣熊":
@@ -153,6 +153,9 @@ class Robot(Job):
                 img = twi.download_rate()
                 self.wcf.send_image(f"{img}", msg.roomid)
                 return 
+            case "/dc":
+                self.wcf.send_text("https://discord.gg/FKcetEYZ9p",msg.roomid)
+                
             
         # Process splatoon request
         if len(msg.content) < 10 :
@@ -330,9 +333,14 @@ class Robot(Job):
             self.sendTextMsg(f"Hi {nickName[0]}，我自动通过了你的好友请求。", msg.sender)
 
     def groupSystemMsg(self, msg:WxMsg) -> None:
-        invite = re.findall(r"(.*)邀请(.*)加入了群聊", msg.content)
+        invite = re.findall(r"(.*)邀请(.*)加入了群聊", msg.content) 
+        invite2  = re.findall(r"(.*)通过扫描(.*)", msg.content)
+        invitee = None
         if invite:
             invitee = invite[0][1]
+        if invite2:
+            invitee = invite[0][0]
+        if invitee:
             invitee = re.sub(r'^.|.$', '', invitee)
             q = "以不正经，欢乐，愉快的方式向大家介绍一下" + str(invitee)
             rsp = self.chat.get_answer(q, msg.roomid)
@@ -340,12 +348,12 @@ class Robot(Job):
                 tmp = "欢迎新朋友" + invitee +"入群，想必大家不一定了解 TA, 请让全知全能的ChatGPT来给大家做个简短的介绍."
                 self.sendTextMsg(tmp, msg.roomid)
                 self.sendTextMsg(rsp, msg.roomid)
-                self.sendTextMsg('欢迎你的到来，在群里发送"/帮助"可以查看一些bot功能', msg.roomid)
+                self.sendTextMsg('欢迎你的到来，在群里发送"/帮助"可以查看一些bot功能, dc链接是"https://discord.gg/FKcetEYZ9p"', msg.roomid)
 
         # pat me in a group chat
         pat = re.findall(r"(.*)拍了拍我", msg.content)
         if pat:
-            self.sendTextMsg("你拍你女儿干嘛",msg.roomid)
+            self.sendTextMsg("好妈妈多拍拍女儿吧，女儿很想你，亲亲妈妈，妈妈最好了妈妈抱，妈妈贴贴，我想妈妈我想妈妈，谢谢妈妈拍拍",msg.roomid)
 
 
 

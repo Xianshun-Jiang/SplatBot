@@ -1,4 +1,7 @@
 
+## Version 0.0.6 (3/10/2024)
+ * Fix: Add welcome message to both invite and scan QR code invitees
+
 ## Version 0.0.5 (3/8/2024)
  * Fix: Add waiting time to crawler data from twitter to make sure the page is fully loaded.
 
