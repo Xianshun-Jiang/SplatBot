@@ -61,7 +61,7 @@ def render_battle(li, tz = "东部", rule = "占地模式"):
                 hours, remainder = divmod(remain.seconds, 3600)
                 minutes, seconds = divmod(remainder, 90)
                 # Add remaining time 
-                txt = "开放中,剩余：" + str(hours)+ "时" + str(minutes) + "分"
+                txt = "开放中, 现在 -" + end.split()[1]
                 _font = ImageFont.truetype(font_path, size=26) 
                 text_width = draw.textlength(txt,font=_font)
                 _x = int((width - text_width) / 2)
@@ -198,7 +198,7 @@ def render_zg(li, tz = "东部",rule = "真格挑战"):
                 hours, remainder = divmod(remain.seconds, 3600)
                 minutes, seconds = divmod(remainder, 90)
                 # Add remaining time 
-                txt = "开放中,剩余" + str(hours)+ "时" + str(minutes) + "分"
+                txt = "开放中, 现在 -" + end.split()[1]
                 _font = ImageFont.truetype(font_path, size=26) 
                 text_width = draw.textlength(txt,font=_font)
                 _x = int((width - text_width) / 2)
