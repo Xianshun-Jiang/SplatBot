@@ -1,6 +1,7 @@
 
 ## Version 0.07(3/14/2024)
  * Remove: Display time for pvp(splatoon) <strong> Can't fix the bug</strong>
+ * Change: Add absolute path to config file and template
 
 ## Version 0.0.6 (3/10/2024)
  * Fix: Add welcome message to both invite and scan QR code invitees

@@ -25,8 +25,7 @@ from twitter_Crawler import twitter_Crawler_3 as twi
 
 __version__ = "39.0.10.1"
 
-# TODO change absolute path to the project 
-URL = "C:/Users/notci/OneDrive/Desktop/SplatBot/"
+URL = None 
 
 
 class Robot(Job):
@@ -39,6 +38,8 @@ class Robot(Job):
         self.LOG = logging.getLogger("Robot")
         self.wxid = self.wcf.get_self_wxid()
         self.allContacts = self.getAllContacts()
+        global URL
+        URL = self.config.path
 
         if ChatType.is_in_chat_types(chat_type):
             if chat_type == ChatType.TIGER_BOT.value and TigerBot.value_check(self.config.TIGERBOT):
