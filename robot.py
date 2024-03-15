@@ -357,7 +357,7 @@ class Robot(Job):
         if invite:
             invitee = invite[0][1]
         if invite2:
-            invitee = invite[0][0]
+            invitee = invite2[0][0]
         if invitee:
             invitee = re.sub(r'^.|.$', '', invitee)
             q = "以不正经，欢乐，愉快的方式向大家介绍一下" + str(invitee)

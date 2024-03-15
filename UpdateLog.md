@@ -1,5 +1,7 @@
+## Version 0.0.8(3/15/2024)
+ * Fix: A typo that could not detect the invitation message.
 
-## Version 0.07(3/14/2024)
+## Version 0.0.7(3/14/2024)
  * Remove: Display time for pvp(splatoon) <strong> Can't fix the bug</strong>
  * Change: Add absolute path to config file and template
  * Feature: Multithreading to process messages.
