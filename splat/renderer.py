@@ -392,8 +392,11 @@ def render_coop(li, tz = "东部"):
             draw.rounded_rectangle((20,y-120,380,y-50),radius=8,fill="black")
             _y = y-120
             for idx2, wp in enumerate(weapons_name):
-                link = URL+"weapons/"+wp+".webp"
-                image_to_add = Image.open(link)
+                if wp == "Random":
+                    link = URL+"weapons/"+wp+".png"
+                else:
+                    link = URL+"weapons/"+wp+".webp"
+                image_to_add = Image.open(link).convert("RGBA")
 
                 size = (70,70)
                 image_to_add = image_to_add.resize(size)
@@ -449,8 +452,11 @@ def render_coop(li, tz = "东部"):
             _y = y
             draw.rounded_rectangle((_x-5,_y,_x+112+5,_y+112),radius=8,fill="black")
             for idx2, wp in enumerate(weapons_name):
-                link = URL+"weapons/"+wp+".webp"
-                image_to_add = Image.open(link)
+                if wp == "Random":
+                    link = URL+"weapons/"+wp+".png"
+                else:
+                    link = URL+"weapons/"+wp+".webp"
+                image_to_add = Image.open(link).convert("RGBA")
 
                 size = (56,56)
                 image_to_add = image_to_add.resize(size)

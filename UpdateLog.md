@@ -1,5 +1,6 @@
 ## Version 0.0.8(3/15/2024)
  * Fix: A typo that could not detect the invitation message.
+ * Fix: Render Random weapons for coop mode will crash (the .png file is different)
 
 ## Version 0.0.7(3/14/2024)
  * Remove: Display time for pvp(splatoon) <strong> Can't fix the bug</strong>
