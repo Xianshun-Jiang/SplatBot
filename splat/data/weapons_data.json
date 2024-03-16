@@ -1,0 +1,1066 @@
+[
+    {
+        "Index": "0",
+        "Name": ".52 Gal",
+        "Sub": " Splash Wall",
+        "Special": " Killer Wail 5.1",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "1",
+        "Name": ".52 Gal Deco",
+        "Sub": " Curling Bomb",
+        "Special": " Splattercolor Screen",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "2",
+        "Name": ".96 Gal",
+        "Sub": " Sprinkler",
+        "Special": " Ink Vac",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "3",
+        "Name": ".96 Gal Deco",
+        "Sub": " Splash Wall",
+        "Special": " Kraken Royale",
+        "SP": "210p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "4",
+        "Name": "Aerospray MG",
+        "Sub": " Fizzy Bomb",
+        "Special": " Reefslider",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "5",
+        "Name": "Aerospray RG",
+        "Sub": " Sprinkler",
+        "Special": " Booyah Bomb",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "6",
+        "Name": "Annaki Splattershot Nova",
+        "Sub": " Ink Mine",
+        "Special": " Inkjet",
+        "SP": "210p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "7",
+        "Name": "Ballpoint Splatling",
+        "Sub": " Fizzy Bomb",
+        "Special": " Inkjet",
+        "SP": "210p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "8",
+        "Name": "Ballpoint Splatling Nouveau",
+        "Sub": " Ink Mine",
+        "Special": " Ink Vac",
+        "SP": "200p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "9",
+        "Name": "Bamboozler 14 Mk I",
+        "Sub": " Autobomb",
+        "Special": " Killer Wail 5.1",
+        "SP": "190p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "10",
+        "Name": "Big Swig Roller",
+        "Sub": " Splash Wall",
+        "Special": " Ink Vac",
+        "SP": "190p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "11",
+        "Name": "Big Swig Roller Express",
+        "Sub": " Angle Shooter",
+        "Special": " Ink Storm",
+        "SP": "200p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "12",
+        "Name": "Blaster",
+        "Sub": " Autobomb",
+        "Special": " Big Bubbler",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "13",
+        "Name": "Bloblobber",
+        "Sub": " Sprinkler",
+        "Special": " Ink Storm",
+        "SP": "190p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "14",
+        "Name": "Bloblobber Deco",
+        "Sub": " Angle Shooter",
+        "Special": " Kraken Royale",
+        "SP": "200p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "15",
+        "Name": "Carbon Roller",
+        "Sub": " Autobomb",
+        "Special": " Zipcaster",
+        "SP": "170p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "16",
+        "Name": "Carbon Roller Deco",
+        "Sub": " Burst Bomb",
+        "Special": " Trizooka",
+        "SP": "190p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "17",
+        "Name": "Clash Blaster",
+        "Sub": " Splat Bomb",
+        "Special": " Trizooka",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "18",
+        "Name": "Clash Blaster Neo",
+        "Sub": " Curling Bomb",
+        "Special": " Super Chump",
+        "SP": "170p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "19",
+        "Name": "Classic Squiffer",
+        "Sub": " Point Sensor",
+        "Special": " Big Bubbler",
+        "SP": "190p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "20",
+        "Name": "Custom Blaster",
+        "Sub": " Point Sensor",
+        "Special": " Triple Splashdown",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "21",
+        "Name": "Custom Dualie Squelchers",
+        "Sub": " Squid Beakon",
+        "Special": " Super Chump",
+        "SP": "210p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "22",
+        "Name": "Custom E-liter 4K",
+        "Sub": " Squid Beakon",
+        "Special": " Kraken Royale",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "23",
+        "Name": "Custom E-liter 4K Scope",
+        "Sub": " Squid Beakon",
+        "Special": " Kraken Royale",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "24",
+        "Name": "Custom Explosher",
+        "Sub": " Splash Wall",
+        "Special": " Triple Splashdown",
+        "SP": "200p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "25",
+        "Name": "Custom Goo Tuber",
+        "Sub": " Fizzy Bomb",
+        "Special": " Ultra Stamp",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "26",
+        "Name": "Custom Jet Squelcher",
+        "Sub": " Toxic Mist",
+        "Special": " Ink Storm",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "27",
+        "Name": "Custom Splattershot Jr.",
+        "Sub": " Torpedo",
+        "Special": " Wave Breaker",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "28",
+        "Name": "Dapple Dualies",
+        "Sub": " Squid Beakon",
+        "Special": " Tacticooler",
+        "SP": "180p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "29",
+        "Name": "Dapple Dualies Nouveau",
+        "Sub": " Torpedo",
+        "Special": " Reefslider",
+        "SP": "190p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "30",
+        "Name": "Dark Tetra Dualies",
+        "Sub": " Autobomb",
+        "Special": " Reefslider",
+        "SP": "200p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "31",
+        "Name": "Douser Dualies FF",
+        "Sub": " Ink Mine",
+        "Special": " Killer Wail 5.1",
+        "SP": "200p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "32",
+        "Name": "Dread Wringer",
+        "Sub": " Suction Bomb",
+        "Special": " Reefslider",
+        "SP": "190p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "33",
+        "Name": "Dread Wringer D",
+        "Sub": " Squid Beakon",
+        "Special": " Wave Breaker",
+        "SP": "190p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "34",
+        "Name": "Dualie Squelchers",
+        "Sub": " Splat Bomb",
+        "Special": " Wave Breaker",
+        "SP": "200p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "35",
+        "Name": "Dynamo Roller",
+        "Sub": " Sprinkler",
+        "Special": " Tacticooler",
+        "SP": "190p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "36",
+        "Name": "E-liter 4K",
+        "Sub": " Ink Mine",
+        "Special": " Wave Breaker",
+        "SP": "210p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "37",
+        "Name": "E-liter 4K Scope",
+        "Sub": " Ink Mine",
+        "Special": " Wave Breaker",
+        "SP": "210p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "38",
+        "Name": "Enperry Splat Dualies",
+        "Sub": " Curling Bomb",
+        "Special": " Triple Splashdown",
+        "SP": "200p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "39",
+        "Name": "Explosher",
+        "Sub": " Point Sensor",
+        "Special": " Ink Storm",
+        "SP": "200p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "40",
+        "Name": "Flingza Roller",
+        "Sub": " Ink Mine",
+        "Special": " Tenta Missiles",
+        "SP": "210p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "41",
+        "Name": "Foil Flingza Roller",
+        "Sub": " Suction Bomb",
+        "Special": " Splattercolor Screen",
+        "SP": "200p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "42",
+        "Name": "Foil Squeezer",
+        "Sub": " Autobomb",
+        "Special": " Splattercolor Screen",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "43",
+        "Name": "Forge Splattershot Pro",
+        "Sub": " Suction Bomb",
+        "Special": " Booyah Bomb",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "44",
+        "Name": "Glooga Dualies",
+        "Sub": " Splash Wall",
+        "Special": " Booyah Bomb",
+        "SP": "180p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "45",
+        "Name": "Glooga Dualies Deco",
+        "Sub": " Point Sensor",
+        "Special": " Trizooka",
+        "SP": "190p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "46",
+        "Name": "Goo Tuber",
+        "Sub": " Torpedo",
+        "Special": " Tenta Missiles",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "47",
+        "Name": "Gold Dynamo Roller",
+        "Sub": " Splat Bomb",
+        "Special": " Super Chump",
+        "SP": "190p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "48",
+        "Name": "H-3 Nozzlenose",
+        "Sub": " Point Sensor",
+        "Special": " Tacticooler",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "49",
+        "Name": "H-3 Nozzlenose D",
+        "Sub": " Splash Wall",
+        "Special": " Big Bubbler",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "50",
+        "Name": "Heavy Edit Splatling",
+        "Sub": " Curling Bomb",
+        "Special": " Tacticooler",
+        "SP": "200p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "51",
+        "Name": "Heavy Splatling",
+        "Sub": " Sprinkler",
+        "Special": " Wave Breaker",
+        "SP": "200p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "52",
+        "Name": "Heavy Splatling Deco",
+        "Sub": " Point Sensor",
+        "Special": " Kraken Royale",
+        "SP": "200p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "53",
+        "Name": "Hero Shot Replica",
+        "Sub": " Suction Bomb",
+        "Special": " Trizooka",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "54",
+        "Name": "Hydra Splatling",
+        "Sub": " Autobomb",
+        "Special": " Booyah Bomb",
+        "SP": "190p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "55",
+        "Name": "Inkbrush",
+        "Sub": " Splat Bomb",
+        "Special": " Killer Wail 5.1",
+        "SP": "180p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "56",
+        "Name": "Inkbrush Nouveau",
+        "Sub": " Ink Mine",
+        "Special": " Ultra Stamp",
+        "SP": "180p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "57",
+        "Name": "Inkline Tri-Stringer",
+        "Sub": " Sprinkler",
+        "Special": " Super Chump",
+        "SP": "190p",
+        "Class": " Stringer"
+    },
+    {
+        "Index": "58",
+        "Name": "Jet Squelcher",
+        "Sub": " Angle Shooter",
+        "Special": " Ink Vac",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "59",
+        "Name": "Krak-On Splat Roller",
+        "Sub": " Squid Beakon",
+        "Special": " Kraken Royale",
+        "SP": "180p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "60",
+        "Name": "L-3 Nozzlenose",
+        "Sub": " Curling Bomb",
+        "Special": " Crab Tank",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "61",
+        "Name": "L-3 Nozzlenose D",
+        "Sub": " Burst Bomb",
+        "Special": " Ultra Stamp",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "62",
+        "Name": "Light Tetra Dualies",
+        "Sub": " Sprinkler",
+        "Special": " Zipcaster",
+        "SP": "190p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "63",
+        "Name": "Luna Blaster",
+        "Sub": " Splat Bomb",
+        "Special": " Zipcaster",
+        "SP": "170p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "64",
+        "Name": "Luna Blaster Neo",
+        "Sub": " Fizzy Bomb",
+        "Special": " Ultra Stamp",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "65",
+        "Name": "Mini Splatling",
+        "Sub": " Burst Bomb",
+        "Special": " Ultra Stamp",
+        "SP": "190p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "66",
+        "Name": "N-ZAP '85",
+        "Sub": " Suction Bomb",
+        "Special": " Tacticooler",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "67",
+        "Name": "N-ZAP '89",
+        "Sub": " Autobomb",
+        "Special": " Super Chump",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "68",
+        "Name": "Nautilus 47",
+        "Sub": " Point Sensor",
+        "Special": " Ink Storm",
+        "SP": "190p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "69",
+        "Name": "Nautilus 79",
+        "Sub": " Suction Bomb",
+        "Special": " Triple Splashdown",
+        "SP": "210p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "70",
+        "Name": "Neo Splash-o-matic",
+        "Sub": " Suction Bomb",
+        "Special": " Triple Inkstrike",
+        "SP": "210p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "71",
+        "Name": "Neo Sploosh-o-matic",
+        "Sub": " Squid Beakon",
+        "Special": " Killer Wail 5.1",
+        "SP": "170p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "72",
+        "Name": "New Squiffer",
+        "Sub": " Autobomb",
+        "Special": " Zipcaster",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "73",
+        "Name": "Octo Shot Replica",
+        "Sub": " Splat Bomb",
+        "Special": " Triple Inkstrike",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "74",
+        "Name": "Octobrush",
+        "Sub": " Suction Bomb",
+        "Special": " Zipcaster",
+        "SP": "200p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "75",
+        "Name": "Octobrush Nouveau",
+        "Sub": " Squid Beakon",
+        "Special": " Ink Storm",
+        "SP": "180p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "76",
+        "Name": "Order Blaster Replica",
+        "Sub": " Splat Bomb",
+        "Special": " Zipcaster",
+        "SP": "170p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "77",
+        "Name": "Order Brella Replica",
+        "Sub": " Sprinkler",
+        "Special": " Triple Inkstrike",
+        "SP": "200p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "78",
+        "Name": "Order Charger Replica",
+        "Sub": " Splat Bomb",
+        "Special": " Ink Vac",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "79",
+        "Name": "Order Dualie Replicas",
+        "Sub": " Suction Bomb",
+        "Special": " Crab Tank",
+        "SP": "190p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "80",
+        "Name": "Order Roller Replica",
+        "Sub": " Curling Bomb",
+        "Special": " Big Bubbler",
+        "SP": "180p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "81",
+        "Name": "Order Shot Replica",
+        "Sub": " Suction Bomb",
+        "Special": " Trizooka",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "82",
+        "Name": "Order Slosher Replica",
+        "Sub": " Splat Bomb",
+        "Special": " Triple Inkstrike",
+        "SP": "200p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "83",
+        "Name": "Order Splatana Replica",
+        "Sub": " Burst Bomb",
+        "Special": " Zipcaster",
+        "SP": "210p",
+        "Class": " Splatana"
+    },
+    {
+        "Index": "84",
+        "Name": "Order Splatling Replica",
+        "Sub": " Sprinkler",
+        "Special": " Wave Breaker",
+        "SP": "200p",
+        "Class": " Splatling"
+    },
+    {
+        "Index": "85",
+        "Name": "Order Stringer Replica",
+        "Sub": " Toxic Mist",
+        "Special": " Killer Wail 5.1",
+        "SP": "190p",
+        "Class": " Stringer"
+    },
+    {
+        "Index": "86",
+        "Name": "Orderbrush Replica",
+        "Sub": " Suction Bomb",
+        "Special": " Zipcaster",
+        "SP": "200p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "87",
+        "Name": "Painbrush",
+        "Sub": " Curling Bomb",
+        "Special": " Wave Breaker",
+        "SP": "200p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "88",
+        "Name": "Painbrush Nouveau",
+        "Sub": " Point Sensor",
+        "Special": " Tenta Missiles",
+        "SP": "190p",
+        "Class": " Brush"
+    },
+    {
+        "Index": "89",
+        "Name": "Range Blaster",
+        "Sub": " Suction Bomb",
+        "Special": " Wave Breaker",
+        "SP": "200p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "90",
+        "Name": "Rapid Blaster",
+        "Sub": " Ink Mine",
+        "Special": " Triple Inkstrike",
+        "SP": "190p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "91",
+        "Name": "Rapid Blaster Deco",
+        "Sub": " Torpedo",
+        "Special": " Inkjet",
+        "SP": "210p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "92",
+        "Name": "Rapid Blaster Pro",
+        "Sub": " Toxic Mist",
+        "Special": " Ink Vac",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "93",
+        "Name": "Rapid Blaster Pro Deco",
+        "Sub": " Angle Shooter",
+        "Special": " Killer Wail 5.1",
+        "SP": "190p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "94",
+        "Name": "Recycled Brella 24 Mk I",
+        "Sub": " Angle Shooter",
+        "Special": " Big Bubbler",
+        "SP": "190p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "95",
+        "Name": "REEF-LUX 450",
+        "Sub": " Curling Bomb",
+        "Special": " Tenta Missiles",
+        "SP": "210p",
+        "Class": " Stringer"
+    },
+    {
+        "Index": "96",
+        "Name": "REEF-LUX 450 Deco",
+        "Sub": " Splash Wall",
+        "Special": " Reefslider",
+        "SP": "200p",
+        "Class": " Stringer"
+    },
+    {
+        "Index": "97",
+        "Name": "S-BLAST '91",
+        "Sub": " Burst Bomb",
+        "Special": " Booyah Bomb",
+        "SP": "190p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "98",
+        "Name": "S-BLAST '92",
+        "Sub": " Sprinkler",
+        "Special": " Reefslider",
+        "SP": "180p",
+        "Class": " Blaster"
+    },
+    {
+        "Index": "99",
+        "Name": "Slosher",
+        "Sub": " Splat Bomb",
+        "Special": " Triple Inkstrike",
+        "SP": "200p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "100",
+        "Name": "Slosher Deco",
+        "Sub": " Angle Shooter",
+        "Special": " Zipcaster",
+        "SP": "180p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "101",
+        "Name": "Sloshing Machine",
+        "Sub": " Fizzy Bomb",
+        "Special": " Booyah Bomb",
+        "SP": "220p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "102",
+        "Name": "Sloshing Machine Neo",
+        "Sub": " Point Sensor",
+        "Special": " Trizooka",
+        "SP": "190p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "103",
+        "Name": "Snipewriter 5B",
+        "Sub": " Splash Wall",
+        "Special": " Ink Storm",
+        "SP": "210p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "104",
+        "Name": "Snipewriter 5H",
+        "Sub": " Sprinkler",
+        "Special": " Tacticooler",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "105",
+        "Name": "Sorella Brella",
+        "Sub": " Autobomb",
+        "Special": " Inkjet",
+        "SP": "190p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "106",
+        "Name": "Splash-o-matic",
+        "Sub": " Burst Bomb",
+        "Special": " Crab Tank",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "107",
+        "Name": "Splat Brella",
+        "Sub": " Sprinkler",
+        "Special": " Triple Inkstrike",
+        "SP": "200p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "108",
+        "Name": "Splat Charger",
+        "Sub": " Splat Bomb",
+        "Special": " Ink Vac",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "109",
+        "Name": "Splat Dualies",
+        "Sub": " Suction Bomb",
+        "Special": " Crab Tank",
+        "SP": "190p",
+        "Class": " Dualie"
+    },
+    {
+        "Index": "110",
+        "Name": "Splat Roller",
+        "Sub": " Curling Bomb",
+        "Special": " Big Bubbler",
+        "SP": "180p",
+        "Class": " Roller"
+    },
+    {
+        "Index": "111",
+        "Name": "Splatana Stamper",
+        "Sub": " Burst Bomb",
+        "Special": " Zipcaster",
+        "SP": "210p",
+        "Class": " Splatana"
+    },
+    {
+        "Index": "112",
+        "Name": "Splatana Stamper Nouveau",
+        "Sub": " Toxic Mist",
+        "Special": " Crab Tank",
+        "SP": "210p",
+        "Class": " Splatana"
+    },
+    {
+        "Index": "113",
+        "Name": "Splatana Wiper",
+        "Sub": " Torpedo",
+        "Special": " Ultra Stamp",
+        "SP": "190p",
+        "Class": " Splatana"
+    },
+    {
+        "Index": "114",
+        "Name": "Splatana Wiper Deco",
+        "Sub": " Squid Beakon",
+        "Special": " Tenta Missiles",
+        "SP": "190p",
+        "Class": " Splatana"
+    },
+    {
+        "Index": "115",
+        "Name": "Splatterscope",
+        "Sub": " Splat Bomb",
+        "Special": " Ink Vac",
+        "SP": "200p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "116",
+        "Name": "Splattershot",
+        "Sub": " Suction Bomb",
+        "Special": " Trizooka",
+        "SP": "200p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "117",
+        "Name": "Splattershot Jr.",
+        "Sub": " Splat Bomb",
+        "Special": " Big Bubbler",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "118",
+        "Name": "Splattershot Nova",
+        "Sub": " Point Sensor",
+        "Special": " Killer Wail 5.1",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "119",
+        "Name": "Splattershot Pro",
+        "Sub": " Angle Shooter",
+        "Special": " Crab Tank",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "120",
+        "Name": "Sploosh-o-matic",
+        "Sub": " Curling Bomb",
+        "Special": " Ultra Stamp",
+        "SP": "180p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "121",
+        "Name": "Squeezer",
+        "Sub": " Splash Wall",
+        "Special": " Trizooka",
+        "SP": "210p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "122",
+        "Name": "Tenta Brella",
+        "Sub": " Squid Beakon",
+        "Special": " Ink Vac",
+        "SP": "190p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "123",
+        "Name": "Tenta Sorella Brella",
+        "Sub": " Ink Mine",
+        "Special": " Trizooka",
+        "SP": "200p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "124",
+        "Name": "Tentatek Splattershot",
+        "Sub": " Splat Bomb",
+        "Special": " Triple Inkstrike",
+        "SP": "190p",
+        "Class": " Shooter"
+    },
+    {
+        "Index": "125",
+        "Name": "Tri-Slosher",
+        "Sub": " Toxic Mist",
+        "Special": " Inkjet",
+        "SP": "180p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "126",
+        "Name": "Tri-Slosher Nouveau",
+        "Sub": " Fizzy Bomb",
+        "Special": " Tacticooler",
+        "SP": "210p",
+        "Class": " Slosher"
+    },
+    {
+        "Index": "127",
+        "Name": "Tri-Stringer",
+        "Sub": " Toxic Mist",
+        "Special": " Killer Wail 5.1",
+        "SP": "180p",
+        "Class": " Stringer"
+    },
+    {
+        "Index": "128",
+        "Name": "Undercover Brella",
+        "Sub": " Ink Mine",
+        "Special": " Reefslider",
+        "SP": "180p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "129",
+        "Name": "Undercover Sorella Brella",
+        "Sub": " Torpedo",
+        "Special": " Splattercolor Screen",
+        "SP": "180p",
+        "Class": " Brella"
+    },
+    {
+        "Index": "130",
+        "Name": "Z+F Splat Charger",
+        "Sub": " Splash Wall",
+        "Special": " Triple Inkstrike",
+        "SP": "210p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "131",
+        "Name": "Z+F Splatterscope",
+        "Sub": " Splash Wall",
+        "Special": " Triple Inkstrike",
+        "SP": "210p",
+        "Class": " Charger"
+    },
+    {
+        "Index": "132",
+        "Name": "Zink Mini Splatling",
+        "Sub": " Toxic Mist",
+        "Special": " Big Bubbler",
+        "SP": "190p",
+        "Class": " Splatling"
+    }
+]

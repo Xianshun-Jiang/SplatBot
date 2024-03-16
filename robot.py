@@ -19,9 +19,9 @@ from configuration import Config
 from constants import ChatType
 from job_mgmt import Job
 
-from splat import main as splat
-from splat import crawler 
-from splat import renderer
+from splat import main
+# from splat import crawler 
+# from splat import renderer
 from twitter_Crawler import twitter_Crawler_3 as twi
 
 __version__ = "39.0.10.1"
@@ -41,6 +41,7 @@ class Robot(Job):
         self.allContacts = self.getAllContacts()
         global URL
         URL = self.config.path
+        self.splat = main.SplatBot(URL)
 
         if ChatType.is_in_chat_types(chat_type):
             if chat_type == ChatType.TIGER_BOT.value and TigerBot.value_check(self.config.TIGERBOT):
@@ -179,41 +180,41 @@ class Robot(Job):
                 timezone = words[1]
             if msg.content.startswith("/挑战"):
                 if timezone == "":
-                    img = splat.get_challenge()
+                    img = self.splat.get_challenge()
                 else:
-                    img = splat.get_challenge(timezone)
+                    img = self.splat.get_challenge(timezone)
                 img.save('./tmp/challenge.png')
                 self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
                 
             elif msg.content.startswith('/开放'):
                 if timezone == "":
-                    img = splat.get_open()
+                    img = self.splat.get_open()
                 else:
-                    img = splat.get_open(timezone)
+                    img = self.splat.get_open(timezone)
                 img.save('./tmp/open.png')
                 self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
 
             elif msg.content.startswith('/涂地'):
                 if timezone == "":
-                    img = splat.get_regular()
+                    img = self.splat.get_regular()
                 else:
-                    img = splat.get_regular(timezone)
+                    img = self.splat.get_regular(timezone)
                 img.save('./tmp/regular.png')
                 self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
 
             elif msg.content.startswith('/x') or msg.content.startswith('/X'):
                 if timezone == "":
-                    img = splat.get_x()
+                    img = self.splat.get_x()
                 else :
-                    img = splat.get_x(timezone)
+                    img = self.splat.get_x(timezone)
                 img.save('./tmp/x.png')
                 self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
 
             elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
                 if timezone == "":
-                    img = splat.get_coop()
+                    img = self.splat.get_coop()
                 else:
-                    img = splat.get_coop(timezone)
+                    img = self.splat.get_coop(timezone)
                 img.save('./tmp/coop.png')
                 self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
                 

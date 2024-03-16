@@ -5,11 +5,8 @@ from datetime import datetime
 
 #TODO select font path
 font_path = './splat/fonts/DFP_GBZY9.ttf'
-URL = "./splat/images/"
 
-
-
-def render_battle(li, tz = "东部", rule = "占地模式"):
+def render_battle(li, tz = "东部", rule = "占地模式", URL= None):
     width = 400
     height = 400+ len(li) * 80
     re = Image.new("RGBA", (width, height), "white")
@@ -140,8 +137,7 @@ def render_battle(li, tz = "东部", rule = "占地模式"):
 
     return re
 
-
-def render_zg(li, tz = "东部",rule = "真格挑战"):
+def render_zg(li, tz = "东部",rule = "真格挑战", URL= None):
     width = 400
     height = 400+ len(li) * 80
     re = Image.new("RGBA", (width, height), "white")
@@ -296,7 +292,7 @@ def render_zg(li, tz = "东部",rule = "真格挑战"):
 
     return re
 
-def render_coop(li, tz = "东部"):
+def render_coop(li, tz = "东部", URL= None):
     width = 400
     height = 260 + len(li) * 160
 

@@ -1,7 +1,8 @@
 ## Version 0.0.9(3/16/2024)
  * Change: remove some obsolete comment
  * Change: add crawler and dataset
- 
+ * Change: use absolute URL for splat module
+
 ## Version 0.0.8(3/15/2024)
  * Fix: A typo that could not detect the invitation message.
  * Fix: Render Random weapons for coop mode will crash (the .png file is different)
