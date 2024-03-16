@@ -2,6 +2,7 @@
  * Change: remove some obsolete comment
  * Change: add crawler and dataset
  * Change: use absolute URL for splat module
+ * Feature: Add all random weapons
 
 ## Version 0.0.8(3/15/2024)
  * Fix: A typo that could not detect the invitation message.

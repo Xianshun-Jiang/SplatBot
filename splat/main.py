@@ -1,18 +1,18 @@
 try:
     from splat.crawler import *
     from splat.renderer import *
-    from splat.random import *
+    from splat.random_wp import *
 except:
     from crawler import *
     from renderer import *
-    from random import *
+    from random_wp import *
 
 
 class SplatBot():
     def __init__(self, URL):
         global images
         self.images = URL +"/splat/images/"
-        self.data = URL + "/splat/data"
+        self.data = URL + "/splat/data/"
     
     def get_regular(self,tz = "东部"):
         update()
@@ -22,7 +22,7 @@ class SplatBot():
     def get_challenge(self, tz = "东部"):
         update()
         li = parse_challenge(tz)[:5*2]
-        return render_zg(li, tz,self.images)
+        return render_zg(li, tz,"真格挑战", self.images)
 
     def get_open(self, tz = "东部"):
         update()
@@ -42,6 +42,6 @@ class SplatBot():
 
 
     def get_random(self, arg):
-        li = get_random(arg)
-        return render_random(li)
+        li = get_random(self.data,arg)
+        return render_random(li,self.images)
 

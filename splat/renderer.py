@@ -466,6 +466,84 @@ def render_coop(li, tz = "东部", URL= None):
         # draw.line((0, y-40, 400, y-40), fill=(0, 0, 0), width=5)
     return re
 
+def render_random(li, URL = None):
+    weapons = li["weapons"]
+    stage_url = URL + "stages/"+ li["stage"] + ".png"
+    rule_url = URL +  "rule/" + li['rule'] +".png"
+    
+    width = 400
+    height = 600
+
+    re = Image.new("RGBA", (width,height), "white")
+
+    # Set background colors
+    color = Image.new('RGBA', (width,height), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(color)
+    draw.rectangle([0, 0, width, height], fill=(255, 98, 8, 255))
+    re = Image.alpha_composite(re, color)
+
+     # Set background overlay
+    background_path = URL+"misc/fight_mask.png"
+    background = Image.open(background_path)
+    scale = 0.05
+    size = (int(scale * background.size[0]), int(scale * background.size[1]))
+    background = background.resize(size)
+    for x in range(0, width, background.width):
+        for y in range(0, height, background.height):
+            re.paste(background, (x, y), background)
+
+    # Update draw
+    draw  = ImageDraw.Draw(re)
+
+    # Add stage image
+    stage = Image.open(stage_url).convert("RGBA")
+    # Resize image:
+    scale = 0.8
+    size = (int(scale * stage.size[0]), int(scale * stage.size[1]))
+    stage = stage.resize(size)
+    stage = circle_corner(stage, 20)
+
+    _x = int((width- stage.width) / 2)
+    _y = 30
+    position = (_x,_y)
+    re.paste(stage,position,stage)
+
+    rule = Image.open(rule_url).convert("RGBA")
+    # Resize image:
+    scale = 0.8
+    size = (int(scale * rule.size[0]), int(scale * rule.size[1]))
+    rule = rule.resize(size)
+
+    _x = int((width- rule.width) / 2)
+    _y = 200
+    position = (_x,_y)
+    re.paste(rule,position,rule)
+
+    draw.rounded_rectangle((60,200,140,580),radius=8,fill="black")
+    draw.rounded_rectangle((260,200,340,580),radius=8,fill="black")
+
+    _x = 60
+    _y = 200
+    for i in range(8):
+        wp = weapons[i]
+        wp_url = URL+ "weapons/" + wp['Name'] +".webp"
+        
+        weapon = Image.open(wp_url).convert("RGBA")
+        weapon = weapon.resize((80,80))
+        position = (_x,_y)
+
+        re.paste(weapon,position,weapon)
+        _x = 400 - _x  - 80
+        if i % 2 == 1:
+            _y += 100
+
+    return re
+
+
+
+
+
+
 def circle_corner(img, radius):
     mask = Image.new('L', img.size, 0)
     _draw = ImageDraw.Draw(mask)
