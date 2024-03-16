@@ -23,7 +23,7 @@
  * Feature: Add timezone conversion for 4 different US timezones
  * Change: beautify coop display 
  * Change: beautify all modes display
- * Fix: Update when shift changes <strong>(but it requires constant update/fetch url every call, which slow down efficiency)</<strong>>
+ * Fix: Update when shift changes <strong>(but it requires constant update/fetch url every call, which slow down efficiency)</strong>
  * <strong>Issue: Remaining time in PVP modes is not correct </strong>
 
 ## Version 0.0.2 (3/2/2024)
