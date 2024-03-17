@@ -221,40 +221,43 @@ class Robot(Job):
                     img = self.splat.get_coop(timezone)
                 img.save('./tmp/coop.png')
                 self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
-    
-    # TODO: Have some bug that prevent counter work correctly
+
+    # TODO: Have bug that can't detect A B B C B B pattern
     def process_break(self,msg:WxMsg):
-        LENGTH = 3
-        BREAK_LENGTH = 2
+        LENGTH = 4
+        BREAK_LENGTH = 3
         global storage
         repeat_id = str(msg.roomid) + "repeat"
         counter_id = str(msg.roomid) + "counter"
-        break_len = str(msg.roomid) + "break" # how many times the break can be
+        break_len = str(msg.roomid) + "break"  # how many times the break can be
         break_repeat = str(msg.roomid) + "break_repeat"
-        break_conter = str(msg.roomid) + "break_counter"
+        break_counter = str(msg.roomid) + "break_counter"  # Corrected typo here
+
         try:
             storage[repeat_id]
-        except:
+        except KeyError:  # More specific exception handling
             storage[counter_id] = 0
             storage[repeat_id] = ""
             storage[break_len] = 0
             storage[break_repeat] = ""
-            storage[break_conter] = 0
-        
+            storage[break_counter] = 0
+
         if msg.is_text():
             if storage[repeat_id] == msg.content:
-                storage[counter_id] +=1
+                storage[counter_id] += 1
+                # Resetting break conditions here is appropriate since the message is repeating
                 storage[break_len] = 0
-                storage[break_conter] = 0
+                storage[break_counter] = 0
                 storage[break_repeat] = ""
 
                 if storage[counter_id] == LENGTH:
-                    self.wcf.send_text(msg.content,msg.roomid)
+                    self.wcf.send_text(msg.content, msg.roomid)
+                    # Consider extracting the reset logic into a function to avoid repetition
                     storage[counter_id] = 0
                     storage[repeat_id] = ""
                     storage[break_len] = 0
                     storage[break_repeat] = ""
-                    storage[break_conter] = 0
+                    storage[break_counter] = 0
 
             else:
                 if storage[repeat_id] == "":
@@ -262,17 +265,18 @@ class Robot(Job):
                     storage[repeat_id] = msg.content
 
                 elif storage[break_len] == BREAK_LENGTH:
-                    storage[counter_id] = storage[break_conter]
+                    storage[counter_id] = storage[break_counter] + 1
                     storage[repeat_id] = storage[break_repeat]
                     storage[break_len] = 0
+                    storage[break_counter] = 1  # Ensure correct logic for resetting or updating this counter
                 else:
                     storage[break_len] += 1
 
                     if storage[break_repeat] == msg.content:
-                        storage[break_conter] += 1
+                        storage[break_counter] += 1
                     else:
                         storage[break_repeat] = msg.content
-                        storage[break_conter] = 1
+                        storage[break_counter] = 1
                 
     def processMsg(self, msg: WxMsg) -> None:
         """当接收到消息的时候，会调用本方法。如果不实现本方法，则打印原始消息。
@@ -297,9 +301,7 @@ class Robot(Job):
                 self.toAt(msg)
             else:  # 其他消息
                 # self.toChengyu(msg)
-
                 self.process_break(msg)
-
                 self.process_splat(msg)
 
             return  # 处理完群聊信息，后面就不需要处理了
