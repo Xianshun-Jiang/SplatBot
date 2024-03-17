@@ -224,6 +224,8 @@ class Robot(Job):
     
     # TODO: Have some bug that prevent counter work correctly
     def process_break(self,msg:WxMsg):
+        LENGTH = 3
+        BREAK_LENGTH = 2
         global storage
         repeat_id = str(msg.roomid) + "repeat"
         counter_id = str(msg.roomid) + "counter"
@@ -246,7 +248,7 @@ class Robot(Job):
                 storage[break_conter] = 0
                 storage[break_repeat] = ""
 
-                if storage[counter_id] == 3:
+                if storage[counter_id] == LENGTH:
                     self.wcf.send_text(msg.content,msg.roomid)
                     storage[counter_id] = 0
                     storage[repeat_id] = ""
@@ -259,7 +261,7 @@ class Robot(Job):
                     storage[counter_id] = 1
                     storage[repeat_id] = msg.content
 
-                elif storage[break_len] == 2:
+                elif storage[break_len] == BREAK_LENGTH:
                     storage[counter_id] = storage[break_conter]
                     storage[repeat_id] = storage[break_repeat]
                     storage[break_len] = 0
