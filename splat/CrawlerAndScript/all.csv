@@ -1,134 +1,134 @@
-Index,Name,Sub,Special,SP,Class,Range
-0,.52 Gal, Splash Wall, Killer Wail 5.1,200p, Shooter,55
-1,.52 Gal Deco, Curling Bomb, Splattercolor Screen,190p, Shooter,55
-2,.96 Gal, Sprinkler, Ink Vac,190p, Shooter,74
-3,.96 Gal Deco, Splash Wall, Kraken Royale,210p, Shooter,74
-4,Aerospray MG, Fizzy Bomb, Reefslider,180p, Shooter,35
-5,Aerospray RG, Sprinkler, Booyah Bomb,190p, Shooter,35
-6,Annaki Splattershot Nova, Ink Mine, Inkjet,210p, Shooter,68
-7,Ballpoint Splatling, Fizzy Bomb, Inkjet,210p, Splatling,84
-8,Ballpoint Splatling Nouveau, Ink Mine, Ink Vac,200p, Splatling,84
-9,Bamboozler 14 Mk I, Autobomb, Killer Wail 5.1,190p, Charger,78
-10,Big Swig Roller, Splash Wall, Ink Vac,190p, Roller,56
-11,Big Swig Roller Express, Angle Shooter, Ink Storm,200p, Roller,56
-12,Blaster, Autobomb, Big Bubbler,180p, Blaster,27
-13,Bloblobber, Sprinkler, Ink Storm,190p, Slosher,85
-14,Bloblobber Deco, Angle Shooter, Kraken Royale,200p, Slosher,85
-15,Carbon Roller, Autobomb, Zipcaster,170p, Roller,20
-16,Carbon Roller Deco, Burst Bomb, Trizooka,190p, Roller,20
-17,Clash Blaster, Splat Bomb, Trizooka,180p, Blaster,21
-18,Clash Blaster Neo, Curling Bomb, Super Chump,170p, Blaster,21
-19,Classic Squiffer, Point Sensor, Big Bubbler,190p, Charger,75
-20,Custom Blaster, Point Sensor, Triple Splashdown,180p, Blaster,27
-21,Custom Dualie Squelchers, Squid Beakon, Super Chump,210p, Dualie,70
-22,Custom E-liter 4K, Squid Beakon, Kraken Royale,200p, Charger,96
-23,Custom E-liter 4K Scope, Squid Beakon, Kraken Royale,200p, Charger,100
-24,Custom Explosher, Splash Wall, Triple Splashdown,200p, Slosher,77
-25,Custom Goo Tuber, Fizzy Bomb, Ultra Stamp,200p, Charger,78
-26,Custom Jet Squelcher, Toxic Mist, Ink Storm,180p, Shooter,82
-27,Custom Splattershot Jr., Torpedo, Wave Breaker,190p, Shooter,35
-28,Dapple Dualies, Squid Beakon, Tacticooler,180p, Dualie,24
-29,Dapple Dualies Nouveau, Torpedo, Reefslider,190p, Dualie,24
-30,Dark Tetra Dualies, Autobomb, Reefslider,200p, Dualie,58
-31,Douser Dualies FF, Ink Mine, Killer Wail 5.1,200p, Dualie,78
-32,Dread Wringer, Suction Bomb, Reefslider,190p, Slosher,60
-33,Dread Wringer D, Squid Beakon, Wave Breaker,190p, Slosher,60
-34,Dualie Squelchers, Splat Bomb, Wave Breaker,200p, Dualie,70
-35,Dynamo Roller, Sprinkler, Tacticooler,190p, Roller,76
-36,E-liter 4K, Ink Mine, Wave Breaker,210p, Charger,96
-37,E-liter 4K Scope, Ink Mine, Wave Breaker,210p, Charger,100
-38,Enperry Splat Dualies, Curling Bomb, Triple Splashdown,200p, Dualie,50
-39,Explosher, Point Sensor, Ink Storm,200p, Slosher,77
-40,Flingza Roller, Ink Mine, Tenta Missiles,210p, Roller,58
-41,Foil Flingza Roller, Suction Bomb, Splattercolor Screen,200p, Roller,58
-42,Foil Squeezer, Autobomb, Splattercolor Screen,190p, Shooter,77
-43,Forge Splattershot Pro, Suction Bomb, Booyah Bomb,200p, Shooter,70
-44,Glooga Dualies, Splash Wall, Booyah Bomb,180p, Dualie,66
-45,Glooga Dualies Deco, Point Sensor, Trizooka,190p, Dualie,66
-46,Goo Tuber, Torpedo, Tenta Missiles,200p, Charger,78
-47,Gold Dynamo Roller, Splat Bomb, Super Chump,190p, Roller,76
-48,H-3 Nozzlenose, Point Sensor, Tacticooler,190p, Shooter,70
-49,H-3 Nozzlenose D, Splash Wall, Big Bubbler,200p, Shooter,70
-50,Heavy Edit Splatling, Curling Bomb, Tacticooler,200p, Splatling,70
-51,Heavy Splatling, Sprinkler, Wave Breaker,200p, Splatling,78
-52,Heavy Splatling Deco, Point Sensor, Kraken Royale,200p, Splatling,78
-53,Hero Shot Replica, Suction Bomb, Trizooka,200p, Shooter,50
-54,Hydra Splatling, Autobomb, Booyah Bomb,190p, Splatling,85
-55,Inkbrush, Splat Bomb, Killer Wail 5.1,180p, Brush,5
-56,Inkbrush Nouveau, Ink Mine, Ultra Stamp,180p, Brush,5
-57,Inkline Tri-Stringer, Sprinkler, Super Chump,190p, Stringer,88
-58,Jet Squelcher, Angle Shooter, Ink Vac,180p, Shooter,82
-59,Krak-On Splat Roller, Squid Beakon, Kraken Royale,180p, Roller,48
-60,L-3 Nozzlenose, Curling Bomb, Crab Tank,190p, Shooter,62
-61,L-3 Nozzlenose D, Burst Bomb, Ultra Stamp,200p, Shooter,62
-62,Light Tetra Dualies, Sprinkler, Zipcaster,190p, Dualie,58
-63,Luna Blaster, Splat Bomb, Zipcaster,170p, Blaster,18
-64,Luna Blaster Neo, Fizzy Bomb, Ultra Stamp,180p, Blaster,18
-65,Mini Splatling, Burst Bomb, Ultra Stamp,190p, Splatling,62
-66,N-ZAP '85, Suction Bomb, Tacticooler,200p, Shooter,50
-67,N-ZAP '89, Autobomb, Super Chump,180p, Shooter,50
-68,Nautilus 47, Point Sensor, Ink Storm,190p, Splatling,74
-69,Nautilus 79, Suction Bomb, Triple Splashdown,210p, Splatling,74
-70,Neo Splash-o-matic, Suction Bomb, Triple Inkstrike,210p, Shooter,42
-71,Neo Sploosh-o-matic, Squid Beakon, Killer Wail 5.1,170p, Shooter,12
-72,New Squiffer, Autobomb, Zipcaster,200p, Charger,75
-73,Octo Shot Replica, Splat Bomb, Triple Inkstrike,190p, Shooter,50
-74,Octobrush, Suction Bomb, Zipcaster,200p, Brush,23
-75,Octobrush Nouveau, Squid Beakon, Ink Storm,180p, Brush,23
-76,Order Blaster Replica, Splat Bomb, Zipcaster,170p, Blaster,18
-77,Order Brella Replica, Sprinkler, Triple Inkstrike,200p, Brella,43
-78,Order Charger Replica, Splat Bomb, Ink Vac,200p, Charger,88
-79,Order Dualie Replicas, Suction Bomb, Crab Tank,190p, Dualie,50
-80,Order Roller Replica, Curling Bomb, Big Bubbler,180p, Roller,48
-81,Order Shot Replica, Suction Bomb, Trizooka,200p, Shooter,50
-82,Order Slosher Replica, Splat Bomb, Triple Inkstrike,200p, Slosher,58
-83,Order Splatana Replica, Burst Bomb, Zipcaster,210p, Splatana,75
-84,Order Splatling Replica, Sprinkler, Wave Breaker,200p, Splatling,78
-85,Order Stringer Replica, Toxic Mist, Killer Wail 5.1,190p, Stringer,88
-86,Orderbrush Replica, Suction Bomb, Zipcaster,200p, Brush,23
-87,Painbrush, Curling Bomb, Wave Breaker,200p, Brush,33
-88,Painbrush Nouveau, Point Sensor, Tenta Missiles,190p, Brush,33
-89,Range Blaster, Suction Bomb, Wave Breaker,200p, Blaster,56
-90,Rapid Blaster, Ink Mine, Triple Inkstrike,190p, Blaster,62
-91,Rapid Blaster Deco, Torpedo, Inkjet,210p, Blaster,62
-92,Rapid Blaster Pro, Toxic Mist, Ink Vac,180p, Blaster,72
-93,Rapid Blaster Pro Deco, Angle Shooter, Killer Wail 5.1,190p, Blaster,72
-94,Recycled Brella 24 Mk I, Angle Shooter, Big Bubbler,190p, Brella,56
-95,REEF-LUX 450, Curling Bomb, Tenta Missiles,210p, Stringer,60
-96,REEF-LUX 450 Deco, Splash Wall, Reefslider,200p, Stringer,60
-97,S-BLAST '91, Burst Bomb, Booyah Bomb,190p, Blaster,45
-98,S-BLAST '92, Sprinkler, Reefslider,180p, Blaster,45
-99,Slosher, Splat Bomb, Triple Inkstrike,200p, Slosher,58
-100,Slosher Deco, Angle Shooter, Zipcaster,180p, Slosher,58
-101,Sloshing Machine, Fizzy Bomb, Booyah Bomb,220p, Slosher,60
-102,Sloshing Machine Neo, Point Sensor, Trizooka,190p, Slosher,60
-103,Snipewriter 5B, Splash Wall, Ink Storm,210p, Charger,91
-104,Snipewriter 5H, Sprinkler, Tacticooler,200p, Charger,91
-105,Sorella Brella, Autobomb, Inkjet,190p, Brella,43
-106,Splash-o-matic, Burst Bomb, Crab Tank,200p, Shooter,42
-107,Splat Brella, Sprinkler, Triple Inkstrike,200p, Brella,43
-108,Splat Charger, Splat Bomb, Ink Vac,200p, Charger,88
-109,Splat Dualies, Suction Bomb, Crab Tank,190p, Dualie,50
-110,Splat Roller, Curling Bomb, Big Bubbler,180p, Roller,48
-111,Splatana Stamper, Burst Bomb, Zipcaster,210p, Splatana,75
-112,Splatana Stamper Nouveau, Toxic Mist, Crab Tank,210p, Splatana,75
-113,Splatana Wiper, Torpedo, Ultra Stamp,190p, Splatana,58
-114,Splatana Wiper Deco, Squid Beakon, Tenta Missiles,190p, Splatana,58
-115,Splatterscope, Splat Bomb, Ink Vac,200p, Charger,91
-116,Splattershot, Suction Bomb, Trizooka,200p, Shooter,50
-117,Splattershot Jr., Splat Bomb, Big Bubbler,180p, Shooter,35
-118,Splattershot Nova, Point Sensor, Killer Wail 5.1,190p, Shooter,68
-119,Splattershot Pro, Angle Shooter, Crab Tank,180p, Shooter,70
-120,Sploosh-o-matic, Curling Bomb, Ultra Stamp,180p, Shooter,12
-121,Squeezer, Splash Wall, Trizooka,210p, Shooter,77
-122,Tenta Brella, Squid Beakon, Ink Vac,190p, Brella,62
-123,Tenta Sorella Brella, Ink Mine, Trizooka,200p, Brella,62
-124,Tentatek Splattershot, Splat Bomb, Triple Inkstrike,190p, Shooter,50
-125,Tri-Slosher, Toxic Mist, Inkjet,180p, Slosher,31
-126,Tri-Slosher Nouveau, Fizzy Bomb, Tacticooler,210p, Slosher,31
-127,Tri-Stringer, Toxic Mist, Killer Wail 5.1,180p, Stringer,88
-128,Undercover Brella, Ink Mine, Reefslider,180p, Brella,50
-129,Undercover Sorella Brella, Torpedo, Splattercolor Screen,180p, Brella,50
-130,Z+F Splat Charger, Splash Wall, Triple Inkstrike,210p, Charger,88
-131,Z+F Splatterscope, Splash Wall, Triple Inkstrike,210p, Charger,91
-132,Zink Mini Splatling, Toxic Mist, Big Bubbler,190p, Splatling,62
+Index,Name,Sub,Special,SP,Class,Range,ran
+0,.52 Gal, Splash Wall, Killer Wail 5.1,200p, Shooter,55,Median
+1,.52 Gal Deco, Curling Bomb, Splattercolor Screen,190p, Shooter,55,Median
+2,.96 Gal, Sprinkler, Ink Vac,190p, Shooter,74,Median
+3,.96 Gal Deco, Splash Wall, Kraken Royale,210p, Shooter,74,Median
+4,Aerospray MG, Fizzy Bomb, Reefslider,180p, Shooter,35,Median
+5,Aerospray RG, Sprinkler, Booyah Bomb,190p, Shooter,35,Median
+6,Annaki Splattershot Nova, Ink Mine, Inkjet,210p, Shooter,68,Median
+7,Ballpoint Splatling, Fizzy Bomb, Inkjet,210p, Splatling,84,Median
+8,Ballpoint Splatling Nouveau, Ink Mine, Ink Vac,200p, Splatling,84,Median
+9,Bamboozler 14 Mk I, Autobomb, Killer Wail 5.1,190p, Charger,78,Median
+10,Big Swig Roller, Splash Wall, Ink Vac,190p, Roller,56,Median
+11,Big Swig Roller Express, Angle Shooter, Ink Storm,200p, Roller,56,Median
+12,Blaster, Autobomb, Big Bubbler,180p, Blaster,27,Median
+13,Bloblobber, Sprinkler, Ink Storm,190p, Slosher,85,Median
+14,Bloblobber Deco, Angle Shooter, Kraken Royale,200p, Slosher,85,Median
+15,Carbon Roller, Autobomb, Zipcaster,170p, Roller,20,Median
+16,Carbon Roller Deco, Burst Bomb, Trizooka,190p, Roller,20,Median
+17,Clash Blaster, Splat Bomb, Trizooka,180p, Blaster,21,Median
+18,Clash Blaster Neo, Curling Bomb, Super Chump,170p, Blaster,21,Median
+19,Classic Squiffer, Point Sensor, Big Bubbler,190p, Charger,75,Median
+20,Custom Blaster, Point Sensor, Triple Splashdown,180p, Blaster,27,Median
+21,Custom Dualie Squelchers, Squid Beakon, Super Chump,210p, Dualie,70,Median
+22,Custom E-liter 4K, Squid Beakon, Kraken Royale,200p, Charger,96,Median
+23,Custom E-liter 4K Scope, Squid Beakon, Kraken Royale,200p, Charger,100,Median
+24,Custom Explosher, Splash Wall, Triple Splashdown,200p, Slosher,77,Median
+25,Custom Goo Tuber, Fizzy Bomb, Ultra Stamp,200p, Charger,78,Median
+26,Custom Jet Squelcher, Toxic Mist, Ink Storm,180p, Shooter,82,Median
+27,Custom Splattershot Jr., Torpedo, Wave Breaker,190p, Shooter,35,Median
+28,Dapple Dualies, Squid Beakon, Tacticooler,180p, Dualie,24,Median
+29,Dapple Dualies Nouveau, Torpedo, Reefslider,190p, Dualie,24,Median
+30,Dark Tetra Dualies, Autobomb, Reefslider,200p, Dualie,58,Median
+31,Douser Dualies FF, Ink Mine, Killer Wail 5.1,200p, Dualie,78,Median
+32,Dread Wringer, Suction Bomb, Reefslider,190p, Slosher,60,Median
+33,Dread Wringer D, Squid Beakon, Wave Breaker,190p, Slosher,60,Median
+34,Dualie Squelchers, Splat Bomb, Wave Breaker,200p, Dualie,70,Median
+35,Dynamo Roller, Sprinkler, Tacticooler,190p, Roller,76,Median
+36,E-liter 4K, Ink Mine, Wave Breaker,210p, Charger,96,Median
+37,E-liter 4K Scope, Ink Mine, Wave Breaker,210p, Charger,100,Median
+38,Enperry Splat Dualies, Curling Bomb, Triple Splashdown,200p, Dualie,50,Median
+39,Explosher, Point Sensor, Ink Storm,200p, Slosher,77,Median
+40,Flingza Roller, Ink Mine, Tenta Missiles,210p, Roller,58,Median
+41,Foil Flingza Roller, Suction Bomb, Splattercolor Screen,200p, Roller,58,Median
+42,Foil Squeezer, Autobomb, Splattercolor Screen,190p, Shooter,77,Median
+43,Forge Splattershot Pro, Suction Bomb, Booyah Bomb,200p, Shooter,70,Median
+44,Glooga Dualies, Splash Wall, Booyah Bomb,180p, Dualie,66,Median
+45,Glooga Dualies Deco, Point Sensor, Trizooka,190p, Dualie,66,Median
+46,Goo Tuber, Torpedo, Tenta Missiles,200p, Charger,78,Median
+47,Gold Dynamo Roller, Splat Bomb, Super Chump,190p, Roller,76,Median
+48,H-3 Nozzlenose, Point Sensor, Tacticooler,190p, Shooter,70,Median
+49,H-3 Nozzlenose D, Splash Wall, Big Bubbler,200p, Shooter,70,Median
+50,Heavy Edit Splatling, Curling Bomb, Tacticooler,200p, Splatling,70,Median
+51,Heavy Splatling, Sprinkler, Wave Breaker,200p, Splatling,78,Median
+52,Heavy Splatling Deco, Point Sensor, Kraken Royale,200p, Splatling,78,Median
+53,Hero Shot Replica, Suction Bomb, Trizooka,200p, Shooter,50,Median
+54,Hydra Splatling, Autobomb, Booyah Bomb,190p, Splatling,85,Median
+55,Inkbrush, Splat Bomb, Killer Wail 5.1,180p, Brush,5,Median
+56,Inkbrush Nouveau, Ink Mine, Ultra Stamp,180p, Brush,5,Median
+57,Inkline Tri-Stringer, Sprinkler, Super Chump,190p, Stringer,88,Median
+58,Jet Squelcher, Angle Shooter, Ink Vac,180p, Shooter,82,Median
+59,Krak-On Splat Roller, Squid Beakon, Kraken Royale,180p, Roller,48,Median
+60,L-3 Nozzlenose, Curling Bomb, Crab Tank,190p, Shooter,62,Median
+61,L-3 Nozzlenose D, Burst Bomb, Ultra Stamp,200p, Shooter,62,Median
+62,Light Tetra Dualies, Sprinkler, Zipcaster,190p, Dualie,58,Median
+63,Luna Blaster, Splat Bomb, Zipcaster,170p, Blaster,18,Median
+64,Luna Blaster Neo, Fizzy Bomb, Ultra Stamp,180p, Blaster,18,Median
+65,Mini Splatling, Burst Bomb, Ultra Stamp,190p, Splatling,62,Median
+66,N-ZAP '85, Suction Bomb, Tacticooler,200p, Shooter,50,Median
+67,N-ZAP '89, Autobomb, Super Chump,180p, Shooter,50,Median
+68,Nautilus 47, Point Sensor, Ink Storm,190p, Splatling,74,Median
+69,Nautilus 79, Suction Bomb, Triple Splashdown,210p, Splatling,74,Median
+70,Neo Splash-o-matic, Suction Bomb, Triple Inkstrike,210p, Shooter,42,Median
+71,Neo Sploosh-o-matic, Squid Beakon, Killer Wail 5.1,170p, Shooter,12,Median
+72,New Squiffer, Autobomb, Zipcaster,200p, Charger,75,Median
+73,Octo Shot Replica, Splat Bomb, Triple Inkstrike,190p, Shooter,50,Median
+74,Octobrush, Suction Bomb, Zipcaster,200p, Brush,23,Median
+75,Octobrush Nouveau, Squid Beakon, Ink Storm,180p, Brush,23,Median
+76,Order Blaster Replica, Splat Bomb, Zipcaster,170p, Blaster,18,Median
+77,Order Brella Replica, Sprinkler, Triple Inkstrike,200p, Brella,43,Median
+78,Order Charger Replica, Splat Bomb, Ink Vac,200p, Charger,88,Median
+79,Order Dualie Replicas, Suction Bomb, Crab Tank,190p, Dualie,50,Median
+80,Order Roller Replica, Curling Bomb, Big Bubbler,180p, Roller,48,Median
+81,Order Shot Replica, Suction Bomb, Trizooka,200p, Shooter,50,Median
+82,Order Slosher Replica, Splat Bomb, Triple Inkstrike,200p, Slosher,58,Median
+83,Order Splatana Replica, Burst Bomb, Zipcaster,210p, Splatana,75,Median
+84,Order Splatling Replica, Sprinkler, Wave Breaker,200p, Splatling,78,Median
+85,Order Stringer Replica, Toxic Mist, Killer Wail 5.1,190p, Stringer,88,Median
+86,Orderbrush Replica, Suction Bomb, Zipcaster,200p, Brush,23,Median
+87,Painbrush, Curling Bomb, Wave Breaker,200p, Brush,33,Median
+88,Painbrush Nouveau, Point Sensor, Tenta Missiles,190p, Brush,33,Median
+89,Range Blaster, Suction Bomb, Wave Breaker,200p, Blaster,56,Median
+90,Rapid Blaster, Ink Mine, Triple Inkstrike,190p, Blaster,62,Median
+91,Rapid Blaster Deco, Torpedo, Inkjet,210p, Blaster,62,Median
+92,Rapid Blaster Pro, Toxic Mist, Ink Vac,180p, Blaster,72,Median
+93,Rapid Blaster Pro Deco, Angle Shooter, Killer Wail 5.1,190p, Blaster,72,Median
+94,Recycled Brella 24 Mk I, Angle Shooter, Big Bubbler,190p, Brella,56,Median
+95,REEF-LUX 450, Curling Bomb, Tenta Missiles,210p, Stringer,60,Median
+96,REEF-LUX 450 Deco, Splash Wall, Reefslider,200p, Stringer,60,Median
+97,S-BLAST '91, Burst Bomb, Booyah Bomb,190p, Blaster,45,Median
+98,S-BLAST '92, Sprinkler, Reefslider,180p, Blaster,45,Median
+99,Slosher, Splat Bomb, Triple Inkstrike,200p, Slosher,58,Median
+100,Slosher Deco, Angle Shooter, Zipcaster,180p, Slosher,58,Median
+101,Sloshing Machine, Fizzy Bomb, Booyah Bomb,220p, Slosher,60,Median
+102,Sloshing Machine Neo, Point Sensor, Trizooka,190p, Slosher,60,Median
+103,Snipewriter 5B, Splash Wall, Ink Storm,210p, Charger,91,Median
+104,Snipewriter 5H, Sprinkler, Tacticooler,200p, Charger,91,Median
+105,Sorella Brella, Autobomb, Inkjet,190p, Brella,43,Median
+106,Splash-o-matic, Burst Bomb, Crab Tank,200p, Shooter,42,Median
+107,Splat Brella, Sprinkler, Triple Inkstrike,200p, Brella,43,Median
+108,Splat Charger, Splat Bomb, Ink Vac,200p, Charger,88,Median
+109,Splat Dualies, Suction Bomb, Crab Tank,190p, Dualie,50,Median
+110,Splat Roller, Curling Bomb, Big Bubbler,180p, Roller,48,Median
+111,Splatana Stamper, Burst Bomb, Zipcaster,210p, Splatana,75,Median
+112,Splatana Stamper Nouveau, Toxic Mist, Crab Tank,210p, Splatana,75,Median
+113,Splatana Wiper, Torpedo, Ultra Stamp,190p, Splatana,58,Median
+114,Splatana Wiper Deco, Squid Beakon, Tenta Missiles,190p, Splatana,58,Median
+115,Splatterscope, Splat Bomb, Ink Vac,200p, Charger,91,Median
+116,Splattershot, Suction Bomb, Trizooka,200p, Shooter,50,Median
+117,Splattershot Jr., Splat Bomb, Big Bubbler,180p, Shooter,35,Median
+118,Splattershot Nova, Point Sensor, Killer Wail 5.1,190p, Shooter,68,Median
+119,Splattershot Pro, Angle Shooter, Crab Tank,180p, Shooter,70,Median
+120,Sploosh-o-matic, Curling Bomb, Ultra Stamp,180p, Shooter,12,Median
+121,Squeezer, Splash Wall, Trizooka,210p, Shooter,77,Median
+122,Tenta Brella, Squid Beakon, Ink Vac,190p, Brella,62,Median
+123,Tenta Sorella Brella, Ink Mine, Trizooka,200p, Brella,62,Median
+124,Tentatek Splattershot, Splat Bomb, Triple Inkstrike,190p, Shooter,50,Median
+125,Tri-Slosher, Toxic Mist, Inkjet,180p, Slosher,31,Median
+126,Tri-Slosher Nouveau, Fizzy Bomb, Tacticooler,210p, Slosher,31,Median
+127,Tri-Stringer, Toxic Mist, Killer Wail 5.1,180p, Stringer,88,Median
+128,Undercover Brella, Ink Mine, Reefslider,180p, Brella,50,Median
+129,Undercover Sorella Brella, Torpedo, Splattercolor Screen,180p, Brella,50,Median
+130,Z+F Splat Charger, Splash Wall, Triple Inkstrike,210p, Charger,88,Median
+131,Z+F Splatterscope, Splash Wall, Triple Inkstrike,210p, Charger,91,Median
+132,Zink Mini Splatling, Toxic Mist, Big Bubbler,190p, Splatling,62,Median

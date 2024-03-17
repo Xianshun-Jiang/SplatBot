@@ -17,7 +17,7 @@ class SplatBot():
     def get_regular(self,tz = "东部"):
         update()
         li = parse_regular(tz)[:5*2]
-        return render_battle(li, tz,self.images)
+        return render_battle(li, tz,"占地模式",self.images)
 
     def get_challenge(self, tz = "东部"):
         update()
