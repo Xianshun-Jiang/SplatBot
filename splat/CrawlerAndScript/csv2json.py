@@ -1,7 +1,7 @@
 import csv
 import json
 
-name = "weapons_data"
+name = "all"
 
 # Open the CSV file for reading
 with open(name+'.csv', 'r') as csv_file:

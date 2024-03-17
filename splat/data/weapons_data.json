@@ -5,7 +5,8 @@
         "Sub": " Splash Wall",
         "Special": " Killer Wail 5.1",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "55"
     },
     {
         "Index": "1",
@@ -13,7 +14,8 @@
         "Sub": " Curling Bomb",
         "Special": " Splattercolor Screen",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "55"
     },
     {
         "Index": "2",
@@ -21,7 +23,8 @@
         "Sub": " Sprinkler",
         "Special": " Ink Vac",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "74"
     },
     {
         "Index": "3",
@@ -29,7 +32,8 @@
         "Sub": " Splash Wall",
         "Special": " Kraken Royale",
         "SP": "210p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "74"
     },
     {
         "Index": "4",
@@ -37,7 +41,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Reefslider",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "35"
     },
     {
         "Index": "5",
@@ -45,7 +50,8 @@
         "Sub": " Sprinkler",
         "Special": " Booyah Bomb",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "35"
     },
     {
         "Index": "6",
@@ -53,7 +59,8 @@
         "Sub": " Ink Mine",
         "Special": " Inkjet",
         "SP": "210p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "68"
     },
     {
         "Index": "7",
@@ -61,7 +68,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Inkjet",
         "SP": "210p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "84"
     },
     {
         "Index": "8",
@@ -69,7 +77,8 @@
         "Sub": " Ink Mine",
         "Special": " Ink Vac",
         "SP": "200p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "84"
     },
     {
         "Index": "9",
@@ -77,7 +86,8 @@
         "Sub": " Autobomb",
         "Special": " Killer Wail 5.1",
         "SP": "190p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "78"
     },
     {
         "Index": "10",
@@ -85,7 +95,8 @@
         "Sub": " Splash Wall",
         "Special": " Ink Vac",
         "SP": "190p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "56"
     },
     {
         "Index": "11",
@@ -93,7 +104,8 @@
         "Sub": " Angle Shooter",
         "Special": " Ink Storm",
         "SP": "200p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "56"
     },
     {
         "Index": "12",
@@ -101,7 +113,8 @@
         "Sub": " Autobomb",
         "Special": " Big Bubbler",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "27"
     },
     {
         "Index": "13",
@@ -109,7 +122,8 @@
         "Sub": " Sprinkler",
         "Special": " Ink Storm",
         "SP": "190p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "85"
     },
     {
         "Index": "14",
@@ -117,7 +131,8 @@
         "Sub": " Angle Shooter",
         "Special": " Kraken Royale",
         "SP": "200p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "85"
     },
     {
         "Index": "15",
@@ -125,7 +140,8 @@
         "Sub": " Autobomb",
         "Special": " Zipcaster",
         "SP": "170p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "20"
     },
     {
         "Index": "16",
@@ -133,7 +149,8 @@
         "Sub": " Burst Bomb",
         "Special": " Trizooka",
         "SP": "190p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "20"
     },
     {
         "Index": "17",
@@ -141,7 +158,8 @@
         "Sub": " Splat Bomb",
         "Special": " Trizooka",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "21"
     },
     {
         "Index": "18",
@@ -149,7 +167,8 @@
         "Sub": " Curling Bomb",
         "Special": " Super Chump",
         "SP": "170p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "21"
     },
     {
         "Index": "19",
@@ -157,7 +176,8 @@
         "Sub": " Point Sensor",
         "Special": " Big Bubbler",
         "SP": "190p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "75"
     },
     {
         "Index": "20",
@@ -165,7 +185,8 @@
         "Sub": " Point Sensor",
         "Special": " Triple Splashdown",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "27"
     },
     {
         "Index": "21",
@@ -173,7 +194,8 @@
         "Sub": " Squid Beakon",
         "Special": " Super Chump",
         "SP": "210p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "70"
     },
     {
         "Index": "22",
@@ -181,7 +203,8 @@
         "Sub": " Squid Beakon",
         "Special": " Kraken Royale",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "96"
     },
     {
         "Index": "23",
@@ -189,7 +212,8 @@
         "Sub": " Squid Beakon",
         "Special": " Kraken Royale",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "100"
     },
     {
         "Index": "24",
@@ -197,7 +221,8 @@
         "Sub": " Splash Wall",
         "Special": " Triple Splashdown",
         "SP": "200p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "77"
     },
     {
         "Index": "25",
@@ -205,7 +230,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Ultra Stamp",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "78"
     },
     {
         "Index": "26",
@@ -213,7 +239,8 @@
         "Sub": " Toxic Mist",
         "Special": " Ink Storm",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "82"
     },
     {
         "Index": "27",
@@ -221,7 +248,8 @@
         "Sub": " Torpedo",
         "Special": " Wave Breaker",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "35"
     },
     {
         "Index": "28",
@@ -229,7 +257,8 @@
         "Sub": " Squid Beakon",
         "Special": " Tacticooler",
         "SP": "180p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "24"
     },
     {
         "Index": "29",
@@ -237,7 +266,8 @@
         "Sub": " Torpedo",
         "Special": " Reefslider",
         "SP": "190p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "24"
     },
     {
         "Index": "30",
@@ -245,7 +275,8 @@
         "Sub": " Autobomb",
         "Special": " Reefslider",
         "SP": "200p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "58"
     },
     {
         "Index": "31",
@@ -253,7 +284,8 @@
         "Sub": " Ink Mine",
         "Special": " Killer Wail 5.1",
         "SP": "200p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "78"
     },
     {
         "Index": "32",
@@ -261,7 +293,8 @@
         "Sub": " Suction Bomb",
         "Special": " Reefslider",
         "SP": "190p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "60"
     },
     {
         "Index": "33",
@@ -269,7 +302,8 @@
         "Sub": " Squid Beakon",
         "Special": " Wave Breaker",
         "SP": "190p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "60"
     },
     {
         "Index": "34",
@@ -277,7 +311,8 @@
         "Sub": " Splat Bomb",
         "Special": " Wave Breaker",
         "SP": "200p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "70"
     },
     {
         "Index": "35",
@@ -285,7 +320,8 @@
         "Sub": " Sprinkler",
         "Special": " Tacticooler",
         "SP": "190p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "76"
     },
     {
         "Index": "36",
@@ -293,7 +329,8 @@
         "Sub": " Ink Mine",
         "Special": " Wave Breaker",
         "SP": "210p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "96"
     },
     {
         "Index": "37",
@@ -301,7 +338,8 @@
         "Sub": " Ink Mine",
         "Special": " Wave Breaker",
         "SP": "210p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "100"
     },
     {
         "Index": "38",
@@ -309,7 +347,8 @@
         "Sub": " Curling Bomb",
         "Special": " Triple Splashdown",
         "SP": "200p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "50"
     },
     {
         "Index": "39",
@@ -317,7 +356,8 @@
         "Sub": " Point Sensor",
         "Special": " Ink Storm",
         "SP": "200p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "77"
     },
     {
         "Index": "40",
@@ -325,7 +365,8 @@
         "Sub": " Ink Mine",
         "Special": " Tenta Missiles",
         "SP": "210p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "58"
     },
     {
         "Index": "41",
@@ -333,7 +374,8 @@
         "Sub": " Suction Bomb",
         "Special": " Splattercolor Screen",
         "SP": "200p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "58"
     },
     {
         "Index": "42",
@@ -341,7 +383,8 @@
         "Sub": " Autobomb",
         "Special": " Splattercolor Screen",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "77"
     },
     {
         "Index": "43",
@@ -349,7 +392,8 @@
         "Sub": " Suction Bomb",
         "Special": " Booyah Bomb",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "70"
     },
     {
         "Index": "44",
@@ -357,7 +401,8 @@
         "Sub": " Splash Wall",
         "Special": " Booyah Bomb",
         "SP": "180p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "66"
     },
     {
         "Index": "45",
@@ -365,7 +410,8 @@
         "Sub": " Point Sensor",
         "Special": " Trizooka",
         "SP": "190p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "66"
     },
     {
         "Index": "46",
@@ -373,7 +419,8 @@
         "Sub": " Torpedo",
         "Special": " Tenta Missiles",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "78"
     },
     {
         "Index": "47",
@@ -381,7 +428,8 @@
         "Sub": " Splat Bomb",
         "Special": " Super Chump",
         "SP": "190p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "76"
     },
     {
         "Index": "48",
@@ -389,7 +437,8 @@
         "Sub": " Point Sensor",
         "Special": " Tacticooler",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "70"
     },
     {
         "Index": "49",
@@ -397,7 +446,8 @@
         "Sub": " Splash Wall",
         "Special": " Big Bubbler",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "70"
     },
     {
         "Index": "50",
@@ -405,7 +455,8 @@
         "Sub": " Curling Bomb",
         "Special": " Tacticooler",
         "SP": "200p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "70"
     },
     {
         "Index": "51",
@@ -413,7 +464,8 @@
         "Sub": " Sprinkler",
         "Special": " Wave Breaker",
         "SP": "200p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "78"
     },
     {
         "Index": "52",
@@ -421,7 +473,8 @@
         "Sub": " Point Sensor",
         "Special": " Kraken Royale",
         "SP": "200p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "78"
     },
     {
         "Index": "53",
@@ -429,7 +482,8 @@
         "Sub": " Suction Bomb",
         "Special": " Trizooka",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "54",
@@ -437,7 +491,8 @@
         "Sub": " Autobomb",
         "Special": " Booyah Bomb",
         "SP": "190p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "85"
     },
     {
         "Index": "55",
@@ -445,7 +500,8 @@
         "Sub": " Splat Bomb",
         "Special": " Killer Wail 5.1",
         "SP": "180p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "5"
     },
     {
         "Index": "56",
@@ -453,7 +509,8 @@
         "Sub": " Ink Mine",
         "Special": " Ultra Stamp",
         "SP": "180p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "5"
     },
     {
         "Index": "57",
@@ -461,7 +518,8 @@
         "Sub": " Sprinkler",
         "Special": " Super Chump",
         "SP": "190p",
-        "Class": " Stringer"
+        "Class": " Stringer",
+        "Range": "88"
     },
     {
         "Index": "58",
@@ -469,7 +527,8 @@
         "Sub": " Angle Shooter",
         "Special": " Ink Vac",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "82"
     },
     {
         "Index": "59",
@@ -477,7 +536,8 @@
         "Sub": " Squid Beakon",
         "Special": " Kraken Royale",
         "SP": "180p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "48"
     },
     {
         "Index": "60",
@@ -485,7 +545,8 @@
         "Sub": " Curling Bomb",
         "Special": " Crab Tank",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "62"
     },
     {
         "Index": "61",
@@ -493,7 +554,8 @@
         "Sub": " Burst Bomb",
         "Special": " Ultra Stamp",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "62"
     },
     {
         "Index": "62",
@@ -501,7 +563,8 @@
         "Sub": " Sprinkler",
         "Special": " Zipcaster",
         "SP": "190p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "58"
     },
     {
         "Index": "63",
@@ -509,7 +572,8 @@
         "Sub": " Splat Bomb",
         "Special": " Zipcaster",
         "SP": "170p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "18"
     },
     {
         "Index": "64",
@@ -517,7 +581,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Ultra Stamp",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "18"
     },
     {
         "Index": "65",
@@ -525,7 +590,8 @@
         "Sub": " Burst Bomb",
         "Special": " Ultra Stamp",
         "SP": "190p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "62"
     },
     {
         "Index": "66",
@@ -533,7 +599,8 @@
         "Sub": " Suction Bomb",
         "Special": " Tacticooler",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "67",
@@ -541,7 +608,8 @@
         "Sub": " Autobomb",
         "Special": " Super Chump",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "68",
@@ -549,7 +617,8 @@
         "Sub": " Point Sensor",
         "Special": " Ink Storm",
         "SP": "190p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "74"
     },
     {
         "Index": "69",
@@ -557,7 +626,8 @@
         "Sub": " Suction Bomb",
         "Special": " Triple Splashdown",
         "SP": "210p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "74"
     },
     {
         "Index": "70",
@@ -565,7 +635,8 @@
         "Sub": " Suction Bomb",
         "Special": " Triple Inkstrike",
         "SP": "210p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "42"
     },
     {
         "Index": "71",
@@ -573,7 +644,8 @@
         "Sub": " Squid Beakon",
         "Special": " Killer Wail 5.1",
         "SP": "170p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "12"
     },
     {
         "Index": "72",
@@ -581,7 +653,8 @@
         "Sub": " Autobomb",
         "Special": " Zipcaster",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "75"
     },
     {
         "Index": "73",
@@ -589,7 +662,8 @@
         "Sub": " Splat Bomb",
         "Special": " Triple Inkstrike",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "74",
@@ -597,7 +671,8 @@
         "Sub": " Suction Bomb",
         "Special": " Zipcaster",
         "SP": "200p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "23"
     },
     {
         "Index": "75",
@@ -605,7 +680,8 @@
         "Sub": " Squid Beakon",
         "Special": " Ink Storm",
         "SP": "180p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "23"
     },
     {
         "Index": "76",
@@ -613,7 +689,8 @@
         "Sub": " Splat Bomb",
         "Special": " Zipcaster",
         "SP": "170p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "18"
     },
     {
         "Index": "77",
@@ -621,7 +698,8 @@
         "Sub": " Sprinkler",
         "Special": " Triple Inkstrike",
         "SP": "200p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "43"
     },
     {
         "Index": "78",
@@ -629,7 +707,8 @@
         "Sub": " Splat Bomb",
         "Special": " Ink Vac",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "88"
     },
     {
         "Index": "79",
@@ -637,7 +716,8 @@
         "Sub": " Suction Bomb",
         "Special": " Crab Tank",
         "SP": "190p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "50"
     },
     {
         "Index": "80",
@@ -645,7 +725,8 @@
         "Sub": " Curling Bomb",
         "Special": " Big Bubbler",
         "SP": "180p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "48"
     },
     {
         "Index": "81",
@@ -653,7 +734,8 @@
         "Sub": " Suction Bomb",
         "Special": " Trizooka",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "82",
@@ -661,7 +743,8 @@
         "Sub": " Splat Bomb",
         "Special": " Triple Inkstrike",
         "SP": "200p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "58"
     },
     {
         "Index": "83",
@@ -669,7 +752,8 @@
         "Sub": " Burst Bomb",
         "Special": " Zipcaster",
         "SP": "210p",
-        "Class": " Splatana"
+        "Class": " Splatana",
+        "Range": "75"
     },
     {
         "Index": "84",
@@ -677,7 +761,8 @@
         "Sub": " Sprinkler",
         "Special": " Wave Breaker",
         "SP": "200p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "78"
     },
     {
         "Index": "85",
@@ -685,7 +770,8 @@
         "Sub": " Toxic Mist",
         "Special": " Killer Wail 5.1",
         "SP": "190p",
-        "Class": " Stringer"
+        "Class": " Stringer",
+        "Range": "88"
     },
     {
         "Index": "86",
@@ -693,7 +779,8 @@
         "Sub": " Suction Bomb",
         "Special": " Zipcaster",
         "SP": "200p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "23"
     },
     {
         "Index": "87",
@@ -701,7 +788,8 @@
         "Sub": " Curling Bomb",
         "Special": " Wave Breaker",
         "SP": "200p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "33"
     },
     {
         "Index": "88",
@@ -709,7 +797,8 @@
         "Sub": " Point Sensor",
         "Special": " Tenta Missiles",
         "SP": "190p",
-        "Class": " Brush"
+        "Class": " Brush",
+        "Range": "33"
     },
     {
         "Index": "89",
@@ -717,7 +806,8 @@
         "Sub": " Suction Bomb",
         "Special": " Wave Breaker",
         "SP": "200p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "56"
     },
     {
         "Index": "90",
@@ -725,7 +815,8 @@
         "Sub": " Ink Mine",
         "Special": " Triple Inkstrike",
         "SP": "190p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "62"
     },
     {
         "Index": "91",
@@ -733,7 +824,8 @@
         "Sub": " Torpedo",
         "Special": " Inkjet",
         "SP": "210p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "62"
     },
     {
         "Index": "92",
@@ -741,7 +833,8 @@
         "Sub": " Toxic Mist",
         "Special": " Ink Vac",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "72"
     },
     {
         "Index": "93",
@@ -749,7 +842,8 @@
         "Sub": " Angle Shooter",
         "Special": " Killer Wail 5.1",
         "SP": "190p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "72"
     },
     {
         "Index": "94",
@@ -757,7 +851,8 @@
         "Sub": " Angle Shooter",
         "Special": " Big Bubbler",
         "SP": "190p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "56"
     },
     {
         "Index": "95",
@@ -765,7 +860,8 @@
         "Sub": " Curling Bomb",
         "Special": " Tenta Missiles",
         "SP": "210p",
-        "Class": " Stringer"
+        "Class": " Stringer",
+        "Range": "60"
     },
     {
         "Index": "96",
@@ -773,7 +869,8 @@
         "Sub": " Splash Wall",
         "Special": " Reefslider",
         "SP": "200p",
-        "Class": " Stringer"
+        "Class": " Stringer",
+        "Range": "60"
     },
     {
         "Index": "97",
@@ -781,7 +878,8 @@
         "Sub": " Burst Bomb",
         "Special": " Booyah Bomb",
         "SP": "190p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "45"
     },
     {
         "Index": "98",
@@ -789,7 +887,8 @@
         "Sub": " Sprinkler",
         "Special": " Reefslider",
         "SP": "180p",
-        "Class": " Blaster"
+        "Class": " Blaster",
+        "Range": "45"
     },
     {
         "Index": "99",
@@ -797,7 +896,8 @@
         "Sub": " Splat Bomb",
         "Special": " Triple Inkstrike",
         "SP": "200p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "58"
     },
     {
         "Index": "100",
@@ -805,7 +905,8 @@
         "Sub": " Angle Shooter",
         "Special": " Zipcaster",
         "SP": "180p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "58"
     },
     {
         "Index": "101",
@@ -813,7 +914,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Booyah Bomb",
         "SP": "220p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "60"
     },
     {
         "Index": "102",
@@ -821,7 +923,8 @@
         "Sub": " Point Sensor",
         "Special": " Trizooka",
         "SP": "190p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "60"
     },
     {
         "Index": "103",
@@ -829,7 +932,8 @@
         "Sub": " Splash Wall",
         "Special": " Ink Storm",
         "SP": "210p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "91"
     },
     {
         "Index": "104",
@@ -837,7 +941,8 @@
         "Sub": " Sprinkler",
         "Special": " Tacticooler",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "91"
     },
     {
         "Index": "105",
@@ -845,7 +950,8 @@
         "Sub": " Autobomb",
         "Special": " Inkjet",
         "SP": "190p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "43"
     },
     {
         "Index": "106",
@@ -853,7 +959,8 @@
         "Sub": " Burst Bomb",
         "Special": " Crab Tank",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "42"
     },
     {
         "Index": "107",
@@ -861,7 +968,8 @@
         "Sub": " Sprinkler",
         "Special": " Triple Inkstrike",
         "SP": "200p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "43"
     },
     {
         "Index": "108",
@@ -869,7 +977,8 @@
         "Sub": " Splat Bomb",
         "Special": " Ink Vac",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "88"
     },
     {
         "Index": "109",
@@ -877,7 +986,8 @@
         "Sub": " Suction Bomb",
         "Special": " Crab Tank",
         "SP": "190p",
-        "Class": " Dualie"
+        "Class": " Dualie",
+        "Range": "50"
     },
     {
         "Index": "110",
@@ -885,7 +995,8 @@
         "Sub": " Curling Bomb",
         "Special": " Big Bubbler",
         "SP": "180p",
-        "Class": " Roller"
+        "Class": " Roller",
+        "Range": "48"
     },
     {
         "Index": "111",
@@ -893,7 +1004,8 @@
         "Sub": " Burst Bomb",
         "Special": " Zipcaster",
         "SP": "210p",
-        "Class": " Splatana"
+        "Class": " Splatana",
+        "Range": "75"
     },
     {
         "Index": "112",
@@ -901,7 +1013,8 @@
         "Sub": " Toxic Mist",
         "Special": " Crab Tank",
         "SP": "210p",
-        "Class": " Splatana"
+        "Class": " Splatana",
+        "Range": "75"
     },
     {
         "Index": "113",
@@ -909,7 +1022,8 @@
         "Sub": " Torpedo",
         "Special": " Ultra Stamp",
         "SP": "190p",
-        "Class": " Splatana"
+        "Class": " Splatana",
+        "Range": "58"
     },
     {
         "Index": "114",
@@ -917,7 +1031,8 @@
         "Sub": " Squid Beakon",
         "Special": " Tenta Missiles",
         "SP": "190p",
-        "Class": " Splatana"
+        "Class": " Splatana",
+        "Range": "58"
     },
     {
         "Index": "115",
@@ -925,7 +1040,8 @@
         "Sub": " Splat Bomb",
         "Special": " Ink Vac",
         "SP": "200p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "91"
     },
     {
         "Index": "116",
@@ -933,7 +1049,8 @@
         "Sub": " Suction Bomb",
         "Special": " Trizooka",
         "SP": "200p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "117",
@@ -941,7 +1058,8 @@
         "Sub": " Splat Bomb",
         "Special": " Big Bubbler",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "35"
     },
     {
         "Index": "118",
@@ -949,7 +1067,8 @@
         "Sub": " Point Sensor",
         "Special": " Killer Wail 5.1",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "68"
     },
     {
         "Index": "119",
@@ -957,7 +1076,8 @@
         "Sub": " Angle Shooter",
         "Special": " Crab Tank",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "70"
     },
     {
         "Index": "120",
@@ -965,7 +1085,8 @@
         "Sub": " Curling Bomb",
         "Special": " Ultra Stamp",
         "SP": "180p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "12"
     },
     {
         "Index": "121",
@@ -973,7 +1094,8 @@
         "Sub": " Splash Wall",
         "Special": " Trizooka",
         "SP": "210p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "77"
     },
     {
         "Index": "122",
@@ -981,7 +1103,8 @@
         "Sub": " Squid Beakon",
         "Special": " Ink Vac",
         "SP": "190p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "62"
     },
     {
         "Index": "123",
@@ -989,7 +1112,8 @@
         "Sub": " Ink Mine",
         "Special": " Trizooka",
         "SP": "200p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "62"
     },
     {
         "Index": "124",
@@ -997,7 +1121,8 @@
         "Sub": " Splat Bomb",
         "Special": " Triple Inkstrike",
         "SP": "190p",
-        "Class": " Shooter"
+        "Class": " Shooter",
+        "Range": "50"
     },
     {
         "Index": "125",
@@ -1005,7 +1130,8 @@
         "Sub": " Toxic Mist",
         "Special": " Inkjet",
         "SP": "180p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "31"
     },
     {
         "Index": "126",
@@ -1013,7 +1139,8 @@
         "Sub": " Fizzy Bomb",
         "Special": " Tacticooler",
         "SP": "210p",
-        "Class": " Slosher"
+        "Class": " Slosher",
+        "Range": "31"
     },
     {
         "Index": "127",
@@ -1021,7 +1148,8 @@
         "Sub": " Toxic Mist",
         "Special": " Killer Wail 5.1",
         "SP": "180p",
-        "Class": " Stringer"
+        "Class": " Stringer",
+        "Range": "88"
     },
     {
         "Index": "128",
@@ -1029,7 +1157,8 @@
         "Sub": " Ink Mine",
         "Special": " Reefslider",
         "SP": "180p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "50"
     },
     {
         "Index": "129",
@@ -1037,7 +1166,8 @@
         "Sub": " Torpedo",
         "Special": " Splattercolor Screen",
         "SP": "180p",
-        "Class": " Brella"
+        "Class": " Brella",
+        "Range": "50"
     },
     {
         "Index": "130",
@@ -1045,7 +1175,8 @@
         "Sub": " Splash Wall",
         "Special": " Triple Inkstrike",
         "SP": "210p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "88"
     },
     {
         "Index": "131",
@@ -1053,7 +1184,8 @@
         "Sub": " Splash Wall",
         "Special": " Triple Inkstrike",
         "SP": "210p",
-        "Class": " Charger"
+        "Class": " Charger",
+        "Range": "91"
     },
     {
         "Index": "132",
@@ -1061,6 +1193,7 @@
         "Sub": " Toxic Mist",
         "Special": " Big Bubbler",
         "SP": "190p",
-        "Class": " Splatling"
+        "Class": " Splatling",
+        "Range": "62"
     }
 ]
