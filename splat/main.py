@@ -13,6 +13,7 @@ class SplatBot():
         global images
         self.images = URL +"/splat/images/"
         self.data = URL + "/splat/data/"
+        self.URL = URL + "/splat/"
     
     def get_regular(self,tz = "东部"):
         update()
@@ -30,7 +31,6 @@ class SplatBot():
         return render_zg(li, tz,"真格开放",self.images)
 
     def get_coop(self, tz:str = "东部"):
-        tz = "东部"
         update()
         li = parse_coop(tz)
         return render_coop(li, tz,self.images)
@@ -42,6 +42,16 @@ class SplatBot():
 
 
     def get_random(self, arg):
-        li = get_random(self.data,arg)
+        li = init_random(self.data,arg)
         return render_random(li,self.images)
+    
+    def get_event(self, tz = "东部"):
+        li = parse_event(tz, self.URL)
+        if type(li) == str:
+            return li
+        else:
+            print(li)
+            return li
+            return render_event(li, tz, "活动比赛",self.images)
+
 

@@ -2,7 +2,7 @@ import json
 import random
 rules = ["真格区域", "真格塔楼", "真格蛤蜊", "真格鱼虎对战"]
 
-def get_random(folder = "", arg= "纯随机"):
+def init_random(folder = "", arg= "纯随机"):
     re = {}
     with open(folder+ "weapons_data.json") as file:
         wp = json.load(file)

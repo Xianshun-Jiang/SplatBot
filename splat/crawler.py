@@ -7,9 +7,11 @@ from io import BytesIO
 
 
 
-
 # Default settings
 url = "https://splatoon3.ink/data/schedules.json"
+trans_url = "https://splatoon3.ink/data/locale/zh-CN.json"
+URL = ""
+
 try:
     f = open('./splat/zh-CN.json',encoding="utf8")
 except:
@@ -27,6 +29,13 @@ coop = r['coopGroupingSchedule']['regularSchedules']['nodes']
 
 event = r['eventSchedules']['nodes']
 fest = r['festSchedules']['nodes']
+
+
+def update_trans():
+    r = requests.get(trans_url).json()
+    with open(URL+'zh-CN.json', 'w', encoding="utf-8") as f:
+        json.dump(r, f, ensure_ascii=False, indent=2)
+        return r
 
 def update():
     global r, regular,ranked,x,coop,event,fest
@@ -58,6 +67,17 @@ def translate_boss(id):
 def translate_rule(id):
     return dic['rules'][id]['name']
 
+def translate(type, id, val):
+    global dic
+    try:
+        tmp = dic[type][id][val]
+        return tmp
+    except:
+        dic = update_trans()
+        tmp = dic[type][id][val]
+        return tmp
+
+
 def timezone_conversion(time_str, tz = "东部"):
     tokyo_timezone = pytz.timezone('Asia/Tokyo')
     tokyo_datetime = datetime.fromisoformat(time_str).astimezone(tokyo_timezone)
@@ -79,7 +99,6 @@ def timezone_conversion(time_str, tz = "东部"):
             re = pytz.timezone('US/Mountain')
             re = tokyo_datetime.astimezone(re)
             return re
-
 
 def parse_regular(tz = "东部"):
     stages = []
@@ -224,3 +243,24 @@ def parse_coop(tz = "东部"):
         stages.append(tmp)
     return stages
         
+def parse_event(tz = "东部", _URL = ""):
+    global dict
+    global URL
+    URL = _URL
+    re = []
+    update()
+    if len(event) == 0:
+        return "目前没有活动比赛"
+    for idx, eve in enumerate(event):
+        _id = eve["leagueMatchSetting"]["leagueMatchEvent"]['id']
+        _name = translate("events", _id, "name")
+        _desc = translate("events", _id, "regulation")
+        _time = eve['timePeriods']
+        for i in range(len(_time)):
+            _time[i]['startTime'] =  timezone_conversion(_time[i]['startTime'], tz).strftime('%m-%d %H:%M') 
+            _time[i]['endTime'] =  timezone_conversion(_time[i]['endTime'], tz).strftime('%m-%d %H:%M') 
+
+
+        tmp = dict({"name": _name, "desc":_desc, "time":_time})
+        re.append(tmp)
+    return re 

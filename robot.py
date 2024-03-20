@@ -164,15 +164,12 @@ class Robot(Job):
                 img = self.splat.get_random("")
                 img.save('./tmp/random.png')
                 self.wcf.send_image(f"{URL+"tmp/random.png"}", msg.roomid)
-                # self.wcf.send_text("#小程序://随机武器/lThYUIeMXAJHYEB",msg.roomid)
-                # self.wcf.send_xml(receiver= msg.roomid, type = 0x21, xml=
-                                #   '<?xml version="1.0"?><msg>        <appmsg appid="wxd33f351d911d0626" sdkver="0">               <title>Splatoon3随机武器生成</title>                <type>33</type>                <action>view</action>                <url>https://mp.weixin.qq.com/mp/waerrpage?appid=wxd33f351d911d0626&amp;amp;type=upgrade&amp;amp;upgradetype=3#wechat_redirect</url>                <appattach>                        <cdnthumbaeskey />                        <aeskey />                </appattach>               <sourcedisplayname>Splatoon3随机武器生成</sourcedisplayname>                <thumburl>http://mmbiz.qpic.cn/mmbiz_png/5oDOymx0la5Ss9nvWXBG2MkEm99PRmJmcwkQUHx4zFuQqFPIwa35LyuaV3JsWLME9P6oNWT2g6SvNHKpP1nTnQ/640?wx_fmt=png&amp;wxfrom=200</thumburl>                <weappinfo>                       <username><![CDATA[gh_7ae36bf2d141@app]]></username>                        <appid><![CDATA[wxd33f351d911d0626]]></appid>                        <type>1</type>                        <version>0</version>                        <weappiconurl><![CDATA[http://mmbiz.qpic.cn/mmbiz_png/5oDOymx0la5Ss9nvWXBG2MkEm99PRmJmcwkQUHx4zFuQqFPIwa35LyuaV3JsWLME9P6oNWT2g6SvNHKpP1nTnQ/640?wx_fmt=png&wxfrom=200]]></weappiconurl>                        <shareId><![CDATA[2_wxd33f351d911d0626_2495084533_1710229106_1]]></shareId>                        <appservicetype>0</appservicetype>                        <brandofficialflag>0</brandofficialflag>                        <showRelievedBuyFlag>0</showRelievedBuyFlag>                        <hasRelievedBuyPlugin>0</hasRelievedBuyPlugin>                        <flagshipflag>0</flagshipflag>                        <subType>0</subType>                        <isprivatemessage>0</isprivatemessage>                </weappinfo>        </appmsg>        <fromusername>wxid_89ysfp8w45i112</fromusername>        <scene>0</scene>        <appinfo>               <version>2</version>                <appname>Splatoon3随机武器生成</appname>       </appinfo>        <commenturl></commenturl></msg>')
-                                #   '<?xml version="1.0"?><msgsource><bizflag>0</bizflag><tmp_node><publisher-id></publisher-id></tmp_node><alnode><fr>2</fr></alnode><sec_msg_node><uuid>10f67f7b9d70062f857af9ccb81c7f57_</uuid><risk-file-flag /><risk-file-md5-list /></sec_msg_node><silence>0</silence><membercount>3</membercount><signature>V1_7SsFuC7T|v1_LCidHjJv</signature></msgsource>')
-                                # '<?xml version="1.0"?>#小程序://随机武器/lThYUIeMXAJHYEB')
+
             case "/测试":
                 # xml = '<?xml version="1.0"?><msg><appmsg appid="" sdkver="0"><title>叮当药房，24小时服务，28分钟送药到家！</title><des>叮当快药首家承诺范围内28分钟送药到家！叮当快药核心区域内7*24小时全天候服务，送药上门！叮当快药官网为您提供快捷便利，正品低价，安全放心的购药、送药服务体验。</des><action>view</action><type>33</type><showtype>0</showtype><content /><url>https://mp.weixin.qq.com/mp/waerrpage?appid=wxc2edadc87077fa2a&amp;type=upgrade&amp;upgradetype=3#wechat_redirect</url><dataurl /><lowurl /><lowdataurl /><recorditem /><thumburl /><messageaction /><md5>7f6f49d301ebf47100199b8a4fcf4de4</md5><extinfo /><sourceusername>gh_c2b88a38c424@app</sourceusername><sourcedisplayname>叮当快药 药店送药到家夜间买药</sourcedisplayname><commenturl /><appattach><totallen>0</totallen><attachid /><emoticonmd5></emoticonmd5><fileext>jpg</fileext><filekey>da0e08f5c7259d03da150d5e7ca6d950</filekey><cdnthumburl>3057020100044b30490201000204e4c0232702032f4ef20204a6bace6f02046401f62d042430326337303430352d333734332d343362652d623335322d6233333566623266376334620204012400030201000405004c537600</cdnthumburl><aeskey>0db26456caf243fbd4efb99058a01d66</aeskey><cdnthumbaeskey>0db26456caf243fbd4efb99058a01d66</cdnthumbaeskey><encryver>1</encryver><cdnthumblength>61558</cdnthumblength><cdnthumbheight>100</cdnthumbheight><cdnthumbwidth>100</cdnthumbwidth></appattach><weappinfo><pagepath>pages/index/index.html</pagepath><username>gh_c2b88a38c424@app</username><appid>wxc2edadc87077fa2a</appid><version>197</version><type>2</type><weappiconurl>http://wx.qlogo.cn/mmhead/Q3auHgzwzM4727n0NQ0ZIPQPlfp15m1WLsnrXbo1kLhFGcolgLyc0A/96</weappiconurl><appservicetype>0</appservicetype><shareId>1_wxc2edadc87077fa2a_29177e9a9b918cb9e75964f80bb8f32e_1677849476_0</shareId></weappinfo><websearch /></appmsg><fromusername>wxid_eob5qfcrv4zd22</fromusername><scene>0</scene><appinfo><version>1</version><appname /></appinfo><commenturl /></msg>'
                 # xml = '<?xml version="1.0"?><msg>        <appmsg appid="wxd33f351d911d0626" sdkver="0">               <title>Splatoon3随机武器生成</title>                <type>33</type>                <action>view</action>                <url>https://mp.weixin.qq.com/mp/waerrpage?appid=wxd33f351d911d0626&amp;amp;type=upgrade&amp;amp;upgradetype=3#wechat_redirect</url>                <appattach>                        <cdnthumbaeskey />                        <aeskey />                </appattach>               <sourcedisplayname>Splatoon3随机武器生成</sourcedisplayname>                <thumburl>http://mmbiz.qpic.cn/mmbiz_png/5oDOymx0la5Ss9nvWXBG2MkEm99PRmJmcwkQUHx4zFuQqFPIwa35LyuaV3JsWLME9P6oNWT2g6SvNHKpP1nTnQ/640?wx_fmt=png&amp;wxfrom=200</thumburl>                <weappinfo>                       <username><![CDATA[gh_7ae36bf2d141@app]]></username>                        <appid><![CDATA[wxd33f351d911d0626]]></appid>                        <type>1</type>                        <version>0</version>                        <weappiconurl><![CDATA[http://mmbiz.qpic.cn/mmbiz_png/5oDOymx0la5Ss9nvWXBG2MkEm99PRmJmcwkQUHx4zFuQqFPIwa35LyuaV3JsWLME9P6oNWT2g6SvNHKpP1nTnQ/640?wx_fmt=png&wxfrom=200]]></weappiconurl>                        <shareId><![CDATA[2_wxd33f351d911d0626_2495084533_1710229106_1]]></shareId>                        <appservicetype>0</appservicetype>                        <brandofficialflag>0</brandofficialflag>                        <showRelievedBuyFlag>0</showRelievedBuyFlag>                        <hasRelievedBuyPlugin>0</hasRelievedBuyPlugin>                        <flagshipflag>0</flagshipflag>                        <subType>0</subType>                        <isprivatemessage>0</isprivatemessage>                </weappinfo>        </appmsg>        <fromusername>wxid_89ysfp8w45i112</fromusername>        <scene>0</scene>        <appinfo>               <version>2</version>                <appname>Splatoon3随机武器生成</appname>       </appinfo>        <commenturl></commenturl></msg>'
                 print(msg.xml)
+                self.wcf.send_text("滚筒和画笔的涂墨前进速度提升！可别落后了哦！\n<br />·仅限使用类型为滚筒或画笔的武器！<br />·涂墨前进时的速度会大幅提升哦！<br />·涂墨前进时的墨汁消耗量也会大幅提升！<br />·基本装备能力和追加装备能力都会生效！",msg.roomid)
                 xml = '<xml> <ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[fromUser]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[你好]]></Content></xml>'
                 ret = self.wcf.send_xml("filehelper", xml, 0x21)
             
@@ -180,14 +177,14 @@ class Robot(Job):
         if len(msg.content) < 10 :
             words = msg.content.split()
             timezone = ""
-            if " " in msg.content:
+            if " " in msg.content and msg.content.startswith("/"):
                 timezone = words[1]
             if msg.content.startswith("/挑战"):
                 if timezone == "":
                     img = self.splat.get_challenge()
                 else:
                     img = self.splat.get_challenge(timezone)
-                img.save('./tmp/challenge.png')
+                img.save(URL + 'tmp/challenge.png')
                 self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
                 
             elif msg.content.startswith('/开放'):
@@ -195,7 +192,7 @@ class Robot(Job):
                     img = self.splat.get_open()
                 else:
                     img = self.splat.get_open(timezone)
-                img.save('./tmp/open.png')
+                img.save(URL + 'tmp/open.png')
                 self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
 
             elif msg.content.startswith('/涂地'):
@@ -203,7 +200,7 @@ class Robot(Job):
                     img = self.splat.get_regular()
                 else:
                     img = self.splat.get_regular(timezone)
-                img.save('./tmp/regular.png')
+                img.save(URL + 'tmp/regular.png')
                 self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
 
             elif msg.content.startswith('/x') or msg.content.startswith('/X'):
@@ -211,7 +208,7 @@ class Robot(Job):
                     img = self.splat.get_x()
                 else :
                     img = self.splat.get_x(timezone)
-                img.save('./tmp/x.png')
+                img.save(URL +'tmp/x.png')
                 self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
 
             elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
@@ -219,8 +216,21 @@ class Robot(Job):
                     img = self.splat.get_coop()
                 else:
                     img = self.splat.get_coop(timezone)
-                img.save('./tmp/coop.png')
+                img.save(URL +'tmp/coop.png')
                 self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
+
+            elif msg.content.startswith('/活动'):
+                if timezone == "":
+                    img = self.splat.get_event()
+                else:
+                    img = self.splat.get_event(timezone)
+                if type(img) == str:
+                    self.wcf.send_text(img,msg.roomid)
+                else:
+                    # TODO: change here
+                    self.wcf.send_text(str(img),msg.roomid)
+                    # img.save(URL + 'tmp/event.png')
+                    # self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
 
     # TODO: Have bug that can't detect A B B C B B pattern
     # def process_break(self,msg:WxMsg):
@@ -282,19 +292,21 @@ class Robot(Job):
         global storage
         repeat_id = str(msg.roomid) + "repeat"
         counter_id = str(msg.roomid) + "counter"
+        done_id = str(msg.roomid) + "done"
         try:
             storage[repeat_id]
         except KeyError:  
             storage[counter_id] = 0
             storage[repeat_id] = ""
+            storage[done_id] = ""
         if msg.is_text():
             if storage[repeat_id] == msg.content:
                 storage[counter_id] += 1
-                if storage[counter_id] == LENGTH:
+                if storage[counter_id] == LENGTH and storage[done_id] != msg.content:
                     self.wcf.send_text(msg.content, msg.roomid)
                     storage[counter_id] = 0
                     storage[repeat_id] = ""
-
+                    storage[done_id] = msg.content
             else:
                 storage[counter_id] = 1
                 storage[repeat_id] = msg.content

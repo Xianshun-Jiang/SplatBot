@@ -1,3 +1,7 @@
+## Version 0.0.10(3/20/2024)
+ * Fix: timezone not display correctly
+ * Feature: crawl data for events, <strong>Render not finished</strong>
+
 ## Version 0.0.9(3/16/2024)
  * Change: remove some obsolete comment
  * Change: add crawler and dataset

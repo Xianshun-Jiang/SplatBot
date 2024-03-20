@@ -539,7 +539,8 @@ def render_random(li, URL = None):
 
     return re
 
-
+def render_event(li, tz = "东部", rule = "占地模式", URL= None):
+    return None
 
 
 
