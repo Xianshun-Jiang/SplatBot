@@ -256,11 +256,17 @@ def parse_event(tz = "东部", _URL = ""):
         _name = translate("events", _id, "name")
         _desc = translate("events", _id, "regulation")
         _time = eve['timePeriods']
+        _stages = eve["leagueMatchSetting"]["vsStages"]
+        tmp = []
+        for i in range(len(_stages)):
+            __name =  translate("stages", _stages[i]['id'],"name")
+            __url =  "./splat/images/stages/"+_stages[i]['image']['url'].rpartition("/")[-1] 
+            tmp.append(dict({"name": __name, "url": __url}))
         for i in range(len(_time)):
             _time[i]['startTime'] =  timezone_conversion(_time[i]['startTime'], tz).strftime('%m-%d %H:%M') 
             _time[i]['endTime'] =  timezone_conversion(_time[i]['endTime'], tz).strftime('%m-%d %H:%M') 
 
 
-        tmp = dict({"name": _name, "desc":_desc, "time":_time})
+        tmp = dict({"name": _name, "stages":tmp,"desc":_desc, "time":_time})
         re.append(tmp)
     return re 
