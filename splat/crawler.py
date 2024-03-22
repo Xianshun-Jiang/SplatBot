@@ -114,16 +114,19 @@ def parse_regular(tz = "东部"):
             remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
         else:
             remain = 0
-        for vs_stage in item["regularMatchSetting"]['vsStages']:
-            # Chinese name of the stage
-            name_cn = translate_stage(vs_stage["id"])
-            # Url of the stage
-            img =vs_stage['image']['url']
-            img = "./splat/images/stages/"+img.rpartition("/")[-1]
+        try:
+            for vs_stage in item["regularMatchSetting"]['vsStages']:
+                # Chinese name of the stage
+                name_cn = translate_stage(vs_stage["id"])
+                # Url of the stage
+                img =vs_stage['image']['url']
+                img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'remain':remain})
-            stages.append(tmp)
+                tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, 'remain':remain})
+                stages.append(tmp)
+        except:
+            None
 
     return stages
 
@@ -142,17 +145,23 @@ def parse_challenge(tz = "东部"):
         else:
             remain = 0
         # Rule
-        rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
-        for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
-            # Chinese name of the stage
-            name_cn = translate_stage(vs_stage["id"])
-            # Url of the stage
-            img = vs_stage['image']['url']
-            img = "./splat/images/stages/"+img.rpartition("/")[-1]
+        # print(item["bankaraMatchSettings"])
+        # print(item["bankaraMatchSettings"][0])
+        # print("-----------------------------------")
+        try:
+            rule = translate_rule(item["bankaraMatchSettings"][0]["vsRule"]['id'])
+            for vs_stage in item["bankaraMatchSettings"][0]['vsStages']:
+                # Chinese name of the stage
+                name_cn = translate_stage(vs_stage["id"])
+                # Url of the stage
+                img = vs_stage['image']['url']
+                img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule, 'remain':remain})
-            stages.append(tmp)
+                tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img, "rule":rule, 'remain':remain})
+                stages.append(tmp)
+        except:
+            None
 
     return stages
 
@@ -170,17 +179,20 @@ def parse_open(tz = "东部"):
             remain = timezone_conversion(item['endTime'], tz) - datetime.now(timezone.utc) 
         else:
             remain = 0
-        # Rule
-        rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
-        for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
-            # Chinese name of the stage
-            name_cn = translate_stage(vs_stage["id"])
-            # Url of the stage
-            img = vs_stage['image']['url']
-            img = "./splat/images/stages/"+img.rpartition("/")[-1]
+        try:
+            # Rule
+            rule = translate_rule(item["bankaraMatchSettings"][1]["vsRule"]['id'])
+            for vs_stage in item["bankaraMatchSettings"][1]['vsStages']:
+                # Chinese name of the stage
+                name_cn = translate_stage(vs_stage["id"])
+                # Url of the stage
+                img = vs_stage['image']['url']
+                img = "./splat/images/stages/"+img.rpartition("/")[-1]
 
-            tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule, 'remain':remain})
-            stages.append(tmp)
+                tmp = dict({'start':start, 'end': end, 'name_cn':name_cn,'img':img,'rule':rule, 'remain':remain})
+                stages.append(tmp)
+        except:
+            None
 
     return stages
 
