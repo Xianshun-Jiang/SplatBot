@@ -17,6 +17,7 @@ from selenium.common.exceptions import TimeoutException
 def download_rate():
     # 初始化
     chrome_options = ChromeOptions()
+    chrome_options.add_argument("headless")
     chrome_options.set_capability(
         "goog:loggingPrefs", {"performance": "ALL"}
     )
@@ -84,3 +85,4 @@ def download_rate():
         except BaseException as error:
             print(str(error))
             continue
+            

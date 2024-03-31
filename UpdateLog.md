@@ -1,7 +1,8 @@
-
+## Version 0.0.12 (3/30/2024)
+ * Feature: mimic chinese character
 ## Version 0.0.11 (3/21/2024)
  * Fix: Parse
- 
+
 ## Version 0.0.10(3/20/2024)
  * Fix: timezone not display correctly
  * Feature: crawl data for events, <strong>Render not finished</strong>

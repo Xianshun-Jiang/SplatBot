@@ -23,6 +23,7 @@ from splat import main
 # from splat import crawler 
 # from splat import renderer
 from twitter_Crawler import twitter_Crawler_3 as twi
+from WordCon import WZW 
 
 __version__ = "39.0.10.1"
 
@@ -43,6 +44,8 @@ class Robot(Job):
         global URL
         URL = self.config.path
         self.splat = main.SplatBot(URL)
+        self.WZW = WZW.WZW(URL)
+
 
         if ChatType.is_in_chat_types(chat_type):
             if chat_type == ChatType.TIGER_BOT.value and TigerBot.value_check(self.config.TIGERBOT):
@@ -231,6 +234,14 @@ class Robot(Job):
                     self.wcf.send_text(str(img),msg.roomid)
                     # img.save(URL + 'tmp/event.png')
                     # self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
+            elif msg.content.startswith('/伪中文'):
+                if len(words)==3:
+                    img = self.WZW.get(words[1], int(words[2]))
+                else:
+                    img = self.WZW.get(words[1])
+                img.save(URL +'tmp/wzw.png')
+                self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
+
 
     # TODO: Have bug that can't detect A B B C B B pattern
     # def process_break(self,msg:WxMsg):
