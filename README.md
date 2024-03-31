@@ -12,3 +12,4 @@ This is a Wechat Robot for Splatoon community
   - [Font](https://github.com/North-West-Wind/splatoon3-fonts/tree/main/Decrypted) Pillow
   - [Schedule Format](https://github.com/Cypas/splatoon3-schedule/tree/main) Pillow
   - [Twitter Crawler](https://github.com/muzi-xiaoren/twitter_Crawler?tab=readme-ov-file#twitter_Crawler_3) Cookie, selenium script
+  - [Image Similarity](https://stackoverflow.com/questions/11541154/checking-images-for-similarity-with-opencv)
