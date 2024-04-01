@@ -158,7 +158,7 @@ class Robot(Job):
 
             case "/工 评分" | "/打工 评分" | "/工评分" | "/打工评分":
                 img = twi.download_rate()
-                self.wcf.send_image(f"{img}", msg.roomid)
+                self.wcf.send_image(f"{URL + img}", msg.roomid)
                 return 
             
             case "/dc":

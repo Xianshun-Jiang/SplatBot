@@ -17,7 +17,6 @@ from selenium.common.exceptions import TimeoutException
 def download_rate():
     # 初始化
     chrome_options = ChromeOptions()
-    chrome_options.add_argument("headless")
     chrome_options.set_capability(
         "goog:loggingPrefs", {"performance": "ALL"}
     )
@@ -68,7 +67,7 @@ def download_rate():
                     src = img.get_attribute('src')
                     if "profile_images" not in src and 'media' in src:
                         # Get the rate image and remove dup
-                        if img.size['height'] == 466 and img.size['width'] == 516 and src[:src.find('?')] + "?format=png&name=large" not in string_list:
+                        if int(img.size['height']) == 466 and img.size['width'] == 516 and src[:src.find('?')] + "?format=png&name=large" not in string_list:
                             string_list.append(src[:src.find('?')] + "?format=png&name=large")  # &name=large
                             get_url_pic(string_list, len(string_list), folder)
                             return "./"+ folder +'/1_'+ src[:src.find('?')].split("/")[-1] + ".png"
@@ -85,4 +84,3 @@ def download_rate():
         except BaseException as error:
             print(str(error))
             continue
-            
