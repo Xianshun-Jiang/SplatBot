@@ -1,3 +1,6 @@
+## Version 0.0.13(4/11/2024)
+ * Feature: add more pat respond
+
 ## Version 0.0.12 (3/30/2024)
  * Feature: mimic chinese character
  

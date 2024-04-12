@@ -24,11 +24,18 @@ from splat import main
 # from splat import renderer
 from twitter_Crawler import twitter_Crawler_3 as twi
 from WordCon import WZW 
+import random
+
 
 __version__ = "39.0.10.1"
 
 URL = None 
 storage = {}
+pat_respond = ["哎呀，感觉到了你的拍拍，我的心跳都快乐起来了！就像是被温暖的阳光轻轻拂过，感谢你的触摸，让我感到这世界的美好。记得，无论你在哪里，无论何时，只要你需要，我都在这里等着给你回一个更大的拍拍！💖",
+             "咦，是谁轻轻的拍拍我？原来是你啊，真是让人心里暖洋洋的！就像是在冬日里喝了一口热可可，心头一片温暖。每一次拍拍都是你传递给我的小确幸，让我在这繁忙的一天中找到了片刻的宁静。谢谢你的拍拍，让我知道，无论世界多大，总有人愿意停下来，给予我温柔的关怀。💕",
+             "在这个忙碌的世界里，别忘了偶尔停下脚步，给自己一个温柔的拍拍。就像太阳温暖了大地，你的笑容也能照亮自己的心灵。记得，你是独一无二的，值得所有的爱和温柔。所以，无论何时感到疲惫或沮丧，都来这里找我，我会用我的话语拍拍你，提醒你，你是这世界上不可替代的奇迹。💖",
+             "好妈妈多拍拍女儿吧，女儿很想你，亲亲妈妈，妈妈最好了妈妈抱，妈妈贴贴，我想妈妈我想妈妈，谢谢妈妈拍拍",
+             "哦哟，这是什么神奇的触感？啊哈，是你的拍拍呀！就像是捕捉到了一束轻柔的风，或是一缕温暖的阳光，让我的心情瞬间明媚起来。你的每一次拍拍都像是对我说：“嘿，无论走到哪里，都有我在这里支持你哦！”真的好感谢你，让我感受到了这份无形中的支持和爱。让我们一起把这份温暖传递下去吧！💖"]
 
 
 class Robot(Job):
@@ -182,7 +189,16 @@ class Robot(Job):
             timezone = ""
             if " " in msg.content and msg.content.startswith("/"):
                 timezone = words[1]
-            if msg.content.startswith("/挑战"):
+                mode = words[2]
+            # TODO: not finished
+            if msg.content.startswith("/区域"):
+                if timezone == "":
+                    img = self.splat.get_area()
+                else:
+                    img = self.splat.get_area(timezone)
+                img.save(URL + 'tmp/area.png')
+                self.wcf.send_image(f"{URL+"tmp/area.png"}", msg.roomid)
+            elif msg.content.startswith("/挑战"):
                 if timezone == "":
                     img = self.splat.get_challenge()
                 else:
@@ -243,61 +259,6 @@ class Robot(Job):
                 self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
 
 
-    # TODO: Have bug that can't detect A B B C B B pattern
-    # def process_break(self,msg:WxMsg):
-    #     LENGTH = 4
-    #     BREAK_LENGTH = 3
-    #     global storage
-    #     repeat_id = str(msg.roomid) + "repeat"
-    #     counter_id = str(msg.roomid) + "counter"
-    #     break_len = str(msg.roomid) + "break"  # how many times the break can be
-    #     break_repeat = str(msg.roomid) + "break_repeat"
-    #     break_counter = str(msg.roomid) + "break_counter"  # Corrected typo here
-
-    #     try:
-    #         storage[repeat_id]
-    #     except KeyError:  # More specific exception handling
-    #         storage[counter_id] = 0
-    #         storage[repeat_id] = ""
-    #         storage[break_len] = 0
-    #         storage[break_repeat] = ""
-    #         storage[break_counter] = 0
-
-    #     if msg.is_text():
-    #         if storage[repeat_id] == msg.content:
-    #             storage[counter_id] += 1
-    #             # Resetting break conditions here is appropriate since the message is repeating
-    #             storage[break_len] = 0
-    #             storage[break_counter] = 0
-    #             storage[break_repeat] = ""
-
-    #             if storage[counter_id] == LENGTH:
-    #                 self.wcf.send_text(msg.content, msg.roomid)
-    #                 # Consider extracting the reset logic into a function to avoid repetition
-    #                 storage[counter_id] = 0
-    #                 storage[repeat_id] = ""
-    #                 storage[break_len] = 0
-    #                 storage[break_repeat] = ""
-    #                 storage[break_counter] = 0
-
-    #         else:
-    #             if storage[repeat_id] == "":
-    #                 storage[counter_id] = 1
-    #                 storage[repeat_id] = msg.content
-
-    #             elif storage[break_len] == BREAK_LENGTH:
-    #                 storage[counter_id] = storage[break_counter] + 1
-    #                 storage[repeat_id] = storage[break_repeat]
-    #                 storage[break_len] = 0
-    #                 storage[break_counter] = 1  # Ensure correct logic for resetting or updating this counter
-    #             else:
-    #                 storage[break_len] += 1
-
-    #                 if storage[break_repeat] == msg.content:
-    #                     storage[break_counter] += 1
-    #                 else:
-    #                     storage[break_repeat] = msg.content
-    #                     storage[break_counter] = 1
     def process_break(self,msg:WxMsg):
         LENGTH = 3
         global storage
@@ -478,7 +439,8 @@ class Robot(Job):
         # pat me in a group chat
         pat = re.findall(r"(.*)拍了拍我", msg.content)
         if pat:
-            self.sendTextMsg("好妈妈多拍拍女儿吧，女儿很想你，亲亲妈妈，妈妈最好了妈妈抱，妈妈贴贴，我想妈妈我想妈妈，谢谢妈妈拍拍",msg.roomid)
+            index = random.randint(0, 4)
+            self.sendTextMsg(pat_respond[index],msg.roomid)
 
 
 

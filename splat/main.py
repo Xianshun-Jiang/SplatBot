@@ -54,4 +54,14 @@ class SplatBot():
             return li
             return render_event(li, tz, "活动比赛",self.images)
 
-
+# TODO not finished
+    def get_area(self, mode ="challenge", tz = "东部"):
+        update()
+        li = parse_challenge(tz)
+        li = [item for item in li if item['rule'] == "真格区域"]
+        return render_zg(li, tz,"真格挑战", self.images, method = "mode")
+    
+# li = parse_challenge()
+# print(li)
+# li = [item for item in li if item['rule'] == "真格区域"]
+# print(li)
