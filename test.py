@@ -20,10 +20,12 @@ print(r.get_all_keys)
 # msg = inst.split('"')[1]
 # inst = inst.replace(msg, f"{wxid_new}\\n{msg}")
 # print(inst)
-s =scheduler()
-s.schedule()
-keys = r.get_all_keys()
-for key in keys:
-    print(key)
-print(r.get_all_keys)
+
+
+# s =scheduler()
+# s.schedule()
+# keys = r.get_all_keys()
+# for key in keys:
+#     print(key)
+# print(r.get_all_keys)
 

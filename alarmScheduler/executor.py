@@ -24,5 +24,6 @@ def execute(robot: Robot):
             wxid_new = f" @{self.wcf.get_alias_in_chatroom(wxid, group)}"
             msg = inst.split('"')[1]
             inst = inst.replace(msg, f"{wxid_new}\\n{msg}")
-            print(inst)
+            # print(inst)
             exec(inst)
+        self.alarmScheduler.reset_key(time)

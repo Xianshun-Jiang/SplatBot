@@ -112,6 +112,8 @@ class scheduler(object):
                 timestamp = timestamp.strftime(time_format)
                 self.redis.remove_by_rule(timestamp, mode, rule, group, wxid)
 
+    def reset_key(self, key = ""):
+        self.redis.delete(key)
 
     # insert an alarm rule
     def insert_rule(self, group = "", wxid = "", mode = "", rule = "", timezone = "东部",  start = "08:00", end = "24:00", before = "10"):
