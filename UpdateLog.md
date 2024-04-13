@@ -1,3 +1,7 @@
+## Version 0.1.0(4/12/2024)
+ * Feature: add redis and mongodb for setup alarms to notify splatoon stage
+ * <strong>Issue: alarm not scheduled</strong>
+
 ## Version 0.0.13(4/11/2024)
  * Feature: add more pat respond
 
