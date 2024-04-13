@@ -1,7 +1,7 @@
 # Splatoon Bot
 This is a Wechat Robot for Splatoon community
 
-![alt text]("./Splatoon Bot.jpeg")
+![alt text](./SplatoonBot.jpg)
 [Update Log](./UpdateLog.md)
 
 # Reference
