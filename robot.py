@@ -25,6 +25,8 @@ from splat import main
 from twitter_Crawler import twitter_Crawler_3 as twi
 from WordCon import WZW 
 import random
+from alarmScheduler import scheduler
+import schedule
 
 
 __version__ = "39.0.10.1"
@@ -48,10 +50,12 @@ class Robot(Job):
         self.LOG = logging.getLogger("Robot")
         self.wxid = self.wcf.get_self_wxid()
         self.allContacts = self.getAllContacts()
+        self.groups = self.config.GROUPS
         global URL
         URL = self.config.path
         self.splat = main.SplatBot(URL)
         self.WZW = WZW.WZW(URL)
+        self.alarmScheduler = scheduler.scheduler(self.groups)
 
 
         if ChatType.is_in_chat_types(chat_type):
@@ -73,6 +77,11 @@ class Robot(Job):
 
         self.LOG.info(f"已选择: {self.chat}")
 
+    #     schedule.every(1).minutes.do()
+    # def alert(self):
+    #     time = datetime.now().strftime("%H:%M")
+    #     insts = s.get_instruction(time)
+    #     self.alarmScheduler.
     @staticmethod
     def value_check(args: dict) -> bool:
         if args:
@@ -257,8 +266,7 @@ class Robot(Job):
                     img = self.WZW.get(words[1])
                 img.save(URL +'tmp/wzw.png')
                 self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
-
-
+    
     def process_break(self,msg:WxMsg):
         LENGTH = 3
         global storage
@@ -282,7 +290,39 @@ class Robot(Job):
             else:
                 storage[counter_id] = 1
                 storage[repeat_id] = msg.content
-                
+
+    def process_alarm(self, msg:WxMsg):
+        match msg.content:
+            case "/提醒"  | "提醒":
+                self.wcf.send_text("/提醒 插入规则? \n/提醒 删除规则? \n/提醒 所有规则",msg.roomid,msg.sender)
+                return
+            case "/提醒 插入规则?" |"/提醒 插入规则？":
+                self.wcf.send_text("/提醒 插入规则 规则 模式 时区 开始时间 结束时间 提前时间 \n/提醒 插入规则 挑战 区域 东部 9:00 1:00 15",msg.roomid,msg.sender)
+                return 
+            case "/提醒 删除规则?" | "提醒 删除规则？":
+                self.wcf.send_text("/提醒 删除规则 id \n /提醒 删除规则 0",msg.roomid,msg.sender)
+                return
+            case "/提醒 所有规则":
+                rules = self.alarmScheduler.get_rules(msg.roomid, msg.sender)
+                if rules != "":
+                    self.sendTextMsg(rules, msg.roomid,msg.sender)
+                else:
+                    self.sendTextMsg("暂无规则", msg.roomid,msg.sender)
+                return
+        if msg.content.startswith("/提醒 插入规则"):
+            items = msg.content.split(" ")
+            mode = self.alarmScheduler.mode_translate_cn_to_en[items[2]]
+            rule  = self.alarmScheduler.format_rule[items[3]]
+            self.alarmScheduler.insert_rule(group=msg.roomid,wxid=msg.sender,mode=mode, rule = rule, timezone=items[4], start=items[5],end=items[6],before = items[7])
+            # TODO change
+            self.alarmScheduler.schedule()
+        elif msg.content.startswith("/提醒 删除规则"):
+            items = msg.content.split(" ")
+            self.alarmScheduler.delete_rule(msg.roomid, msg.sender, items[2])
+            # TODO change
+            self.alarmScheduler.schedule()
+        
+
     def processMsg(self, msg: WxMsg) -> None:
         """当接收到消息的时候，会调用本方法。如果不实现本方法，则打印原始消息。
         此处可进行自定义发送的内容,如通过 msg.content 关键字自动获取当前天气信息，并发送到对应的群组@发送者
@@ -304,6 +344,8 @@ class Robot(Job):
 
             if msg.is_at(self.wxid) or "@SplatoonZealot" in msg.content:  # 被@
                 self.toAt(msg)
+            elif "提醒" in msg.content and "/" in msg.content:
+                self.process_alarm(msg)
             else:  # 其他消息
                 # self.toChengyu(msg)
                 self.process_break(msg)
