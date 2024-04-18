@@ -23,7 +23,7 @@ from splat import main
 # from splat import crawler 
 # from splat import renderer
 from twitter_Crawler import twitter_Crawler_3 as twi
-from WordCon import WZW 
+# from WordCon import WZW 
 import random
 from alarmScheduler import scheduler
 import schedule
@@ -54,7 +54,7 @@ class Robot(Job):
         global URL
         URL = self.config.path
         self.splat = main.SplatBot(URL)
-        self.WZW = WZW.WZW(URL)
+        # self.WZW = WZW.WZW(URL)
         self.alarmScheduler = scheduler.scheduler(self.groups)
 
 
@@ -259,13 +259,13 @@ class Robot(Job):
                     self.wcf.send_text(str(img),msg.roomid)
                     # img.save(URL + 'tmp/event.png')
                     # self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
-            elif msg.content.startswith('/伪中文'):
-                if len(words)==3:
-                    img = self.WZW.get(words[1], int(words[2]))
-                else:
-                    img = self.WZW.get(words[1])
-                img.save(URL +'tmp/wzw.png')
-                self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
+            # elif msg.content.startswith('/伪中文'):
+            #     if len(words)==3:
+            #         img = self.WZW.get(words[1], int(words[2]))
+            #     else:
+            #         img = self.WZW.get(words[1])
+            #     img.save(URL +'tmp/wzw.png')
+            #     self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
     
     def process_break(self,msg:WxMsg):
         LENGTH = 3
@@ -479,7 +479,9 @@ class Robot(Job):
                 self.sendTextMsg('欢迎你的到来，在群里发送"/帮助"可以查看一些bot功能, dc链接是"https://discord.gg/FKcetEYZ9p"', msg.roomid)
 
         # pat me in a group chat
-        pat = re.findall(r"(.*)拍了拍我", msg.content)
+        # pat = re.findall(r"(.*)拍了拍我", msg.content)
+        pat_target = msg.content.split("拍了拍")
+        pat = pat_target[1] == "我"
         if pat:
             index = random.randint(0, 4)
             self.sendTextMsg(pat_respond[index],msg.roomid)
