@@ -83,5 +83,5 @@ zhipu:  # -----zhipu配置这行不填-----
   api_key:  #api key
   model:   # 模型类型
 
-localtion: # ---- 这个项目的绝对路径----
+location: # ---- 这个项目的绝对路径----
   path: # 例如"C:/Users/xxx/xxx/xxx/SplatBot/"
