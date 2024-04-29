@@ -152,22 +152,22 @@ class Robot(Job):
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
 
             case "/浣熊":
-                self.wcf.send_image(f"{URL+"images/Raccoon.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL,'images/Raccoon.png'}", msg.roomid)
             
             case "/摆烂":
-                self.wcf.send_image(f"{URL+"images/bailan.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/bailan.png'}", msg.roomid)
 
             case "/合照" | "/合照1":
-                self.wcf.send_image(f"{URL+"images/family1.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family1.jpg'}", msg.roomid)
 
             case "/合照2":
-                self.wcf.send_image(f"{URL+"images/family2.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family2.jpg'}", msg.roomid)
             
             case "/合照注释版":
-                self.wcf.send_image(f"{URL+"images/family_annotated.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family_annotated.png'}", msg.roomid)
 
             case "/怪猎合照":
-                self.wcf.send_image(f"{URL+"images/mh_family1.jpg"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/mh_family1.jpg'}", msg.roomid)
 
             case "/感谢":
                 self.wcf.send_text("感谢奥追老师的作品(合照1/2)，派克老师的注释(合照注释版), 丁真老师的作品(怪猎合照)",msg.roomid)
@@ -182,7 +182,7 @@ class Robot(Job):
             case "/随机":
                 img = self.splat.get_random("")
                 img.save('./tmp/random.png')
-                self.wcf.send_image(f"{URL+"tmp/random.png"}", msg.roomid)
+                self.wcf.send_image(f"{URL+'tmp/random.png'}", msg.roomid)
 
             case "/测试":
                 # xml = '<?xml version="1.0"?><msg><appmsg appid="" sdkver="0"><title>叮当药房，24小时服务，28分钟送药到家！</title><des>叮当快药首家承诺范围内28分钟送药到家！叮当快药核心区域内7*24小时全天候服务，送药上门！叮当快药官网为您提供快捷便利，正品低价，安全放心的购药、送药服务体验。</des><action>view</action><type>33</type><showtype>0</showtype><content /><url>https://mp.weixin.qq.com/mp/waerrpage?appid=wxc2edadc87077fa2a&amp;type=upgrade&amp;upgradetype=3#wechat_redirect</url><dataurl /><lowurl /><lowdataurl /><recorditem /><thumburl /><messageaction /><md5>7f6f49d301ebf47100199b8a4fcf4de4</md5><extinfo /><sourceusername>gh_c2b88a38c424@app</sourceusername><sourcedisplayname>叮当快药 药店送药到家夜间买药</sourcedisplayname><commenturl /><appattach><totallen>0</totallen><attachid /><emoticonmd5></emoticonmd5><fileext>jpg</fileext><filekey>da0e08f5c7259d03da150d5e7ca6d950</filekey><cdnthumburl>3057020100044b30490201000204e4c0232702032f4ef20204a6bace6f02046401f62d042430326337303430352d333734332d343362652d623335322d6233333566623266376334620204012400030201000405004c537600</cdnthumburl><aeskey>0db26456caf243fbd4efb99058a01d66</aeskey><cdnthumbaeskey>0db26456caf243fbd4efb99058a01d66</cdnthumbaeskey><encryver>1</encryver><cdnthumblength>61558</cdnthumblength><cdnthumbheight>100</cdnthumbheight><cdnthumbwidth>100</cdnthumbwidth></appattach><weappinfo><pagepath>pages/index/index.html</pagepath><username>gh_c2b88a38c424@app</username><appid>wxc2edadc87077fa2a</appid><version>197</version><type>2</type><weappiconurl>http://wx.qlogo.cn/mmhead/Q3auHgzwzM4727n0NQ0ZIPQPlfp15m1WLsnrXbo1kLhFGcolgLyc0A/96</weappiconurl><appservicetype>0</appservicetype><shareId>1_wxc2edadc87077fa2a_29177e9a9b918cb9e75964f80bb8f32e_1677849476_0</shareId></weappinfo><websearch /></appmsg><fromusername>wxid_eob5qfcrv4zd22</fromusername><scene>0</scene><appinfo><version>1</version><appname /></appinfo><commenturl /></msg>'
@@ -206,14 +206,14 @@ class Robot(Job):
                 else:
                     img = self.splat.get_area(timezone)
                 img.save(URL + 'tmp/area.png')
-                self.wcf.send_image(f"{URL+"tmp/area.png"}", msg.roomid)
+                self.wcf.send_image(URL+'tmp/area.png', msg.roomid)
             elif msg.content.startswith("/挑战"):
                 if timezone == "":
                     img = self.splat.get_challenge()
                 else:
                     img = self.splat.get_challenge(timezone)
                 img.save(URL + 'tmp/challenge.png')
-                self.wcf.send_image(f"{URL+"tmp/challenge.png"}", msg.roomid)
+                self.wcf.send_image(URL+"tmp/challenge.png", msg.roomid)
                 
             elif msg.content.startswith('/开放'):
                 if timezone == "":
@@ -221,7 +221,7 @@ class Robot(Job):
                 else:
                     img = self.splat.get_open(timezone)
                 img.save(URL + 'tmp/open.png')
-                self.wcf.send_image(f"{URL+"tmp/open.png"}", msg.roomid)
+                self.wcf.send_image(URL+"tmp/open.png", msg.roomid)
 
             elif msg.content.startswith('/涂地'):
                 if timezone == "":
@@ -229,23 +229,23 @@ class Robot(Job):
                 else:
                     img = self.splat.get_regular(timezone)
                 img.save(URL + 'tmp/regular.png')
-                self.wcf.send_image(f"{URL+"tmp/regular.png"}", msg.roomid)
+                self.wcf.send_image(URL+"tmp/regular.png", msg.roomid)
 
             elif msg.content.startswith('/x') or msg.content.startswith('/X'):
                 if timezone == "":
                     img = self.splat.get_x()
                 else :
                     img = self.splat.get_x(timezone)
-                img.save(URL +'tmp/x.png')
-                self.wcf.send_image(f"{URL+"tmp/x.png"}", msg.roomid)
+                img.save(URL +'/tmp/x.png')
+                self.wcf.send_image(URL+"tmp/x.png", msg.roomid)
 
             elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
                 if timezone == "":
                     img = self.splat.get_coop()
                 else:
                     img = self.splat.get_coop(timezone)
-                img.save(URL +'tmp/coop.png')
-                self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
+                img.save(URL +'/tmp/coop.png')
+                self.wcf.send_image(URL+"/tmp/coop.png", msg.roomid)
 
             elif msg.content.startswith('/活动'):
                 if timezone == "":

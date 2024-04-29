@@ -9,7 +9,7 @@ from configuration import Config
 from constants import ChatType
 from robot import Robot, __version__
 from wcferry import Wcf
-from alarmScheduler import executor
+# from alarmScheduler import executor
 
 def weather_report(robot: Robot) -> None:
     """模拟发送天气预报
@@ -55,7 +55,7 @@ def main(chat_type: int):
     # 每天 16:30 提醒发日报周报月报
     # robot.onEveryTime("16:30", ReportReminder.remind, robot=robot)
     
-    robot.onEveryMinutes(1, executor.execute, robot = robot)
+    # robot.onEveryMinutes(1, executor.execute, robot = robot)
     # 让机器人一直跑
     robot.keepRunningAndBlockProcess()
 
