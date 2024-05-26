@@ -25,7 +25,7 @@ from splat import main
 from twitter_Crawler import twitter_Crawler_3 as twi
 # from WordCon import WZW 
 import random
-from alarmScheduler import scheduler
+# from alarmScheduler import scheduler
 import schedule
 
 
@@ -55,7 +55,7 @@ class Robot(Job):
         URL = self.config.path
         self.splat = main.SplatBot(URL)
         # self.WZW = WZW.WZW(URL)
-        self.alarmScheduler = scheduler.scheduler(self.groups)
+        # self.alarmScheduler = scheduler.scheduler(self.groups)
 
 
         if ChatType.is_in_chat_types(chat_type):
@@ -205,31 +205,31 @@ class Robot(Job):
                     img = self.splat.get_area()
                 else:
                     img = self.splat.get_area(timezone)
-                img.save(URL + 'tmp/area.png')
-                self.wcf.send_image(URL+'tmp/area.png', msg.roomid)
+                img.save(URL + '/tmp/area.png')
+                self.wcf.send_image(URL+'/tmp/area.png', msg.roomid)
             elif msg.content.startswith("/挑战"):
                 if timezone == "":
                     img = self.splat.get_challenge()
                 else:
                     img = self.splat.get_challenge(timezone)
-                img.save(URL + 'tmp/challenge.png')
-                self.wcf.send_image(URL+"tmp/challenge.png", msg.roomid)
+                img.save(URL + '/tmp/challenge.png')
+                self.wcf.send_image(URL+"/tmp/challenge.png", msg.roomid)
                 
             elif msg.content.startswith('/开放'):
                 if timezone == "":
                     img = self.splat.get_open()
                 else:
                     img = self.splat.get_open(timezone)
-                img.save(URL + 'tmp/open.png')
-                self.wcf.send_image(URL+"tmp/open.png", msg.roomid)
+                img.save(URL + '/tmp/open.png')
+                self.wcf.send_image(URL+"/tmp/open.png", msg.roomid)
 
             elif msg.content.startswith('/涂地'):
                 if timezone == "":
                     img = self.splat.get_regular()
                 else:
                     img = self.splat.get_regular(timezone)
-                img.save(URL + 'tmp/regular.png')
-                self.wcf.send_image(URL+"tmp/regular.png", msg.roomid)
+                img.save(URL + '/tmp/regular.png')
+                self.wcf.send_image(URL+"/tmp/regular.png", msg.roomid)
 
             elif msg.content.startswith('/x') or msg.content.startswith('/X'):
                 if timezone == "":
@@ -237,7 +237,7 @@ class Robot(Job):
                 else :
                     img = self.splat.get_x(timezone)
                 img.save(URL +'/tmp/x.png')
-                self.wcf.send_image(URL+"tmp/x.png", msg.roomid)
+                self.wcf.send_image(URL+"/tmp/x.png", msg.roomid)
 
             elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
                 if timezone == "":

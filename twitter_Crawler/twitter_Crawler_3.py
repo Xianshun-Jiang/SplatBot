@@ -38,6 +38,8 @@ def download_rate():
         cookies = json.load(open("./twitter_Crawler/twitter_cookie.json", 'r'))
     except:
         cookies = json.load(open("./twitter_cookie.json", 'r'))
+    # time.sleep(1)
+
     for cookie in cookies:
         driver.add_cookie(cookie)
 
