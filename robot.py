@@ -152,22 +152,22 @@ class Robot(Job):
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
 
             case "/浣熊":
-                self.wcf.send_image(f"{URL,'images/Raccoon.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/Raccoon.png'}", msg.roomid)
             
             case "/摆烂":
-                self.wcf.send_image(f"{URL+'images/bailan.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/bailan.png'}", msg.roomid)
 
             case "/合照" | "/合照1":
-                self.wcf.send_image(f"{URL+'images/family1.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/family1.jpg'}", msg.roomid)
 
             case "/合照2":
-                self.wcf.send_image(f"{URL+'images/family2.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/family2.jpg'}", msg.roomid)
             
             case "/合照注释版":
-                self.wcf.send_image(f"{URL+'images/family_annotated.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/family_annotated.png'}", msg.roomid)
 
             case "/怪猎合照":
-                self.wcf.send_image(f"{URL+'images/mh_family1.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'/images/mh_family1.jpg'}", msg.roomid)
 
             case "/感谢":
                 self.wcf.send_text("感谢奥追老师的作品(合照1/2)，派克老师的注释(合照注释版), 丁真老师的作品(怪猎合照)",msg.roomid)
