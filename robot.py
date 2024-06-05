@@ -423,7 +423,7 @@ class Robot(Job):
             if msg.roomid not in self.config.GROUPS:  # 不在配置的响应的群列表里，忽略
                 return
             
-            if msg.roomid in self.config.BASIC # 普通日程
+            if msg.roomid in self.config.BASIC: # 普通日程
                 self.process_splat_basic(msg)
                 return
             
