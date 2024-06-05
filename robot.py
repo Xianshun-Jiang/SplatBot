@@ -26,6 +26,7 @@ from twitter_Crawler import twitter_Crawler_3 as twi
 # from WordCon import WZW 
 import random
 # from alarmScheduler import scheduler
+# from overfishingScheduler import scheduler as overfishingScheduler
 import schedule
 
 
@@ -56,6 +57,7 @@ class Robot(Job):
         self.splat = main.SplatBot(URL)
         # self.WZW = WZW.WZW(URL)
         # self.alarmScheduler = scheduler.scheduler(self.groups)
+        # self.overfishingScheduler = overfishingScheduler.scheduler(self.config.OVERFISHING)
 
 
         if ChatType.is_in_chat_types(chat_type):
@@ -88,6 +90,7 @@ class Robot(Job):
             return all(value is not None for key, value in args.items() if key != 'proxy')
         return False
 
+    #被@（转到toChitchat func)
     def toAt(self, msg: WxMsg) -> bool:
         """处理被 @ 消息
         :param msg: 微信消息结构
@@ -96,6 +99,7 @@ class Robot(Job):
         
         return self.toChitchat(msg)
 
+    #成语接龙（板块自带
     def toChengyu(self, msg: WxMsg) -> bool:
         """
         处理成语查询/接龙消息
@@ -123,6 +127,7 @@ class Robot(Job):
 
         return status
 
+    #被@
     def toChitchat(self, msg: WxMsg) -> bool:
         """闲聊，接入 ChatGPT
         """
@@ -142,7 +147,8 @@ class Robot(Job):
         else:
             self.LOG.error(f"无法从 ChatGPT 获得答案")
             return False
-        
+
+    #海女美大群内功能    
     def process_splat(self, msg: WxMsg) -> bool:
 
         # Process other request
@@ -152,33 +158,33 @@ class Robot(Job):
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
 
             case "/浣熊":
-                self.wcf.send_image(f"{URL+'/images/Raccoon.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL,'images/Raccoon.png'}", msg.roomid)
             
             case "/摆烂":
-                self.wcf.send_image(f"{URL+'/images/bailan.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/bailan.png'}", msg.roomid)
 
             case "/合照" | "/合照1":
-                self.wcf.send_image(f"{URL+'/images/family1.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family1.jpg'}", msg.roomid)
 
             case "/合照2":
-                self.wcf.send_image(f"{URL+'/images/family2.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family2.jpg'}", msg.roomid)
             
             case "/合照注释版":
-                self.wcf.send_image(f"{URL+'/images/family_annotated.png'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/family_annotated.png'}", msg.roomid)
 
             case "/怪猎合照":
-                self.wcf.send_image(f"{URL+'/images/mh_family1.jpg'}", msg.roomid)
+                self.wcf.send_image(f"{URL+'images/mh_family1.jpg'}", msg.roomid)
 
             case "/感谢":
                 self.wcf.send_text("感谢奥追老师的作品(合照1/2)，派克老师的注释(合照注释版), 丁真老师的作品(怪猎合照)",msg.roomid)
 
             case "/工 评分" | "/打工 评分" | "/工评分" | "/打工评分":
-                img = twi.download_rate()
-                self.wcf.send_image(f"{URL + img}", msg.roomid)
+                self.work_rate_crawler(msg) 
                 return 
             
             case "/dc":
                 self.wcf.send_text("https://discord.gg/FKcetEYZ9p",msg.roomid)
+            
             case "/随机":
                 img = self.splat.get_random("")
                 img.save('./tmp/random.png')
@@ -194,9 +200,17 @@ class Robot(Job):
             
         # Process splatoon request
         if len(msg.content) < 10 :
-            process_splat_schedule(msg)
+            self.process_splat_schedule(msg) 
+            return 0
+        
+    #推特爬虫（墙）
+    def work_rate_crawler(self, msg:WxMsg):
+        img = twi.download_rate()
+        self.wcf.send_image(f"{URL + img}", msg.roomid)
 
-    def process_splat_schedule(self, msg: WxMsg) -> bool:
+    #基础功能（包含了北美时区
+    def process_splat_schedule(self, msg:WxMsg) :
+        
         words = msg.content.split()
         timezone = ""
         if " " in msg.content and msg.content.startswith("/"):
@@ -208,31 +222,31 @@ class Robot(Job):
                 img = self.splat.get_area()
             else:
                 img = self.splat.get_area(timezone)
-            img.save(URL + '/tmp/area.png')
-            self.wcf.send_image(URL+'/tmp/area.png', msg.roomid)
+            img.save(URL + 'tmp/area.png')
+            self.wcf.send_image(URL+'tmp/area.png', msg.roomid)
         elif msg.content.startswith("/挑战"):
             if timezone == "":
                 img = self.splat.get_challenge()
             else:
                 img = self.splat.get_challenge(timezone)
-            img.save(URL + '/tmp/challenge.png')
-            self.wcf.send_image(URL+"/tmp/challenge.png", msg.roomid)
+            img.save(URL + 'tmp/challenge.png')
+            self.wcf.send_image(URL+"tmp/challenge.png", msg.roomid)
             
         elif msg.content.startswith('/开放'):
             if timezone == "":
                 img = self.splat.get_open()
             else:
                 img = self.splat.get_open(timezone)
-            img.save(URL + '/tmp/open.png')
-            self.wcf.send_image(URL+"/tmp/open.png", msg.roomid)
+            img.save(URL + 'tmp/open.png')
+            self.wcf.send_image(URL+"tmp/open.png", msg.roomid)
 
         elif msg.content.startswith('/涂地'):
             if timezone == "":
                 img = self.splat.get_regular()
             else:
                 img = self.splat.get_regular(timezone)
-            img.save(URL + '/tmp/regular.png')
-            self.wcf.send_image(URL+"/tmp/regular.png", msg.roomid)
+            img.save(URL + 'tmp/regular.png')
+            self.wcf.send_image(URL+"tmp/regular.png", msg.roomid)
 
         elif msg.content.startswith('/x') or msg.content.startswith('/X'):
             if timezone == "":
@@ -240,7 +254,7 @@ class Robot(Job):
             else :
                 img = self.splat.get_x(timezone)
             img.save(URL +'/tmp/x.png')
-            self.wcf.send_image(URL+"/tmp/x.png", msg.roomid)
+            self.wcf.send_image(URL+"tmp/x.png", msg.roomid)
 
         elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
             if timezone == "":
@@ -269,9 +283,75 @@ class Robot(Job):
         #         img = self.WZW.get(words[1])
         #     img.save(URL +'tmp/wzw.png')
         #     self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
-
-
+        return 0
     
+    #基础功能（不包含时区， 和上面可能有点重复）
+    def process_splat_basic(self, msg:WxMsg):
+        match msg.content:
+            case "/帮助":
+                rsp = "/区域, /开放, /x, /涂地,/打工, /打工 评分, /随机"
+                self.sendTextMsg(rsp,msg.roomid,msg.sender)
+            case "/挑战":
+                img = self.splat.get_challenge()
+                img.save(URL + 'tmp/challenge.png')
+                self.wcf.send_image(URL+"tmp/challenge.png", msg.roomid)
+            
+            case "/开放":
+                img = self.splat.get_open()
+                img.save(URL + 'tmp/open.png')
+                self.wcf.send_image(URL+"tmp/open.png", msg.roomid)
+
+            case '/涂地':
+                img = self.splat.get_regular()
+                img.save(URL + 'tmp/regular.png')
+                self.wcf.send_image(URL+"tmp/regular.png", msg.roomid)
+
+            case '/x' | '/X':
+                img = self.splat.get_x() 
+                img.save(URL +'/tmp/x.png')
+                self.wcf.send_image(URL+"tmp/x.png", msg.roomid)
+
+            case '/打工' |'/工':
+                img = self.splat.get_coop()
+                img.save(URL +'/tmp/coop.png')
+                self.wcf.send_image(URL+"/tmp/coop.png", msg.roomid)
+            
+            case "/随机":
+                img = self.splat.get_random("")
+                img.save('./tmp/random.png')
+                self.wcf.send_image(f"{URL+'/tmp/random.png'}", msg.roomid)
+
+            case "/工 评分" | "/打工 评分" | "/工评分" | "/打工评分":
+                self.work_rate_crawler(msg) 
+                return 
+
+    #乱获募集功能
+    def process_overfishing(self, msg:WxMsg):
+        match msg.content:
+            case "/募集":
+                rsp = "/募集 模板 \r/募集 添加 \r/募集 所有 \r/募集 (上车 下车 锁车 解锁 摇人) (车队号)"
+                self.sendTextMsg(rsp,msg.roomid,msg.sender)
+                return
+            case "/募集 模板":
+                rsp = "/募集 添加 主题 时间 目标 要求 "
+                self.sendTextMsg(rsp,msg.roomid,msg.sender)
+                rsp2 = "/募集 添加 乱获练习 8-10pm 三白180 任意图170以上"
+                self.sendTextMsg(rsp2,msg.roomid,msg.sender)
+            case x if "/募集 添加" in x and len(x.split(" "))==6:
+                print("yes")
+            case x if "/募集 上车" in x:
+                print(2)
+            case x if "/募集 下车" in x :
+                print(3)
+            case x if "/募集 锁车" in x:
+                print(4)
+            case x if "/募集 解锁" in x:
+                print(5)
+            case x if "/募集 摇人" in x:
+                print(6)
+        return 0
+    
+    #复读机功能
     def process_break(self,msg:WxMsg):
         LENGTH = 3
         global storage
@@ -296,6 +376,7 @@ class Robot(Job):
                 storage[counter_id] = 1
                 storage[repeat_id] = msg.content
 
+    #真格模式提醒功能（未完工
     def process_alarm(self, msg:WxMsg):
         match msg.content:
             case "/提醒"  | "提醒":
@@ -327,7 +408,6 @@ class Robot(Job):
             # TODO change
             self.alarmScheduler.schedule()
         
-
     def processMsg(self, msg: WxMsg) -> None:
         """当接收到消息的时候，会调用本方法。如果不实现本方法，则打印原始消息。
         此处可进行自定义发送的内容,如通过 msg.content 关键字自动获取当前天气信息，并发送到对应的群组@发送者
@@ -343,11 +423,21 @@ class Robot(Job):
             if msg.roomid not in self.config.GROUPS:  # 不在配置的响应的群列表里，忽略
                 return
             
-            if msg.type == 10000: #群里系统消息
+            if msg.roomid in self.config.BASIC # 普通日程
+                self.process_splat_basic(msg)
+                return
+            
+            if msg.roomid  in self.config.OVERFISHING:  # 乱或组队
+                self.process_break(msg)
+                self.process_splat_basic(msg)
+                self.process_overfishing(msg)
+                return
+            
+            if msg.type == 10000: #群里系统消息(包含gpt功能，需要api)
                 self.groupSystemMsg(msg)
                 return 
-
-            if msg.is_at(self.wxid) or "@SplatoonZealot" in msg.content:  # 被@
+            
+            if msg.is_at(self.wxid) or "@SplatoonZealot" in msg.content:  # 被@(包含gpt功能，需要api)
                 self.toAt(msg)
             elif "提醒" in msg.content and "/" in msg.content:
                 self.process_alarm(msg)
@@ -403,8 +493,6 @@ class Robot(Job):
 
         self.wcf.enable_receiving_msg()
         Thread(target=innerProcessMsg, name="GetMessage", args=(self.wcf,), daemon=True).start()
-
-
 
     def sendTextMsg(self, msg: str, receiver: str, at_list: str = "") -> None:
         """ 发送消息
@@ -490,8 +578,6 @@ class Robot(Job):
         if pat:
             index = random.randint(0, 4)
             self.sendTextMsg(pat_respond[index],msg.roomid)
-
-
 
     def newsReport(self) -> None:
         receivers = self.config.NEWS
