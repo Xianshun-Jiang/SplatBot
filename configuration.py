@@ -31,6 +31,8 @@ class Config(object):
         self.NEWS = yconfig["news"]["receivers"]
         self.REPORT_REMINDERS = yconfig["report_reminder"]["receivers"]
         self.path = yconfig['location']['path']
+        self.BASIC = yconfig["basic_groups"]["enable"]
+        self.OVERFISHING = yconfig["overfishing_groups"]["enable"]
 
         self.CHATGPT = yconfig.get("chatgpt", {})
         self.TIGERBOT = yconfig.get("tigerbot", {})

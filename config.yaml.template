@@ -41,6 +41,12 @@ logging:
 groups:
   enable: []  # 允许响应的群 roomId，大概长这样：2xxxxxxxxx3@chatroom
 
+basic_groups:
+  enable: [] # 基础功能
+  
+overfishing_groups:
+  enable: [] #乱获募集功能
+
 news:
   receivers: []  # 定时新闻接收人（roomid 或者 wxid）
 
