@@ -194,78 +194,83 @@ class Robot(Job):
             
         # Process splatoon request
         if len(msg.content) < 10 :
-            words = msg.content.split()
-            timezone = ""
-            if " " in msg.content and msg.content.startswith("/"):
-                timezone = words[1]
-                mode = words[2]
-            # TODO: not finished
-            if msg.content.startswith("/区域"):
-                if timezone == "":
-                    img = self.splat.get_area()
-                else:
-                    img = self.splat.get_area(timezone)
-                img.save(URL + '/tmp/area.png')
-                self.wcf.send_image(URL+'/tmp/area.png', msg.roomid)
-            elif msg.content.startswith("/挑战"):
-                if timezone == "":
-                    img = self.splat.get_challenge()
-                else:
-                    img = self.splat.get_challenge(timezone)
-                img.save(URL + '/tmp/challenge.png')
-                self.wcf.send_image(URL+"/tmp/challenge.png", msg.roomid)
-                
-            elif msg.content.startswith('/开放'):
-                if timezone == "":
-                    img = self.splat.get_open()
-                else:
-                    img = self.splat.get_open(timezone)
-                img.save(URL + '/tmp/open.png')
-                self.wcf.send_image(URL+"/tmp/open.png", msg.roomid)
+            process_splat_schedule(msg)
 
-            elif msg.content.startswith('/涂地'):
-                if timezone == "":
-                    img = self.splat.get_regular()
-                else:
-                    img = self.splat.get_regular(timezone)
-                img.save(URL + '/tmp/regular.png')
-                self.wcf.send_image(URL+"/tmp/regular.png", msg.roomid)
+    def process_splat_schedule(self, msg: WxMsg) -> bool:
+        words = msg.content.split()
+        timezone = ""
+        if " " in msg.content and msg.content.startswith("/"):
+            timezone = words[1]
+            mode = words[2]
+        # TODO: not finished
+        if msg.content.startswith("/区域"):
+            if timezone == "":
+                img = self.splat.get_area()
+            else:
+                img = self.splat.get_area(timezone)
+            img.save(URL + '/tmp/area.png')
+            self.wcf.send_image(URL+'/tmp/area.png', msg.roomid)
+        elif msg.content.startswith("/挑战"):
+            if timezone == "":
+                img = self.splat.get_challenge()
+            else:
+                img = self.splat.get_challenge(timezone)
+            img.save(URL + '/tmp/challenge.png')
+            self.wcf.send_image(URL+"/tmp/challenge.png", msg.roomid)
+            
+        elif msg.content.startswith('/开放'):
+            if timezone == "":
+                img = self.splat.get_open()
+            else:
+                img = self.splat.get_open(timezone)
+            img.save(URL + '/tmp/open.png')
+            self.wcf.send_image(URL+"/tmp/open.png", msg.roomid)
 
-            elif msg.content.startswith('/x') or msg.content.startswith('/X'):
-                if timezone == "":
-                    img = self.splat.get_x()
-                else :
-                    img = self.splat.get_x(timezone)
-                img.save(URL +'/tmp/x.png')
-                self.wcf.send_image(URL+"/tmp/x.png", msg.roomid)
+        elif msg.content.startswith('/涂地'):
+            if timezone == "":
+                img = self.splat.get_regular()
+            else:
+                img = self.splat.get_regular(timezone)
+            img.save(URL + '/tmp/regular.png')
+            self.wcf.send_image(URL+"/tmp/regular.png", msg.roomid)
 
-            elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
-                if timezone == "":
-                    img = self.splat.get_coop()
-                else:
-                    img = self.splat.get_coop(timezone)
-                img.save(URL +'/tmp/coop.png')
-                self.wcf.send_image(URL+"/tmp/coop.png", msg.roomid)
+        elif msg.content.startswith('/x') or msg.content.startswith('/X'):
+            if timezone == "":
+                img = self.splat.get_x()
+            else :
+                img = self.splat.get_x(timezone)
+            img.save(URL +'/tmp/x.png')
+            self.wcf.send_image(URL+"/tmp/x.png", msg.roomid)
 
-            elif msg.content.startswith('/活动'):
-                if timezone == "":
-                    img = self.splat.get_event()
-                else:
-                    img = self.splat.get_event(timezone)
-                if type(img) == str:
-                    self.wcf.send_text(img,msg.roomid)
-                else:
-                    # TODO: change here
-                    self.wcf.send_text(str(img),msg.roomid)
-                    # img.save(URL + 'tmp/event.png')
-                    # self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
-            # elif msg.content.startswith('/伪中文'):
-            #     if len(words)==3:
-            #         img = self.WZW.get(words[1], int(words[2]))
-            #     else:
-            #         img = self.WZW.get(words[1])
-            #     img.save(URL +'tmp/wzw.png')
-            #     self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
+        elif msg.content.startswith('/打工') or msg.content.startswith('/工'):
+            if timezone == "":
+                img = self.splat.get_coop()
+            else:
+                img = self.splat.get_coop(timezone)
+            img.save(URL +'/tmp/coop.png')
+            self.wcf.send_image(URL+"/tmp/coop.png", msg.roomid)
+
+        elif msg.content.startswith('/活动'):
+            if timezone == "":
+                img = self.splat.get_event()
+            else:
+                img = self.splat.get_event(timezone)
+            if type(img) == str:
+                self.wcf.send_text(img,msg.roomid)
+            else:
+                # TODO: change here
+                self.wcf.send_text(str(img),msg.roomid)
+                # img.save(URL + 'tmp/event.png')
+                # self.wcf.send_image(f"{URL+"tmp/coop.png"}", msg.roomid)
+        # elif msg.content.startswith('/伪中文'):
+        #     if len(words)==3:
+        #         img = self.WZW.get(words[1], int(words[2]))
+        #     else:
+        #         img = self.WZW.get(words[1])
+        #     img.save(URL +'tmp/wzw.png')
+        #     self.wcf.send_image(f"{URL+"tmp/wzw.png"}", msg.roomid)
+
+
     
     def process_break(self,msg:WxMsg):
         LENGTH = 3
