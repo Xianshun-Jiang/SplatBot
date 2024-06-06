@@ -26,7 +26,7 @@ from twitter_Crawler import twitter_Crawler_3 as twi
 # from WordCon import WZW 
 import random
 # from alarmScheduler import scheduler
-# from overfishingScheduler import scheduler as overfishingScheduler
+from recruitmentScheduler import scheduler as recruitmentScheduler
 import schedule
 
 
@@ -57,7 +57,7 @@ class Robot(Job):
         self.splat = main.SplatBot(URL)
         # self.WZW = WZW.WZW(URL)
         # self.alarmScheduler = scheduler.scheduler(self.groups)
-        # self.overfishingScheduler = overfishingScheduler.scheduler(self.config.OVERFISHING)
+        self.recruitmentScheduler = recruitmentScheduler.scheduler(self.config.OVERFISHING)
 
 
         if ChatType.is_in_chat_types(chat_type):
@@ -329,26 +329,103 @@ class Robot(Job):
     def process_overfishing(self, msg:WxMsg):
         match msg.content:
             case "/募集":
-                rsp = "/募集 模板 \r/募集 添加 \r/募集 所有 \r/募集 (上车 下车 锁车 解锁 摇人) (车队号)"
+                rsp = "/募集 模板 \r/募集 乱获招募 \r/募集 所有 \r/募集 乱获（上车 下车） 车队号 玩家名 \r /募集 乱获（锁车 解锁 摇人） 车队号"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
                 return
             case "/募集 模板":
-                rsp = "/募集 添加 主题 时间 目标 要求 "
+                rsp = "/募集 乱获招募 主题 时间 目标 要求 玩家名"
                 self.sendTextMsg(rsp,msg.roomid,msg.sender)
-                rsp2 = "/募集 添加 乱获练习 8-10pm 三白180 任意图170以上"
+                rsp2 = "/募集 乱获招募 乱获练习 8-10pm 三白180 任意图170以上 摆烂（求带带）"
                 self.sendTextMsg(rsp2,msg.roomid,msg.sender)
-            case x if "/募集 添加" in x and len(x.split(" "))==6:
-                print("yes")
-            case x if "/募集 上车" in x:
-                print(2)
-            case x if "/募集 下车" in x :
-                print(3)
-            case x if "/募集 锁车" in x:
-                print(4)
-            case x if "/募集 解锁" in x:
-                print(5)
+            case x if "/募集 乱获招募" in x:
+                li = msg.content.split(" ")
+                if len(li) != 7:
+                    self.wcf.send_text("格式错误，请参考 '/募集 模板' ",msg.roomid, msg.sender)
+                    return 
+                topic = li[2]
+                time = li[3]
+                goal = li[4]
+                requirement = li[5]
+                player = li[6]
+                owner = msg.sender
+                group = msg.roomid
+                kind = "overfishing"
+                result = self.recruitmentScheduler.initiate(group=group, topic = topic, time = time, goal = goal, 
+                                    requirement = requirement, owner = owner, kind = kind, player = player)
+            case x if "/募集 乱获上车" in x:
+                if len(li) != 4:
+                    self.wcf.send_text("格式错误，请参考 '/募集' ",msg.roomid, msg.sender)
+                    return 
+                li = msg.content.split(" ")
+                group = msg.roomid
+                num = li[2]
+                player = li[3]
+                kind = "overfishing"
+                result = self.recruitmentScheduler.join(group = group, kind = kind, player = player, num = num)
+                if result != 0:
+                    self.wcf.send_text("上车失败",msg.roomid,msg.sender)
+            case x if "/募集 乱获下车" in x :
+                if len(li) != 4:
+                    self.wcf.send_text("格式错误，请参考 '/募集' ",msg.roomid, msg.sender)
+                    return 
+                li = msg.content.split(" ")
+                group = msg.roomid
+                num = li[2]
+                player = li[3]
+                kind = "overfishing"
+                result = self.recruitmentScheduler.leave(group = group, kind = kind, player = player, num = num)
+                if result != 0:
+                    self.wcf.send_text("下车失败",msg.roomid,msg.sender)
+            case x if "/募集 乱获锁车" in x:
+                if len(li) != 3:
+                    self.wcf.send_text("格式错误，请参考 '/募集' ",msg.roomid, msg.sender)
+                    return 
+                li = msg.content.split(" ")
+                owner = msg.sender
+                group = msg.roomid
+                num = li[2]
+                kind = "overfishing"
+                result = self.recruitmentScheduler.lock(group = group, kind = kind, owner = owner, num = num)
+                if result != 0:
+                    self.wcf.send_text("锁车失败",msg.roomid,msg.sender)
+            case x if "/募集 乱获解锁" in x:
+                li = msg.content.split(" ")
+                owner = msg.sender
+                group = msg.roomid
+                num = li[2]
+                kind = "overfishing"
+                result = self.recruitmentScheduler.unlock(group = group, kind = kind, owner = owner, num = num)
+                if result != 0:
+                    self.wcf.send_text("解锁失败",msg.roomid,msg.sender)
+            case "/募集 所有乱获":
+                kind = "overfishing"
+                group = msg.roomid
+                result = self.recruitmentScheduler.find_available(kind = kind, group = group)
+                rsp = ""
+                for i in result:
+                    topic = i["topic"]
+                    rsp += topic +"\r"
+                    time = i["time"]
+                    rsp += time + "\r"
+                    goal = i["goal"]
+                    rsp += goal + "\r"
+                    requirement = i["requirement"]
+                    rsp += requirement + "\r"
+                    players = i['players']
+                    # for i in len[players]:
+                        # rsp += 
+                print(type(result))
+                topic = result
+                time = li[3]
+                goal = li[4]
+                requirement = li[5]
+                player = li[6]
+                owner = msg.sender
+                group = msg.roomid
+                self.wcf.send_text(result, msg.roomid,msg.sender)
             case x if "/募集 摇人" in x:
-                print(6)
+                # print(6)
+                self.wcf.send_text("本功能尚未实现",msg.roomid,msg.sender)
         return 0
     
     #复读机功能
@@ -422,16 +499,18 @@ class Robot(Job):
             # 如果在群里被 @
             if msg.roomid not in self.config.GROUPS:  # 不在配置的响应的群列表里，忽略
                 return
-            
-            if msg.roomid in self.config.BASIC: # 普通日程
-                self.process_splat_basic(msg)
-                return
-            
+
             if msg.roomid  in self.config.OVERFISHING:  # 乱或组队
                 self.process_break(msg)
                 self.process_splat_basic(msg)
                 self.process_overfishing(msg)
                 return
+
+            if msg.roomid in self.config.BASIC: # 普通日程
+                self.process_splat_basic(msg)
+                return
+            
+
             
             if msg.type == 10000: #群里系统消息(包含gpt功能，需要api)
                 self.groupSystemMsg(msg)

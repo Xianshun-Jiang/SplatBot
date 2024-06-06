@@ -10,6 +10,8 @@ logs/
 *.log
 *.log.*
 
+tmp/*
+
 config.yaml
 
 twitter_cookie.json
