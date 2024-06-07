@@ -22,10 +22,10 @@ class scheduler(object):
     # def initiate(self, group = "", groups = "", public = True, owner = "",
     #            kind = "", topic = "", time = "", goal = "",  requirement = ""):
     def initiate(self, group = "", groups = "", public = True, owner = "", lock = False,
-               kind = "", topic = "", time = "", goal = "",  requirement = "", open = True, player= ""):
+               kind = "", topic = "", time = "", goal = "",  requirement = "", open = True, player= "", cancle = False, wanche = False):
             #    lock = False
             #    open = True
-        return self.mongo.initiate(group,groups, public, owner, lock, kind, topic, time, goal, requirement, open, player)
+        return self.mongo.initiate(group,groups, public, owner, lock, kind, topic, time, goal, requirement, open, player, cancle, wanche)
 
     #不公开募集
     # def private_initiate()
@@ -37,13 +37,13 @@ class scheduler(object):
 
     #加入车队
     #成功返回0
-    def join(self, kind = "", group = "", num = "", player = ""):
-        return self.mongo.join(kind, group, num, player)
+    def join(self, kind = "", group = "", num = "", player = "", wxid = ""):
+        return self.mongo.join(kind, group, num, player, wxid)
 
     #离开车队
     #成功返回0
-    def leave(self, kind = "", group = "", num = "", player = ""):
-        return self.mongo.leave(kind, group, num, player)
+    def leave(self, kind = "", group = "", num = "", player = "", wxid = ""):
+        return self.mongo.leave(kind, group, num, player, wxid)
 
     #锁车（只有车主有权限）
     #成功返回0
@@ -59,3 +59,15 @@ class scheduler(object):
     #成功返回0
     def close(self, kind = "", group = "", owner = "", num = ""):
         return self.mongo.close(kind, group, owner, num)
+
+    #查看车队 (仅开放状态可见)
+    def find_by_num(self, kind = "", num = ""):
+        return self.mongo.find_by_num(kind, num)
+    
+    #取消募集
+    def cancle(self, kind = "", group = "", owner = "", num = ""):
+        return self.mongo.cancle(kind, group, owner, num)
+    
+    #完车 募集
+    def wanche(self, kind = "", group = "", owner = "", num = ""):
+        return self.mongo.wanche(kind, group, owner, num)
