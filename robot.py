@@ -223,31 +223,31 @@ class Robot(Job):
                 img = self.splat.get_area()
             else:
                 img = self.splat.get_area(timezone)
-            img.save(URL + 'tmp/area.png')
-            self.wcf.send_image(URL+'tmp/area.png', msg.roomid)
+            img.save(URL + '/tmp/area.png')
+            self.wcf.send_image(URL+'/tmp/area.png', msg.roomid)
         elif msg.content.startswith("/挑战"):
             if timezone == "":
                 img = self.splat.get_challenge()
             else:
                 img = self.splat.get_challenge(timezone)
-            img.save(URL + 'tmp/challenge.png')
-            self.wcf.send_image(URL+"tmp/challenge.png", msg.roomid)
+            img.save(URL + '/tmp/challenge.png')
+            self.wcf.send_image(URL+"/tmp/challenge.png", msg.roomid)
             
         elif msg.content.startswith('/开放'):
             if timezone == "":
                 img = self.splat.get_open()
             else:
                 img = self.splat.get_open(timezone)
-            img.save(URL + 'tmp/open.png')
-            self.wcf.send_image(URL+"tmp/open.png", msg.roomid)
+            img.save(URL + '/tmp/open.png')
+            self.wcf.send_image(URL+"/tmp/open.png", msg.roomid)
 
         elif msg.content.startswith('/涂地'):
             if timezone == "":
                 img = self.splat.get_regular()
             else:
                 img = self.splat.get_regular(timezone)
-            img.save(URL + 'tmp/regular.png')
-            self.wcf.send_image(URL+"tmp/regular.png", msg.roomid)
+            img.save(URL + '/tmp/regular.png')
+            self.wcf.send_image(URL+"/tmp/regular.png", msg.roomid)
 
         elif msg.content.startswith('/x') or msg.content.startswith('/X'):
             if timezone == "":
